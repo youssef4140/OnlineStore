@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Store</title>
+    <link rel="stylesheet" href="../styles.css">
+    <link rel="stylesheet" href="../public/stylesheets/store.css">
+</head>
+<body>
+    <nav>
+        <div class="dropdown-bars">
+            <button class="dropbtn-bars">DROP</button>
+            <div class ="dropdown-content-bars">
+                <button class="closebtn">&times;</button>
+                <a>Sign in</a>
+                <a href="Store.html">Store</a>
+                <a>Collections</a>
+                <a>Blog</a>
+                <a style="color:red">Sale</a>
+
+            </div>
+        </div>  
+        <div class="m-navbar">
+            <ul >
+                <li><a href="Store.html">Store</a></li>
+                <li><a>Collections</a></li>
+                <li><a>Blog</a></li>
+                <li><a style="color:red">Sale</a></li>
+            </ul>
+        </div>
+        <h3 class="logo">Morning</h3>
+        <div class="s-navbar">
+            <ul >
+                <li><button>User</button></li>
+                <li><button>Cart</button></li>
+                <li class="search"><button>Search</i></button></li>
+            </ul>
+        </div>
+    </nav>
+
+    <script>
+        const closeBtn = document.querySelector(".closebtn");
+        const dropdownContent = document.querySelector(".dropdown-content-bars");
+        const dropbtnbars = document.querySelector(".dropbtn-bars"); 
+    
+        closeBtn.addEventListener("click", function() {
+          dropdownContent.style.display = "none";
+        });
+
+        dropbtnbars.addEventListener("click", function() {
+          dropdownContent.style.display = "block";
+
+
+        });
+      </script>
+</body>
+</html>
