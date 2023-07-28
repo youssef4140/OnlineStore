@@ -15,7 +15,7 @@
                 <button class="closebtn">&times;</button>
                 <a>Sign in</a>
                 <a href="Store.html">Store</a>
-                <a>Collections</a>
+                <a href="collections.html">Collections</a>
                 <a>Blog</a>
                 <a style="color:red">Sale</a>
 
@@ -39,20 +39,6 @@
         </div>
     </nav>
 
-    <script>
-        const closeBtn = document.querySelector(".closebtn");
-        const dropdownContent = document.querySelector(".dropdown-content-bars");
-        const dropbtnbars = document.querySelector(".dropbtn-bars"); 
-    
-        closeBtn.addEventListener("click", function() {
-          dropdownContent.style.display = "none";
-        });
-
-        dropbtnbars.addEventListener("click", function() {
-          dropdownContent.style.display = "block";
-
-
-        });
-      </script>
+    <script src="../public/javascript/navbar.js"></script>
 </body>
 </html>
