@@ -1,0 +1,39 @@
+.hero-image{
+    background-image: url("../assets/Skater.jpg");
+    background-repeat: no-repeat;
+    width:100vw;
+    background-size: cover;
+    background-position: 30% 13%;
+    height:50vh;
+    zoom:1.2;
+}
+.hero-section{
+    background-color: white;
+    position: absolute;
+    top: 62vh;
+    padding: 30px 25px;
+
+    
+}
+.hero-section h4{
+    position: relative;
+        font-size: 20px;
+        color:#222;
+        font-weight: 300;
+}
+.hero-section h4:after{
+    content: "";
+    position: absolute;
+    background-color: #7c8d0f;
+    height: 3px;
+    width: 6%;
+    left: 0px;
+    bottom: -10px;
+}
+
+.hero-section p {
+    margin-top: 30px;
+    line-height: 2em;
+    font-weight: 200;
+}
+
