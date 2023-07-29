@@ -36,4 +36,13 @@
     line-height: 2em;
     font-weight: 200;
 }
+@media screen and (max-width: 767px) {
+    .hero-image{
+        height:20vh;
+    }
+    .hero-section{
+        position: relative;
+        top:auto;
+    }
+}
 
