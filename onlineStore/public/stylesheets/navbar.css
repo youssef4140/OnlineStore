@@ -2,15 +2,17 @@ nav {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    padding: 30px 25px;
     background-color: white;
     /* border: #1a1a1a 1px solid; */
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-    /* width: 100vw; */
+    width: 100vw;
+    padding: 30px 25px;
+
 }
 
 .logo {
     margin-right:40px;
+    z-index: 1;
 }
 
 .m-navbar ul,.s-navbar ul {
@@ -34,6 +36,8 @@ nav {
     padding: 0 0px;
     margin: 6px;
     cursor: pointer;
+    z-index: 1;
+
 }
 .m-navbar ul li a:after{
     content: "";
@@ -62,6 +66,43 @@ nav {
 .dropdown-bars{
     display: none;
 }
+.dropdown-store{
+    position: relative;
+}
+.dropdown-store-content{
+    display: none;
+    position:absolute;
+    background-color: white;
+    padding: 40px;
+    left: -32px;
+    width:100vw;
+    align-items: center;
+    justify-content: space-between;
+}
+.dropdown-store-content .dropdown-category{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 30px
+}
+.dropdown-store-content .dropdown-category img{
+    width:280px;
+    height: auto;
+}
+
+.dropdown-store:hover .dropdown-store-content{
+    display:flex;
+}
+
+.dropdown-store-content .dropdown-category img:hover{
+    width:290px;
+    height: auto;
+    opacity: 0.8;
+    transition: 0.4s ease-in-out;
+
+
+}
+
 
 
 
