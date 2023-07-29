@@ -1,0 +1,15 @@
+:root {
+  --main-color: #997a3b;
+  --secondary-color: white;
+  --third-color: #212121;
+  --text-color: #636363;
+  --secondary-text-color: #bcbcbc;
+
+  --font-primary: "Open Sans", sans-serif;
+
+  --font-light: 400;
+  --font-bold: 700;
+  --font-size-text: 13px;
+  --font-size-title: 20px;
+  --font-size-section-title: 48px;
+}
