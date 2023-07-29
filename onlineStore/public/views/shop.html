@@ -4,14 +4,66 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
-    <link rel="stylesheet" href="../styles.css">
-    <link rel="stylesheet" href="../public/stylesheets/shop.css">
+    <link rel="stylesheet" href="/public/stylesheets/root.css" />
+    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="/public/stylesheets/styles.css">
+    <link rel="stylesheet" href="/public/stylesheets/shop.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+
+
 </head>
 <body>
+    
     <nav>
+        <div class="first-nav">
+            <div
+              id="carouselExampleControls"
+              class="carousel slide carou"
+              data-bs-ride="carousel"
+            >
+              <div class="carousel-inner content">
+                <div class="carousel-item active">
+                  <p>
+                    <i class="fa-solid fa-truck"></i>Free shipping on orders over $200
+                    
+                  </p>
+                </div>
+                <div class="carousel-item">
+                  <p>
+                    <i class="fa-solid fa-trophy"></i>Award winning customer service
+                    
+                  </p>
+                </div>
+                <div class="carousel-item">
+                  <p>
+                    <i class="fa-solid fa-leaf"></i>Environmentally friendly packaging
+                    -always
+                  </p>
+                </div>
+              </div>
+              <button
+                class="carousel-control-prev"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="prev"
+              >
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+              </button>
+              <button
+                class="carousel-control-next"
+                type="button"
+                data-bs-target="#carouselExampleControls"
+                data-bs-slide="next"
+              >
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+              </button>
+            </div>
+        </div>
+        <div class="second-nav">
         <div class="dropdown-bars">
             <button class="dropbtn-bars"><i class="fa-solid fa-bars"></i></button>
             <div class ="dropdown-content-bars">
@@ -30,20 +82,34 @@
                     <a class = "store-drp-btn" href="Collections.html">Collections</a>
                     <div class ="dropdown-store-content">
                         <div class="dropdown-category">
-                            <img  src="../public/assets/Skater.jpg">
-                            <a>category</a>
+                            <div class="image-container">
+                                <img src="../public/assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+                            </div>
+                            <a>Accessories</a>
                         </div>
                         <div class="dropdown-category">
-                            <img  src="../public/assets/Skater.jpg">
-                            <a>category</a>
+                            <div class="image-container">
+
+                            <img  src="../public/assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
+                        </div>
+
+                            <a>Outerwear</a>
                         </div>
                         <div class="dropdown-category">
-                            <img  src="../public/assets/Skater.jpg">
-                            <a>category</a>
+                            <div class="image-container">
+
+                            <img src="../public/assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
+                        </div>
+
+                            <a>Headwear</a>
                         </div>
                         <div class="dropdown-category">
-                            <img  src="../public/assets/Skater.jpg">
-                            <a>category</a>
+                            <div class="image-container">
+
+                            <img  src="../public/assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
+                        </div>
+
+                            <a>Shorts</a>
                         </div>
                     </div>
                 </div></li>
@@ -55,16 +121,32 @@
         </div>
         <h3 class="logo">Morning</h3>
         <div class="s-navbar">
+            
             <ul >
-                <li><button><i class="fa-regular fa-user"></i></button></li>
-                <li><button><i class="fa-solid fa-bag-shopping"></i></button></li>
-                <li class="search"><button><i class="fa-solid fa-magnifying-glass"></i></i></button></li>
+                <li><div class="currency-dropdown">
+                    <button><em>(EGP) <i class="fa-solid fa-chevron-down"></i></em></button>
+                    <ol class="currency-list">
+                      <li><a>(EGP)</a></li>
+                      <li><a>(USD$)</a></li>
+                      <li><a>(EUR€)</a></li>
+                      <li><a>(SAR)</a></li>
+                    </ol>
+                  </div></li>
+                <li><button class="user"><i class="fa-solid fa-user"></i></button></li>
+                <li><button class="cart"><i class="fa-solid fa-bag-shopping" value=0></i></button></li>
+                <li><button class="search"><i class="fa-solid fa-magnifying-glass"></i></i></button></li>
                 
             </ul>
         </div>
+    </div>
+
     </nav>
 
-    <section>
+
+
+    
+
+    <section class="hero">
         <div class="hero-image"></div>
         <div class="hero-section">
             <h4>The Store</h4>
@@ -81,5 +163,7 @@
     </section>
 
     <script src="../public/javascript/navbar.js"></script>
+    <script src="../public/javascript/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
