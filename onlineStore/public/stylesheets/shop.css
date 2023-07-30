@@ -1,22 +1,25 @@
+
 .hero {
     overflow-x: hidden;
 }
 
 .hero-image{
-    background-image: url("../assets/Skater.jpg");
+    background-image: url("../assets/skaters.jpg");
     background-repeat: no-repeat;
     width:100vw;
     background-size: cover;
-    background-position: 30% 13%;
+    background-position: 30% 65%;
     height:50vh;
-    zoom:1.2;
+    zoom:1;
+
 }
 
 .hero-section{
-    background-color: white;
-    position: absolute;
-    top: 62vh;
-    padding: 30px 25px;
+z-index: 2;
+position: absolute;
+background-color: white;
+top:55vh;
+padding: 10px 20px 0px 40px;
 
     
 }
@@ -41,21 +44,228 @@
     line-height: 2em;
     font-weight: 200;
 }
+.parent-accordion .main {
+    width:370px;
+}
+.filter-container, .parent-accordion {
+    width: 330px;
+    display:flex;
+    flex-direction: column;
+    margin-left:4vw;
+    margin-top:120px;
+    align-items: center;
+}
+.filter-container{
+    align-items: center;
+    justify-content: center;
+    /* margin-left:0; */
+}
+
+.filter-container .sort {
+    z-index:5;
+    margin-bottom:3vh;
+    width:100%;
+    text-align: left;
+    margin-top: 30px;
+    
+}
+.filter-container .sort .sort-list {
+    list-style-type: none;
+    margin:0px 20px;
+    width:20%; 
+    display:none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+}
+
+.filter-container .sort .sort-list li {
+    cursor: pointer;
+    padding: 5px;
+    text-align: left;
+    background-color: white;
+
+
+
+}
+.filter-container .sort .sort-list li:hover {
+    color: rgb(255, 253, 253);
+    background-color: rgba(0, 0, 0, 0.7);
+    
+
+}
+#listdropdown.show {
+    display:block
+}
+
+
+#sort-chevron {
+    transition: 0.2s ease-in-out;
+
+}
+#sort-chevron.chevron-rotate{
+    transform: rotate(-180deg);
+    transition: 0.2s ease-in-out;
+
+}
+
+.filter-container .sort em {
+    position: relative;
+    top: -23px;
+    left: 66px;
+    background-color: white;
+    font-style: normal;
+    font-weight: 300;
+}
+.filter-container .sort button {
+    border:rgba(0, 0, 0, 0.18) solid 1px;
+    padding: 14px 0 14px 0px;
+    background-color: white;
+    width: 270px;
+    text-align: left;
+
+}
+.filter-container .sort button span {
+    padding-left: 2%;
+    padding-right: 53%;
+}
+
+
+
+.store-container{
+    margin-top: 13vh;
+}
+
+.store-container .filter-container {
+    margin:0;
+}
+
+.accordion-button{
+    padding:0;
+    font-size: 13px;
+    font-weight: 300;
+    height:50px;
+}
+  
+  .accordion-button:not(.collapsed) {
+    color:black;
+    font-weight: 600;
+    background-color: white;
+  }
+
+
+
+.store-container{
+    display: flex;
+}
+
+.products-container {
+    margin-left: 4vw;
+    margin-top: 2vh;
+    display: grid;
+    grid-template-rows: 1fr 1fr 1fr;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 3vw
+  }
+  .product-card img {
+    width: 280px;
+    height: 280px;
+    object-fit: cover;
+    transition: .7s ease-in-out;
+
+}
+
+.product-desc{
+    margin-top:8px;
+    display:flex;
+    flex-direction: column;
+}
+.product-desc span {
+    margin-top: 2;
+}
+.product-card img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    transition: .7s ease-in-out;
+}
+
+.card-image-container {
+    overflow: hidden;
+}
+
+.product-card{
+    position: relative;
+}
+.add-cart-btn{
+    position:absolute;
+    top: 225px;
+    left: 230px;
+    background-color: white;
+    border: none;
+    border-radius: 15%;
+    padding:7px 9px 4px 7px;
+    transition: 1s ease-in-out;
+    font-size: 19px;
+    text-align: center;
+
+}
+
+.add-cart-btn:hover{
+    background-color: black;
+    color:white;
+    transition: 0.6s ease-in-out;
+
+
+}
+
+
+
+
 @media screen and (max-width: 767px) {
+    .store-container{
+        display:flex;
+        align-items: center;
+        flex-direction: column;
+    }
+    
+    .filter-container, .parent-accordion {
+        justify-content: center;
+    }
+  .store-container .filter-accordion{
+    position: relative;
+
+  }
+    .filter-container{
+        display:none;
+    }
+    .accordion-query{
+        margin:0;
+
+    }
+    body{
+        overflow-x: hidden !important;
+        max-width: 100%;
+    }
     .hero-image{
         height:20vh;
         margin:0;
     }
+    .filter-container{
+        margin-top:0;
+        max-width: 90%;
+        word-wrap: break-word;
+    }
     .hero-section{
         position: relative;
         top:auto;
-        padding:10px
+        padding: 10px 5px 0px 0px;
+        width:100vw;
     }
     .hero-section p {
         margin-top: 1em;
-        line-height: 1.5em;
+        line-height: 1em;
         font-weight: 200;
-        margin-right: 1.5em;
+        /* margin-right: 2em; */
+        font-size: small;
     }
 }
 

@@ -83,14 +83,14 @@
                     <div class ="dropdown-store-content">
                         <div class="dropdown-category">
                             <div class="image-container">
-                                <img src="../public/assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+                                <img src="/public/assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
                             </div>
                             <a>Accessories</a>
                         </div>
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img  src="../public/assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
+                            <img  src="/public/assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
                         </div>
 
                             <a>Outerwear</a>
@@ -98,7 +98,7 @@
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img src="../public/assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
+                            <img src="/public/assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
                         </div>
 
                             <a>Headwear</a>
@@ -106,7 +106,7 @@
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img  src="../public/assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
+                            <img  src="/public/assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
                         </div>
 
                             <a>Shorts</a>
@@ -142,10 +142,6 @@
 
     </nav>
 
-
-
-    
-
     <section class="hero">
         <div class="hero-image"></div>
         <div class="hero-section">
@@ -155,15 +151,301 @@
             <br>send it back to us and we’ll repair it.</p>
         </div>
     </section>
+      <section>
+        <div class="store-container">
 
-    <section class="Store">
-        <div class="filter-container">
-            
+          
+
+    <div class="accordion parent-accordion" id="parentaccordion">
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button class="accordion-button main" type="button" data-bs-toggle="collapse" data-bs-target="#collapse" aria-expanded="true" aria-controls="collapse">
+            Sort and filter
+          </button>
+        </h2>
+        <div id="collapse" class="accordion-collapse collapse show" data-bs-parent="#parentaccordion">
+          <div class="accordion-body">
+            <div class="filter-container">
+              <div class="sort">
+                  <em>Sort by</em>
+                  <button class="sortbtn"  onclick="showsortlist()"><span>Best Selling </span> <i id="sort-chevron" class="fa-solid fa-chevron-down"></i></button>
+                  <ul id="listdropdown" class="sort-list">
+                    <li>alphabatically (A to Z)</li>
+                    <li>alphabatically (Z to A)</li>
+                    <li>Price (low to high)</li>
+                    <li>Price (high to low)</li>
+                  </ul>
+              </div>
+            <div class="accordion accordion-flush" style="width:73%" id="accordionPanel">
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed " type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseOne" aria-expanded="true" aria-controls="panelsStayOpen-collapseOne">
+                      Price
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseOne" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="bg-light p-4 mb-30">
+                            <form>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" checked id="price-all">
+                                    <label class="custom-control-label" for="price-all">All Price</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="price-1">
+                                    <label class="custom-control-label" for="price-1">$0 - $100</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="price-2">
+                                    <label class="custom-control-label" for="price-2">$100 - $200</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="price-3">
+                                    <label class="custom-control-label" for="price-3">$200 - $300</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="price-4">
+                                    <label class="custom-control-label" for="price-4">$300 - $400</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                                    <input type="checkbox" class="custom-control-input" id="price-5">
+                                    <label class="custom-control-label" for="price-5">$400 - $500</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseTwo" aria-expanded="false" aria-controls="panelsStayOpen-collapseTwo">
+                      Color
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseTwo" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="bg-light p-4 mb-30">
+                            <form>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" checked id="color-all">
+                                    <label class="custom-control-label" for="price-all">All Color</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="color-1">
+                                    <label class="custom-control-label" for="color-1">Black</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="color-2">
+                                    <label class="custom-control-label" for="color-2">White</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="color-3">
+                                    <label class="custom-control-label" for="color-3">Red</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="color-4">
+                                    <label class="custom-control-label" for="color-4">Blue</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                                    <input type="checkbox" class="custom-control-input" id="color-5">
+                                    <label class="custom-control-label" for="color-5">Green</label>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseThree" aria-expanded="false" aria-controls="panelsStayOpen-collapseThree">
+                      Size
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseThree" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="bg-light p-4 mb-30">
+                            <form>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" checked id="size-all">
+                                    <label class="custom-control-label" for="size-all">All Size</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="size-1">
+                                    <label class="custom-control-label" for="size-1">XS</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="size-2">
+                                    <label class="custom-control-label" for="size-2">S</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="size-3">
+                                    <label class="custom-control-label" for="size-3">M</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="size-4">
+                                    <label class="custom-control-label" for="size-4">L</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
+                                    <input type="checkbox" class="custom-control-input" id="size-5">
+                                    <label class="custom-control-label" for="size-5">XL</label>
+                                </div>
+                            </form>
+                        </div>            </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFour" aria-expanded="false" aria-controls="panelsStayOpen-collapseFour">
+                      Product type
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseFour" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="bg-light p-4 mb-30">
+                            <form>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" checked id="category-all">
+                                    <label class="custom-control-label" for="category-all">All categories</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="accessories">
+                                    <label class="custom-control-label" for="accessories">Accessories</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="headwear">
+                                    <label class="custom-control-label" for="headwear">Headwear</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="outerwear">
+                                    <label class="custom-control-label" for="outerwear">Outerwear</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="shorts">
+                                    <label class="custom-control-label" for="shorts">Shorts</label>
+                                </div>
+                            </form>
+                        </div>            </div>
+                  </div>
+                </div>
+                <div class="accordion-item">
+                  <h2 class="accordion-header">
+                    <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#panelsStayOpen-collapseFive" aria-expanded="false" aria-controls="panelsStayOpen-collapseFive">
+                      Availability
+                    </button>
+                  </h2>
+                  <div id="panelsStayOpen-collapseFive" class="accordion-collapse collapse">
+                    <div class="accordion-body">
+                        <div class="bg-light p-4 mb-30">
+                            <form>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" checked id="available">
+                                    <label class="custom-control-label" for="available">Available</label>
+                                </div>
+                                <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
+                                    <input type="checkbox" class="custom-control-input" id="unavailable">
+                                    <label class="custom-control-label" for="unavailable">Unavailable</label>
+                                </div>
+                            </form>
+                        </div>              </div>
+                  </div>
+                </div>
+              </div>
+            </div>          </div>
         </div>
-    </section>
+      </div>
+    </div>
 
-    <script src="../public/javascript/navbar.js"></script>
-    <script src="../public/javascript/bootstrap.bundle.min.js"></script>
+
+
+          <div class="products-container">
+            
+            <div class="product-card">
+              <div class="card-image-container">
+              <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+          </div>
+              <div class="product-desc">
+                  <span>lorem ipsum</span>
+                  <span>Price</span>
+              </div>
+          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+          </div>
+
+
+          <div class="product-card">
+            <div class="card-image-container">
+            <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+        </div>
+            <div class="product-desc">
+                <span>lorem ipsum</span>
+                <span>Price</span>
+            </div>
+        <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+        </div>
+
+
+
+        <div class="product-card">
+          <div class="card-image-container">
+          <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+      </div>
+          <div class="product-desc">
+              <span>lorem ipsum</span>
+              <span>Price</span>
+          </div>
+      <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+      </div>
+
+      <div class="product-card">
+        <div class="card-image-container">
+        <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+    </div>
+        <div class="product-desc">
+            <span>lorem ipsum</span>
+            <span>Price</span>
+        </div>
+    <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+    </div>
+
+
+    <div class="product-card">
+      <div class="card-image-container">
+      <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+  </div>
+      <div class="product-desc">
+          <span>lorem ipsum</span>
+          <span>Price</span>
+      </div>
+  <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+  </div>
+
+
+
+  <div class="product-card">
+    <div class="card-image-container">
+    <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+</div>
+    <div class="product-desc">
+        <span>lorem ipsum</span>
+        <span>Price</span>
+    </div>
+<button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+</div>
+
+
+          </div>
+        </div>
+  
+      </section>
+    
+
+
+
+
+    <script src="../javascript/navbar.js"></script>
+    <script src="../javascript/bootstrap.bundle.min.js"></script>
+    <script src="../javascript/shop.js"></script>
+
+    
 
 </body>
 </html>

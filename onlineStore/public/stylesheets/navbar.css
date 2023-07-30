@@ -1,12 +1,15 @@
 
-
-.first-nav {
+nav{
+  width: 100vw;
+}
+nav .first-nav {
   color: white;
   background-color: #212121;
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 13px;
+  width:100%;
 }
 .first-nav p {
   color:white;
@@ -42,9 +45,9 @@ nav .second-nav{
   justify-content: space-between;
   background-color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
-  width: 100vw;
   padding: 20px 25px;
   height:10vh;
+  width:100%
 }
 
 .logo {
@@ -193,6 +196,8 @@ nav .second-nav{
   opacity:0;
   visibility: hidden;
 }
+
+
 .s-navbar ul li .currency-dropdown button{
   height:100%;
   padding: 19px 10px;
@@ -212,6 +217,10 @@ nav .second-nav{
   background-color: rgba(0,0,0,0.3);
   border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
   cursor: pointer;
+}
+.s-navbar ul li .currency-dropdown .currency-list li:hover{
+  background-color: rgba(0,0,0,1);
+
 }
 .s-navbar ul li .currency-dropdown .currency-list li a {
   font-size: small;
