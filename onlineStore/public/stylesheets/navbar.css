@@ -1,18 +1,14 @@
-
-nav{
-  width: 100vw;
-}
-nav .first-nav {
+.first-nav {
   color: white;
   background-color: #212121;
   display: flex;
   justify-content: center;
   text-align: center;
   font-size: 13px;
-  width:100%;
+  width: 100%;
 }
 .first-nav p {
-  color:white;
+  color: white;
   font-size: 12px;
   font-weight: 300;
   letter-spacing: 0.5px;
@@ -20,7 +16,7 @@ nav .first-nav {
 
 .first-nav .carou {
   width: 500px;
-  padding:0;
+  padding: 0;
 }
 
 .first-nav .carou .content {
@@ -39,15 +35,14 @@ nav .first-nav {
   color: #6d6d6d;
 }
 
-nav .second-nav{
+nav .second-nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
   background-color: white;
   box-shadow: 0 5px 15px rgba(0, 0, 0, 0.07);
   padding: 20px 25px;
-  height:10vh;
-  width:100%
+  height: 10vh;
 }
 
 .logo {
@@ -57,7 +52,7 @@ nav .second-nav{
 
 .m-navbar,
 .s-navbar,
-.logo{
+.logo {
   margin-top: 1%;
 }
 .m-navbar ul,
@@ -65,7 +60,6 @@ nav .second-nav{
   display: flex;
   align-items: center;
   justify-content: center;
-
 }
 
 .m-navbar ul li,
@@ -85,9 +79,8 @@ nav .second-nav{
   cursor: pointer;
   z-index: 1;
 }
-.m-navbar ul li:last-child a:after{
-  background-color:red;
-
+.m-navbar ul li:last-child a:after {
+  background-color: red;
 }
 
 .m-navbar ul li a:after {
@@ -110,7 +103,7 @@ nav .second-nav{
   border: none;
   padding: 2px 5px;
   font-size: larger;
-  margin:0;
+  margin: 0;
   cursor: pointer;
 }
 
@@ -143,13 +136,14 @@ nav .second-nav{
   width: 100vw;
   align-items: center;
   justify-content: space-between;
+  /* z-index: 1000; */
 }
 
 .image-container {
   position: relative;
   overflow: hidden;
-  width: 300px;
-  height: 200px; 
+  width: 250px;
+  height: 200px;
 }
 
 .dropdown-store-content .dropdown-category {
@@ -175,11 +169,10 @@ nav .second-nav{
   transform: scale(1.1);
   opacity: 0.8;
   transition: 0.4s ease-in-out;
-
 }
 
-.s-navbar{
-  display:flex
+.s-navbar {
+  display: flex;
 }
 
 .s-navbar ul li .currency-dropdown {
@@ -187,19 +180,17 @@ nav .second-nav{
 }
 .s-navbar ul li .currency-dropdown .currency-list {
   position: absolute;
-  display:block;
+  display: block;
   flex-direction: column;
-  margin-left:0;
-  left:-22px;
-  top:41px;
+  margin-left: 0;
+  left: -22px;
+  top: 41px;
   border-radius: 50%;
-  opacity:0;
+  opacity: 0;
   visibility: hidden;
 }
-
-
-.s-navbar ul li .currency-dropdown button{
-  height:100%;
+.s-navbar ul li .currency-dropdown button {
+  height: 100%;
   padding: 19px 10px;
   font-size: 12px;
   font-weight: 300;
@@ -208,19 +199,18 @@ nav .second-nav{
   cursor: pointer;
   z-index: 1;
 }
-.s-navbar ul li .currency-dropdown button em{
- border: rgba(0, 0, 0, 0.2) solid 1px;
- font-style: normal;
- padding:6px
+.s-navbar ul li .currency-dropdown button em {
+  border: rgba(0, 0, 0, 0.2) solid 1px;
+  font-style: normal;
+  padding: 6px;
 }
 .s-navbar ul li .currency-dropdown .currency-list li {
-  background-color: rgba(0,0,0,0.3);
+  background-color: rgba(0, 0, 0, 0.3);
   border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
   cursor: pointer;
 }
-.s-navbar ul li .currency-dropdown .currency-list li:hover{
-  background-color: rgba(0,0,0,1);
-
+.s-navbar ul li .currency-dropdown .currency-list li:hover {
+  background-color: rgba(0, 0, 0, 1);
 }
 .s-navbar ul li .currency-dropdown .currency-list li a {
   font-size: small;
@@ -231,18 +221,13 @@ nav .second-nav{
   cursor: pointer;
   z-index: 1;
 }
-.s-navbar ul li .currency-dropdown:hover .currency-list{
+.s-navbar ul li .currency-dropdown:hover .currency-list {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
 }
 
-
-
-
-
 @media screen and (max-width: 767px) {
-
   .dropbtn-bars {
     background-color: transparent;
     margin-bottom: 30%;
@@ -251,17 +236,18 @@ nav .second-nav{
     border: none;
   }
 
-  .s-navbar{
+  .s-navbar {
     margin-top: 3%;
   }
-  .first-nav, .second-nav{
+  .first-nav,
+  .second-nav {
     width: 92vw;
   }
-  .second-nav{
-    height:10vh;
+  .second-nav {
+    height: 10vh;
   }
-  .currency-dropdown{
-    display:none;
+  .currency-dropdown {
+    display: none;
   }
 
   .dropdown-bars {
@@ -280,7 +266,7 @@ nav .second-nav{
     height: 100vh;
     transition: 0.3s ease;
     left: -30px;
-    top:-40px;
+    top: -40px;
     z-index: 2;
   }
   .dropdown-content-bars a {
@@ -296,7 +282,8 @@ nav .second-nav{
     font-size: larger;
   }
 
-  .m-navbar, .user {
+  .m-navbar,
+  .user {
     display: none;
   }
   .s-navbar ul {
@@ -312,9 +299,9 @@ nav .second-nav{
   }
   .logo {
     margin-right: 0%;
-    margin-left:20%;
+    margin-left: 20%;
   }
-  nav{
+  nav {
     width: 100vw;
   }
 }
