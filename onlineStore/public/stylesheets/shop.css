@@ -1,33 +1,29 @@
 
-.hero {
-    overflow-x: hidden;
+/* Hero section */
+.hero-container{
+    position: relative;
 }
-
-.hero-image{
-    background-image: url("../assets/skaters.jpg");
-    background-repeat: no-repeat;
-    width:100vw;
-    background-size: cover;
-    background-position: 30% 65%;
-    height:50vh;
-    zoom:1;
-
+.hero-container .hero-section{
+    position: absolute;
+    top:34vh;
+    background-color: white;
+    padding:15px;
 }
-
-.hero-section{
-z-index: 2;
-position: absolute;
-background-color: white;
-top:55vh;
-padding: 10px 20px 0px 40px;
-
-    
+.hero-container .hero-image-container{
+    height: 50vh;
+    overflow: hidden;
+    width: 100vw;
+}
+.hero-container .hero-image-container img {
+    position: relative;
+    top:-20vh;
+    width:100%
 }
 .hero-section h4{
     position: relative;
-        font-size: 20px;
-        color:#222;
-        font-weight: 300;
+    font-size: 20px;
+    color:#222;
+    font-weight: 300;
 }
 .hero-section h4:after{
     content: "";
@@ -40,10 +36,37 @@ padding: 10px 20px 0px 40px;
 }
 
 .hero-section p {
-    margin-top: 30px;
+    margin-top: 16px;
     line-height: 2em;
     font-weight: 200;
+} 
+
+@media screen and (max-width: 767px) {
+    .hero-section p {
+        margin-top:1.5em;
+        line-height:1.5em
+    }
+    .hero-container .hero-section{
+        position: absolute;
+        top:22vh;
+        background-color:white;
+        padding-top:15px;
+    }
+    
 }
+
+
+
+
+
+
+
+
+
+
+/* Hero section */
+
+/* filter section */
 .parent-accordion .main {
     width:370px;
 }
@@ -129,16 +152,6 @@ padding: 10px 20px 0px 40px;
     padding-right: 53%;
 }
 
-
-
-.store-container{
-    margin-top: 13vh;
-}
-
-.store-container .filter-container {
-    margin:0;
-}
-
 .accordion-button{
     padding:0;
     font-size: 13px;
@@ -152,6 +165,18 @@ padding: 10px 20px 0px 40px;
     background-color: white;
   }
 
+
+/* filter-container */
+
+/* products-container */
+
+.store-container{
+    margin-top: 13vh;
+}
+
+.store-container .filter-container {
+    margin:0;
+}
 
 
 .store-container{
@@ -216,54 +241,101 @@ padding: 10px 20px 0px 40px;
 
 
 }
-
-
+/* products-container */
 
 
 @media screen and (max-width: 767px) {
+    .filter-container .sort .sort-list{
+        width:80%
+    }
+    
+  .product-card img {
+    width: 240px;
+    height: 240px;
+    object-fit: cover;
+    transition: .7s ease-in-out;
+
+}
+
+.product-desc{
+    margin-top:8px;
+    display:flex;
+    flex-direction: column;
+}
+.product-desc span {
+    margin-top: 2;
+}
+.product-card img:hover {
+    transform: scale(1.1);
+    opacity: 0.8;
+    transition: .7s ease-in-out;
+}
+
+.card-image-container {
+    overflow: hidden;
+}
+
+.product-card{
+    position: relative;
+}
+.add-cart-btn{
+    position:absolute;
+    top: 60%;
+    left: 80%;
+    background-color: white;
+    border: none;
+    border-radius: 15%;
+    padding:7px 9px 4px 7px;
+    transition: 1s ease-in-out;
+    font-size: 19px;
+    text-align: center;
+
+}
+
+.add-cart-btn:hover{
+    background-color: black;
+    color:white;
+    transition: 0.6s ease-in-out;
+
+
+}
+/* *************** */
+
+    
+    .parent-accordion .main{
+        padding-left: 30px;
+        padding-right:30px;
+    }
+    
     .store-container{
         display:flex;
         align-items: center;
         flex-direction: column;
-    }
-    
-    .filter-container, .parent-accordion {
-        justify-content: center;
-    }
-  .store-container .filter-accordion{
-    position: relative;
-
-  }
-    .filter-container{
-        display:none;
-    }
-    .accordion-query{
-        margin:0;
 
     }
+
+    .products-container {
+        margin-left: 0vw;
+        margin-right: 0vw;
+        margin-top: 1vh;
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 2vw;
+        margin-bottom:2vh
+      }
+      .store-container{
+        margin-top: 0;
+        padding-top: 0;
+      }
+
+      .parent-accordion{
+        margin-top: 3vh;
+      }
+
     body{
         overflow-x: hidden !important;
         max-width: 100%;
     }
-    .hero-image{
-        height:20vh;
-        margin:0;
-    }
-    .filter-container{
-        margin-top:0;
-        max-width: 90%;
-        word-wrap: break-word;
-    }
-    .hero-section{
-        position: relative;
-        top:auto;
-        padding: 10px 5px 0px 0px;
-        width:100vw;
-    }
-    .hero-section p {
-        margin-top: 1em;
-        line-height: 1em;
-        font-weight: 200;
-        font-size: small;
-    }
+
+
 }
