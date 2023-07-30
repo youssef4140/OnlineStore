@@ -1,8 +1,20 @@
+require("dotenv").config();
 const express = require('express');
+const mongoose = require("mongoose");
 
 PORT = "8080";
 
 const app = express();
+
+mongoose
+    .connect(process.env.CONNECTION_STRING, {})
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+
 
 app.use(express.static('public'))
 
