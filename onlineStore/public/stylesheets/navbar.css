@@ -142,8 +142,8 @@ nav .second-nav{
   left: -70px;
   width: 100vw;
   align-items: center;
+  z-index: 5;
   justify-content: space-between;
-  z-index: 9;
 }
 
 .image-container {
