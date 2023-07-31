@@ -1,0 +1,56 @@
+h1{
+    font-size: 30px;
+}
+
+.grid{
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-areas: 'value1 value2 value3' 'active statistics statistics';
+    column-gap: 30px;
+    row-gap: 30px;
+}
+
+
+.grid .v1{
+    grid-area: value1;
+}
+.grid .v2{
+    grid-area: value2;
+}
+.grid .v3{
+    grid-area: value3;
+}
+.grid .value{
+    background-color: white;
+    padding: 20px;
+}
+.grid .value h4{
+    color: gray;
+}
+.grid .value span{
+    font-size: 30px;
+    font-weight: bold;
+}
+
+
+.grid .active{
+    grid-area: active;
+    background-color: white;
+    height: min-content;
+    padding: 20px;
+}
+
+.grid .active span{
+    font-size: 40px;
+    display: block;
+    width: 100%;
+    padding: 50px 0px;
+    text-align: center;
+    background-color: #d9ecff;
+}
+
+
+.grid .statistics{
+    grid-area: statistics;
+    background-color: white;
+}

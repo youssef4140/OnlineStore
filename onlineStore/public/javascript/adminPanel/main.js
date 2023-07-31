@@ -26,7 +26,7 @@ const navToggle = {
 
 async function route(page){
 
-const result = await fetch(`adminPanelPages/${page}`);
+const result = await fetch(`adminPanelPages/${page}.html`);
 
 const pageHtml = await result.text()
 
@@ -35,6 +35,8 @@ router.innerHTML = pageHtml;
 
 navToggle.remove();
 
+window[page]();
+
 }
 
-route("dashboard.html");
+route("dashboard");
