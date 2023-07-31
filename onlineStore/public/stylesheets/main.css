@@ -370,27 +370,143 @@ body {
   background-color: #816428;
 }
 
-@media screen and (max-width: 1000px) {
-  .second-nav .main-nav {
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+.collections {
+  margin: 2rem 0;
+}
 
-  .second-nav .main-nav .links {
+.collections .carousel-inner .carousel-item.active,
+.collections .carousel-inner .carousel-item-next,
+.collections .carousel-inner .carousel-item-prev {
+  display: flex;
+}
+
+.collections .carousel-inner .carousel-item-end.active,
+.collections .carousel-inner .carousel-item-next {
+  transform: translateX(25%);
+}
+
+.collections .carousel-inner .carousel-item-start.active,
+.collections .carousel-inner .carousel-item-prev {
+  transform: translateX(-25%);
+}
+
+.collections .carousel-inner .carousel-item-end,
+.collections .carousel-inner .carousel-item-start {
+  transform: translateX(0);
+}
+
+.collections .card {
+  margin: 1rem;
+  border: none;
+  border-radius: 0;
+}
+
+.collections .image-wrapper {
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.collections .image-wrapper img {
+  width: 100%;
+  height: 300px;
+  transition: 0.7s;
+}
+
+.collections .image-wrapper img:hover {
+  scale: 1.2;
+}
+
+.collections .image-wrapper .image-overlay {
+  position: absolute;
+  background-color: var(--main-color);
+  z-index: 3000;
+  bottom: 0;
+  right: 0;
+  filter: none;
+  padding: 10px;
+  border: none;
+  transition: 0.4s;
+}
+
+.collections .image-wrapper .image-overlay i {
+  color: var(--secondary-color);
+}
+
+.collections .image-wrapper .image-overlay:hover {
+  background-color: #816428;
+}
+
+.collections .carousel-btn a span {
+  filter: none;
+}
+.collections .carousel-btn a {
+  filter: none;
+  padding: 5px 0;
+  height: fit-content;
+  color: black;
+  top: 50%;
+  width: max-content;
+  background-color: var(--main-color);
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+.collections .carousel-btn a:hover {
+  opacity: 1;
+}
+
+.collections .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collections .title {
+  position: relative;
+  color: #6d6d6d;
+  margin-bottom: 20px;
+}
+
+.collections .title::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  animation: line 3s forwards;
+  bottom: -8px;
+  left: 35px;
+  position: absolute;
+  background-color: var(--main-color);
+}
+
+.collections .info .fields button {
+  padding: 10px 15px;
+  border: none;
+  background-color: white;
+  margin: 0 10px;
+  transition: 0.5s;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.collections .info .fields button:last-of-type {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.collections .info .fields button:hover {
+  background-color: #816428;
+  color: var(--secondary-color);
+  border: none;
+}
+
+@media (max-width: 767px) {
+  .collections .carousel-inner .carousel-item > div {
+    display: none;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding-top: 0;
   }
-
-  .second-nav .icons .dropdowns p {
-    width: 80px;
-  }
-
-  .second-nav .links li .dropdown-collections {
-    top: 174px;
+  .collections .carousel-inner .carousel-item > div:first-child {
+    display: block;
   }
 }
