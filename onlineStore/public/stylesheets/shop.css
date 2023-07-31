@@ -164,6 +164,11 @@
     font-weight: 600;
     background-color: white;
   }
+     
+  .parent-accordion .main{
+    padding-left: 30px;
+    padding-right:30px;
+}
 
 
 /* filter-container */
@@ -301,11 +306,11 @@
 }
 /* *************** */
 
-    
+/*     
     .parent-accordion .main{
         padding-left: 30px;
         padding-right:30px;
-    }
+    } */
     
     .store-container{
         display:flex;

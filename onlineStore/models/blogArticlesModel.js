@@ -1,4 +1,7 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+
+import mongoose from "mongoose";
+
 
 const blogArticleSchema = new mongoose.Schema({
     title: String,
@@ -9,6 +12,6 @@ const blogArticleSchema = new mongoose.Schema({
     auther: String
 });
 
-const blogArticle = mongoose.model("blogArticle", blogArticleSchema);
+export const blogArticle = mongoose.model("blogArticle", blogArticleSchema);
 
-module.exports = blogArticle;
+// module.exports = blogArticle;

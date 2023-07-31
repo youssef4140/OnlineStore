@@ -1,4 +1,6 @@
-const mongoose = require("mongoose");
+// const mongoose = require("mongoose");
+import mongoose from "mongoose";
+
 
 const orderSchema = new mongoose.Schema({
     products: [{ _id: String, quantity: Number, color: String, size: String, price: Number}],
@@ -21,6 +23,6 @@ const orderSchema = new mongoose.Schema({
       }
 });
 
-const order = mongoose.model("order", orderSchema);
+export const order = mongoose.model("order", orderSchema);
 
-module.exports = order;
+// module.exports = order;

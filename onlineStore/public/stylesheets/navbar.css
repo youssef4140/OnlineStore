@@ -51,7 +51,7 @@ nav .second-nav {
 
 .logo {
   margin-right: 7%;
-  z-index: 1;
+  z-index: 2;
 }
 
 .m-navbar,
@@ -81,7 +81,7 @@ nav .second-nav {
   padding: 0 0px;
   margin: 6px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 }
 .m-navbar ul li:last-child a:after {
   background-color: red;
@@ -140,6 +140,8 @@ nav .second-nav {
   width: 100vw;
   align-items: center;
   justify-content: space-between;
+
+  z-index: 1;
 }
 
 .image-container {
@@ -191,6 +193,7 @@ nav .second-nav {
   border-radius: 50%;
   opacity: 0;
   visibility: hidden;
+  z-index: 9;
 }
 
 .s-navbar ul li .currency-dropdown button {
@@ -201,7 +204,7 @@ nav .second-nav {
   color: #1a1a1a;
   letter-spacing: 0.5px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 4;
 }
 .s-navbar ul li .currency-dropdown button em {
   border: rgba(0, 0, 0, 0.2) solid 1px;
@@ -223,7 +226,7 @@ nav .second-nav {
   font-weight: 300;
   letter-spacing: 0.5px;
   cursor: pointer;
-  z-index: 1;
+  z-index: 2;
 }
 .s-navbar ul li .currency-dropdown:hover .currency-list {
   visibility: visible;
@@ -271,7 +274,7 @@ nav .second-nav {
     transition: 0.3s ease;
     left: -30px;
     top: -40px;
-    z-index: 2;
+    z-index: 3;
   }
   .dropdown-content-bars a {
     color: black;
