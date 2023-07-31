@@ -1,7 +1,7 @@
 
 
 
-let navToggle = {
+const navToggle = {
 
     sideNav : document.getElementById("sideNav"),
     page : document.getElementById("page"),
@@ -22,3 +22,19 @@ let navToggle = {
         else this.add();
     }
 }
+
+
+async function route(page){
+
+const result = await fetch(`adminPanelPages/${page}`);
+
+const pageHtml = await result.text()
+
+const router = document.getElementById("router");
+router.innerHTML = pageHtml;
+
+navToggle.remove();
+
+}
+
+route("dashboard.html");
