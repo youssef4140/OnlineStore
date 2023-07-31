@@ -8,6 +8,11 @@ import dotenv from "dotenv";
 import {router as productsRouter } from "./routes/shoproutes.js"
 dotenv.config()
 
+import { URL } from 'url';
+
+const __filename = new URL('', import.meta.url).pathname;
+const __dirname = new URL('.', import.meta.url).pathname;
+
 
 const PORT = "8080";
 
@@ -31,7 +36,7 @@ mongoose
 // app.use("/static",(req,res)=> res.sendFile(__dirname + '/public/views/index.html'))
 
 
-// app.use("/",(req,res)=> res.sendFile( __dirname + '/public/views/shop.html'))
+app.use("/",(req,res)=> res.sendFile( __dirname + '/public/views/shop.html'))
 
 // app.use("/shop", productsRouter);
 
