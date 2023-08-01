@@ -246,6 +246,24 @@
 
 
 }
+
+
+.pagination-buttons{
+    text-align: center;
+    padding:40px
+}
+.pagination-buttons button {
+          background-color: transparent;
+          border: none;
+          font-size: 40px;
+          margin-left:40px;
+          margin-right:40px;
+
+
+}
+.pagination-buttons span {
+    font-size: 30px;
+}
 /* products-container */
 
 

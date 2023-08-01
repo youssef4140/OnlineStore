@@ -1,11 +1,8 @@
 import express from "express";
-import { Product } from "../models/productsModel.js";
+import ProductController from "../controllers/shop.js"
+
 
 export const router = express.Router();
 
-
-router.get("/", async (req, res) => {
-    const products = await Product.find();
-    res.json(products);
-    console.log(products);
-})
+router.get("/", ProductController.findProducts.bind(ProductController));
+// router.get("/count", ProductController.getCount.bind(ProductController));
