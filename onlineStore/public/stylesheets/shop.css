@@ -149,7 +149,7 @@
 }
 .filter-container .sort button span {
     padding-left: 2%;
-    padding-right: 53%;
+    padding-right: 15%;
 }
 
 .accordion-button{
@@ -224,25 +224,38 @@
 
 .product-card{
     position: relative;
+    display:flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
 }
 .add-cart-btn{
     position:absolute;
-    top: 225px;
-    left: 230px;
-    background-color: white;
+    top: 67%;
+    left: 70%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: -2px 2px 7px rgba(0, 0, 0,0.6);
+    color:black;
     border: none;
-    border-radius: 15%;
     padding:7px 9px 4px 7px;
-    transition: 1s ease-in-out;
-    font-size: 19px;
+    transition: 0.3s ease-in-out;
+    font-size: 120%;
     text-align: center;
 
 }
 
+.added-to-cart {
+    background-color: rgba(30, 30, 30, 0.9);
+    color: rgb(230, 230, 230);
+    transform: translate(-2px,2px);
+    box-shadow: -0px 0px 0px rgba(0, 0, 0,0.6);
+}
 .add-cart-btn:hover{
-    background-color: black;
-    color:white;
-    transition: 0.6s ease-in-out;
+    transition: 0.3s ease-in-out;
+    transform: translate(-2px,2px);
+    box-shadow: -0px 0px 0px rgba(0, 0, 0,0.6);
+
+
 
 
 }
@@ -265,7 +278,29 @@
     font-size: 30px;
 }
 /* products-container */
+@media screen and (max-width: 1300px){
+    .products-container {
+        margin-left: 0vw;
+        margin-right: 0vw;
+        margin-top: 1vh;
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 2vw;
+        margin-bottom:2vh
+      }
 
+}
+@media screen and (max-width: 1000px){
+    .products-container {
+        margin-left: 0vw;
+        margin-right: 0vw;
+        margin-top: 1vh;
+        display: grid;
+        grid-template-columns: 1fr ;
+        gap: 2vw;
+        margin-bottom:2vh
+      }
+}
 
 @media screen and (max-width: 767px) {
     .filter-container .sort .sort-list{
@@ -301,19 +336,7 @@
 .product-card{
     position: relative;
 }
-.add-cart-btn{
-    position:absolute;
-    top: 60%;
-    left: 80%;
-    background-color: white;
-    border: none;
-    border-radius: 15%;
-    padding:7px 9px 4px 7px;
-    transition: 1s ease-in-out;
-    font-size: 19px;
-    text-align: center;
 
-}
 
 .add-cart-btn:hover{
     background-color: black;
@@ -337,15 +360,7 @@
 
     }
 
-    .products-container {
-        margin-left: 0vw;
-        margin-right: 0vw;
-        margin-top: 1vh;
-        display: grid;
-        grid-template-columns: 1fr ;
-        gap: 2vw;
-        margin-bottom:2vh
-      }
+
       .store-container{
         margin-top: 0;
         padding-top: 0;

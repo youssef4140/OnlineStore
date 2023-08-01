@@ -179,7 +179,7 @@
             <div class="filter-container">
               <div class="sort">
                   <em>Sort by</em>
-                  <button class="sortbtn"  onclick="showsortlist()"><span>Best Selling </span> <i id="sort-chevron" class="fa-solid fa-chevron-down"></i></button>
+                  <button class="sortbtn"  onclick="showsortlist()"><span id="sorttext">alphabaticallyAtoZ</span> <i  id="sort-chevron" class="fa-solid fa-chevron-down"></i></button>
                   <ul id="listdropdown" class="sort-list">
                     <li id="AtoZ">alphabatically (A to Z)</li>
                     <li id="ZtoA">alphabatically (Z to A)</li>
@@ -199,28 +199,28 @@
                         <div class="bg-light p-4 mb-30">
                             <form>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" checked id="price-all">
+                                    <input type="checkbox" class="custom-control-input" value="All Price" checked id="price-all">
                                     <label class="custom-control-label" for="price-all">All Price</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input pricebox" id="price-1">
+                                    <input type="checkbox" class="custom-control-input pricebox" value="0-100" id="price-1">
                                     <label class="custom-control-label" for="price-1">$0 - $100</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input pricebox" id="price-2">
+                                    <input type="checkbox" class="custom-control-input pricebox" value="100-200" id="price-2">
                                     <label class="custom-control-label" for="price-2">$100 - $200</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input pricebox" id="price-3">
+                                    <input type="checkbox" class="custom-control-input pricebox" value="200-300" id="price-3">
                                     <label class="custom-control-label" for="price-3">$200 - $300</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input pricebox" id="price-4">
-                                    <label class="custom-control-label" for="price-4">$300 - $400</label>
+                                    <input type="checkbox" class="custom-control-input pricebox" value="300-500" id="price-4">
+                                    <label class="custom-control-label" for="price-4">$300 - $500</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                    <input type="checkbox" class="custom-control-input pricebox" id="price-5">
-                                    <label class="custom-control-label" for="price-5">$400 - $500</label>
+                                    <input type="checkbox" class="custom-control-input pricebox" value="500-1000" id="price-5">
+                                    <label class="custom-control-label" for="price-5">$500 - $1000</label>
                                 </div>
                             </form>
                         </div>
