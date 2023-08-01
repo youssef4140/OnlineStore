@@ -540,6 +540,61 @@ body {
   margin: 0;
 }
 
+/* philosophy section */
+
+.philosophy {
+  max-width: 100%;
+  position: relative;
+}
+
+.philosophy img {
+  width: 100%;
+  height: 600px;
+  filter: invert(10%);
+}
+
+.philosophy-overlay {
+  position: absolute;
+  /* display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column; */
+  color: white;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  text-align: center;
+}
+
+.philosophy-overlay h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+.philosophy-overlay h4 {
+  width: 70%;
+  /* font-weight: var(--font-bold); */
+  line-height: 40px;
+  width: 100%;
+}
+
+.philosophy .philosophy-overlay p {
+  margin-top: 3rem;
+}
+
+.philosophy .philosophy-overlay button {
+  padding: 1rem 2rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: transparent;
+  font-size: var(--font-size-text);
+  transition: 0.4s;
+}
+
+.philosophy .philosophy-overlay button:hover {
+  color: var(--third-color);
+  background-color: var(--secondary-color);
+}
+
 @media (max-width: 767px) {
   .collections .carousel-inner .carousel-item > div {
     display: none;
