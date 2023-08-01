@@ -246,7 +246,6 @@
 
 
 }
-<<<<<<< HEAD
 
 
 .pagination-buttons{
@@ -265,8 +264,6 @@
 .pagination-buttons span {
     font-size: 30px;
 }
-=======
->>>>>>> refs/remotes/origin/storebranch
 /* products-container */
 
 
@@ -327,19 +324,11 @@
 }
 /* *************** */
 
-<<<<<<< HEAD
 /*     
     .parent-accordion .main{
         padding-left: 30px;
         padding-right:30px;
     } */
-=======
-    
-    .parent-accordion .main{
-        padding-left: 30px;
-        padding-right:30px;
-    }
->>>>>>> refs/remotes/origin/storebranch
     
     .store-container{
         display:flex;
