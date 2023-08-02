@@ -1,8 +1,11 @@
-require("dotenv").config();
-const express = require('express');
-const mongoose = require("mongoose");
+import dotnav from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import dashboardRouter from './routes/dashboardRouter.js';
 
-PORT = "8080";
+dotnav.config();
+
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -15,8 +18,9 @@ mongoose
         console.log(e);
     });
 
-
 app.use(express.static('public'))
+
+app.use('/getDashboard', dashboardRouter);
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname + '/public/views/index.html');

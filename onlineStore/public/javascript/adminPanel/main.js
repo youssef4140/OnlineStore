@@ -35,7 +35,10 @@ router.innerHTML = pageHtml;
 
 navToggle.remove();
 
-window[page]();
+
+const pageJs = await import(`/javascript/adminPanel/${page}.js`);
+
+pageJs.default();
 
 }
 

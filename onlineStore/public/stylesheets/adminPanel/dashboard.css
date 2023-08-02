@@ -1,11 +1,35 @@
-h1{
-    font-size: 30px;
+
+
+header.dash{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
 }
+
+header.dash h1{
+    font-size: 30px;
+    width: 70%;
+    min-width: 400px;
+}
+header.dash div{
+    width: 30%;
+}
+header.dash div input{
+    border: none;
+    padding: 10px;
+    cursor: pointer;
+}
+header.dash div i{
+    padding: 10px;
+}
+
 
 .grid{
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
-    grid-template-areas: 'value1 value2 value3' 'active statistics statistics';
+    grid-template-areas: 'value1 value2 value3' 'active statistics statistics' 'recent recent sales';
     column-gap: 30px;
     row-gap: 30px;
 }
@@ -54,3 +78,78 @@ h1{
     grid-area: statistics;
     background-color: white;
 }
+.grid .statistics canvas{
+    width: 99% !important;
+}
+
+.grid .recent{
+    grid-area: recent;
+    padding-left: 10px;
+    background-color: white;
+}
+.grid .recent table{
+    width: 100%;
+    border-collapse: collapse; 
+}
+.grid .recent th, td {
+    text-align: left;
+    padding: 8px;
+    border-bottom: solid;
+}
+.grid .recent tr{
+    border-bottom: solid;
+}
+  
+.grid .recent th {
+    color: gray;
+}
+
+
+
+
+.grid .sales{
+    padding-left: 10px;
+    grid-area: sales;
+    background-color: white;
+}
+
+.grid .sales canvas{
+    width: 99% !important;
+}
+
+.grid .sales .catColor{
+    padding: 3px 20px;
+    margin-right:10px
+}
+.grid .sales div{
+    margin: auto;
+    margin-top: 10px;
+}
+
+
+
+
+@media screen and (max-width: 992px) {
+
+}
+
+@media screen and (max-width: 768px) {
+    .grid{
+        grid-template-columns: 1fr 1fr 1fr;
+        grid-template-areas: 'value1 value2 value3'
+                             'active active active'
+                             'statistics statistics statistics'
+                             'recent recent recent'  
+                             'sales sales sales';    
+    }
+    
+  }
+
+  @media screen and (max-width: 600px) {
+    .grid{
+        grid-template-columns: 1fr;
+        grid-template-areas: 'value1' 'value2' 'value3' 'active' 'statistics' 'recent' 'sales';                     
+    }
+  }
+
+  
