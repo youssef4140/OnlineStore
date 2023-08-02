@@ -545,6 +545,7 @@ body {
 .philosophy {
   max-width: 100%;
   position: relative;
+  margin: 3rem;
 }
 
 .philosophy img {
@@ -555,10 +556,6 @@ body {
 
 .philosophy-overlay {
   position: absolute;
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column; */
   color: white;
   top: 50%;
   right: 50%;
@@ -606,6 +603,15 @@ body {
 
   .social-media .carousel-item h4 {
     font-size: 25px;
+    width: fit-content;
+  }
+
+  .philosophy {
+    margin: 1rem;
+  }
+
+  .philosophy-overlay h4 {
+    font-size: 21px;
     width: fit-content;
   }
 }
