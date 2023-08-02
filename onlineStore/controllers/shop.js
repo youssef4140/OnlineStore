@@ -6,13 +6,18 @@ class ProductController {
   constructor() {}
 
   async findProducts(req,res){
+    if(parseInt(req.query.count) == 1) {
+      const pcount = Product.countDocuments()
+      res.json(pcount);
+
+    };
     const page = parseInt(req.query.page) * 8;
     const sortquery = req.query.sort
     const sort ={
       alphabaticallyAtoZ : {title:1},
       alphabaticallyZtoA : {title:-1},
-      priceLowToHigh: {price:-1},
-      priceHighToLow: {price:1}
+      priceLowToHigh: {price:1},
+      priceHighToLow: {price:-1}
     }
     let pricefilter;
     if(req.query.range){
@@ -28,10 +33,6 @@ class ProductController {
     const products = await Product.find(pricefilter).skip(page).limit(9).sort(sort[sortquery])
     res.json(products);
   }
-
-  // async filterProducts(range) {
-    
-  // }
 
 }
 

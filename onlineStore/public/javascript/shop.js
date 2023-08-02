@@ -1,89 +1,89 @@
-let page = 0;
 
-const changepagenumber = () => {
-  const pagenumber = document.querySelector(".page-number");
-  pagenumber.innerHTML = page + 1;
-}
+    class Products {
+      constructor(){
+        this.cartlist = [];
+        this.page = 0;
+        this.listdropdown = document.querySelector(".sort-list");
+        this.chevronrotate = document.querySelector("#sort-chevron");
+        this.pagenumber = document.querySelector(".page-number");
 
-const pagedown = ()=> {
-  if (page > 0) page --;
-  console.log(page)
-  get(`http://localhost:8080/shop?page=${page}`)
-  changepagenumber()
-}
+      }
+      showsortlist = () =>{
+        this.listdropdown.classList.toggle("show");
+        this.chevronrotate.classList.toggle("chevron-rotate");
+      }
 
-const pageup =  ()=> {
-  page++
-  console.log(page)
-  get(`http://localhost:8080/shop?page=${page}`)
-  changepagenumber()
+      changepagenumber = () => {
+        this.pagenumber.innerHTML = this.page + 1;
+      }
+      
+      pagedown = ()=> {
+        if (this.page === 0) return
+        this.page--;
+        console.log(this.page)
+        this.get(`http://localhost:8080/shop?page=${this.page}`)
+        this.changepagenumber()
+      }
+      
+      pageup =  ()=> {
+        this.page++
+        console.log(this.page)
+        this.get(`http://localhost:8080/shop?page=${this.page}`)
+        this.changepagenumber()
+      }
 
-}
+       get = async (url) => {
+        try {
+          const response = await fetch(url);
+          const result = await response.json();
+          this.renderproducts(result);
+          console.log(result);
+        } catch (error) {
+          console.error("Error:", error);
+        }
+      };
 
-  
-  const showsortlist =()=>{
-    const listdropdown = document.querySelector(".sort-list");
-    const chevronrotate = document.querySelector("#sort-chevron");
-    listdropdown.classList.toggle("show");
-    chevronrotate.classList.toggle("chevron-rotate");
-  }
+      
 
-  
+      renderproducts = (productsdata) => {
+        let productshtml = "";
+        for (let i = 0; i < productsdata.length; i++) {
+          const product = productsdata[i];
+          productshtml += this.productcard(product);
+        }
+        const productsContainer = document.getElementById("products-container");
+        productsContainer.innerHTML = productshtml;
+      };
+    
+      productcard = (product) => {
+        const productshtml =
+         `<div class="product-card">
+              <div class="card-image-container">
+                <img src="${product.image}">
+              </div>
+              <div class="product-desc">
+                  <span>${product.title}</span>
+                  <span>${product.price}</span>
+              </div>
+            <button class="add-cart-btn" onclick="products.addtocart(this, '${product._id}')"><i class="fa-solid fa-cart-plus"></i></button>
+          </div>`;
+          return productshtml;
+      }
+      addtocart = (button, id) => {
+        this.cartlist.includes(id) ? this.cartlist.splice(this.cartlist.indexOf(id), 1) : this.cartlist.push(id);
+        button.classList.toggle("added-to-cart");
+        const counter = document.querySelector(".fa-bag-shopping");
+        counter.setAttribute('value', this.cartlist.length)
+        localStorage.setItem('cartitems', this.cartlist);
+        console.log(localStorage.getItem('cartitems')); 
+      };
 
-
-  const get = async (url) => {
-    try {
-      const response = await fetch(url);
-      const result = await response.json();
-      renderproducts(result);
-      console.log(result);
-    } catch (error) {
-      console.error("Error:", error);
     }
-  };
-
-  get(`http://localhost:8080/shop?page=${page}`);
-
-
-  const renderproducts = (productsdata) => {
-    let productshtml = "";
-    for (let i = 0; i < productsdata.length; i++) {
-      const product = productsdata[i];
-      productshtml += `<div class="product-card">
-                   <div class="card-image-container">
-                   <img src="${product.image}">
   
-               </div>
-                   <div class="product-desc">
-                       <span>${product.title}</span>
-                       <span>${product.price}</span>
-                   </div>
-                  <button class="add-cart-btn" onclick="addtocart(this, '${product._id}')"><i class="fa-solid fa-cart-plus"></i></button>
-  
-  
-  
-               </div>`;
-    }
-    const productsContainer = document.getElementById("products-container");
-    productsContainer.innerHTML = productshtml;
-  };
-  
-  const cartlist = [];
-  const addtocart = (button, id) => {
-    cartlist.includes(id) ? cartlist.splice(cartlist.indexOf(id), 1) : cartlist.push(id);
-    button.classList.toggle("added-to-cart");
-    const counter = document.querySelector(".fa-bag-shopping");
-    counter.setAttribute('value', cartlist.length)
-    localStorage.setItem('cartitems', cartlist);
-    console.log(localStorage.getItem('cartitems')); 
-    // console.log(cartlist);
-  };
 
-
-
-
-class SortAndFilter {
+class SortAndFilter extends Products {
   constructor(pageUrl, pageNumber) {
+    super();
     this.pageUrl = pageUrl;
     this.pageNumber = pageNumber;
     this.sort = null;
@@ -137,7 +137,7 @@ class SortAndFilter {
 
   getSortedResults() {
     const url = `${this.pageUrl}?page=${this.pageNumber}&sort=${this.sort}&range=${this.getRange()}`;
-    get(url);
+    this.get(url);
   }
 
   updateSelectedPrices() {
@@ -165,5 +165,6 @@ class SortAndFilter {
   }
 }
 
-// Example usage:
-const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", page);
+const products = new Products();
+products.get(`http://localhost:8080/shop?page=${this.page}`);
+const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", this.page);
