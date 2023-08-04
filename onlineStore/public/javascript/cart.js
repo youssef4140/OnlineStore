@@ -4,7 +4,7 @@ const  display=()=> {
     console.log(JSON.parse(localStorage.getItem('cartitems'))); 
 }
 
-  class Cart {
+class Cart {
     constructor(){
         this.cartProductContainer = document.getElementById('cart-product-container');
         this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
@@ -21,9 +21,10 @@ const  display=()=> {
 
 
     }
-    getCart = async (url) => {
+    getCart = async () => {
+        const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
             try {
-              const response = await fetch(url);
+              const response = await fetch(`http://localhost:8080/shop/cart?cart=${cartquery}`);
               const result = await response.json();
               console.log(result);
               this.rendercart(result);
@@ -70,7 +71,7 @@ const  display=()=> {
 
   const cart = new Cart();
   const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
-  cart.getCart(`http://localhost:8080/shop/cart?cart=${cartquery}`);
+  cart.getCart();
 //   cart.getCart(`http://localhost:8080/shop/cart?cart=`);
 
 console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
