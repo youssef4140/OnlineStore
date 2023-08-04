@@ -1,10 +1,6 @@
 
 
-const  display=()=> {
-    console.log(JSON.parse(localStorage.getItem('cartitems'))); 
-}
-
-class Cart {
+export default class Cart {
     constructor(){
         this.cartProductContainer = document.getElementById('cart-product-container');
         this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
@@ -21,7 +17,7 @@ class Cart {
 
 
     }
-    getCart = async () => {
+    async getCart() {
         const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
             try {
               const response = await fetch(`http://localhost:8080/shop/cart?cart=${cartquery}`);
@@ -33,17 +29,17 @@ class Cart {
             }
           };
 
-    rendercart = (productsdata) => {
+    rendercart(productsdata) {
         let productshtml = "";
         for (let i = 0; i < productsdata.length; i++) {
           const product = productsdata[i];
-          productshtml += this.productcard(product);
+          productshtml += this.cartProductCard(product);
         }
         this.cartProductContainer.innerHTML = productshtml;
       };
 
     
-      productcard = (product) => {
+      cartProductCard(product) {
         const productshtml =
         `<div class="cart-product-card">
         <div class="product-container">
@@ -72,7 +68,6 @@ class Cart {
   const cart = new Cart();
   const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
   cart.getCart();
-//   cart.getCart(`http://localhost:8080/shop/cart?cart=`);
 
 console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
 

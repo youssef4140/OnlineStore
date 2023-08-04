@@ -1,6 +1,8 @@
-
-    class Products {
+import Cart from './cart.js';
+    class Products extends Cart{
+      
       constructor(){
+        super()
         this.cartlist = JSON.parse(localStorage.getItem('cartitems')) || [];
         this.page = 0;
         this.listdropdown = document.querySelector(".sort-list");
@@ -101,6 +103,7 @@
         button.classList.toggle("added-to-cart");
         this.setCounter();
         localStorage.setItem('cartitems', JSON.stringify(this.cartlist));
+        super.getCart();
       };
 
 
@@ -198,6 +201,7 @@ class SortAndFilter extends Products {
 }
 
 const products = new Products();
-products.get(`http://localhost:8080/shop?page=${this.page}`);
+products.get(`http://localhost:8080/shop?page=${products.page}`);
 products.setCounter();
-const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", this.page);
+const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", products.page);
+window.products = products;
