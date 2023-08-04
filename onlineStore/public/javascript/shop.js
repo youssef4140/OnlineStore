@@ -1,11 +1,13 @@
 
     class Products {
       constructor(){
-        this.cartlist = [];
+        this.cartlist = JSON.parse(localStorage.getItem('cartitems')) || [];
         this.page = 0;
         this.listdropdown = document.querySelector(".sort-list");
         this.chevronrotate = document.querySelector("#sort-chevron");
         this.pagenumber = document.querySelector(".page-number");
+        this.cartCounter = document.querySelector(".fa-bag-shopping")
+        this.counter = this.cartlist.length;
 
       }
       showsortlist = () =>{
@@ -37,7 +39,6 @@
           const response = await fetch(url);
           const result = await response.json();
           this.renderproducts(result);
-          console.log(result);
         } catch (error) {
           console.error("Error:", error);
         }
@@ -49,6 +50,8 @@
         let productshtml = "";
         for (let i = 0; i < productsdata.length; i++) {
           const product = productsdata[i];
+          this.cartlist.includes(product._id)?
+          productshtml += this.productcardadded(product):
           productshtml += this.productcard(product);
         }
         const productsContainer = document.getElementById("products-container");
@@ -69,14 +72,43 @@
           </div>`;
           return productshtml;
       }
+
+      productcardadded = (product)=> {
+        const productshtml =
+        `<div class="product-card">
+             <div class="card-image-container">
+               <img src="${product.image}">
+             </div>
+             <div class="product-desc">
+                 <span>${product.title}</span>
+                 <span>${product.price}</span>
+             </div>
+           <button class="add-cart-btn added-to-cart" onclick="products.addtocart(this, '${product._id}')"><i class="fa-solid fa-cart-plus"></i></button>
+         </div>`;
+         return productshtml;
+     }
+
+      
+
+      
+
+      IsInCart = (id)=>{
+        const cartItems = JSON.parse(localStorage.getItem('cartitems'))
+        return cartItems.includes(id)? false : true;
+      }
       addtocart = (button, id) => {
         this.cartlist.includes(id) ? this.cartlist.splice(this.cartlist.indexOf(id), 1) : this.cartlist.push(id);
         button.classList.toggle("added-to-cart");
-        const counter = document.querySelector(".fa-bag-shopping");
-        counter.setAttribute('value', this.cartlist.length)
-        localStorage.setItem('cartitems', this.cartlist);
-        console.log(localStorage.getItem('cartitems')); 
+        this.setCounter();
+        localStorage.setItem('cartitems', JSON.stringify(this.cartlist));
       };
+
+
+      setCounter= ()=> {
+        this.counter = this.cartlist.length;
+        this.cartCounter.setAttribute('value', this.counter)
+
+      }
 
     }
   
@@ -167,4 +199,5 @@ class SortAndFilter extends Products {
 
 const products = new Products();
 products.get(`http://localhost:8080/shop?page=${this.page}`);
+products.setCounter();
 const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", this.page);

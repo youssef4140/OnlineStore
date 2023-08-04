@@ -13,6 +13,12 @@ dropbtnbars.addEventListener("click", function() {
 });
 
 
+const expandCart = ()=> {
+  const cart = document.querySelector(".cart-container");
+  cart.classList.toggle("cart-container-expands")
+}
+
+
 
 
 

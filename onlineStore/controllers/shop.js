@@ -3,22 +3,18 @@ import express from "express";
 import { Product } from "../models/productsModel.js";
 
 class ProductController {
-  constructor() {}
-
-  async findProducts(req,res){
-    if(parseInt(req.query.count) == 1) {
-      const pcount = Product.countDocuments()
-      res.json(pcount);
-
-    };
-    const page = parseInt(req.query.page) * 8;
-    const sortquery = req.query.sort
-    const sort ={
+  constructor() {
+    this.sort ={
       alphabaticallyAtoZ : {title:1},
       alphabaticallyZtoA : {title:-1},
       priceLowToHigh: {price:1},
       priceHighToLow: {price:-1}
     }
+  }
+
+  async findProducts(req,res){
+    const page = parseInt(req.query.page) * 8;
+    const sortquery = req.query.sort
     let pricefilter;
     if(req.query.range){
       let pricerange;
@@ -30,8 +26,30 @@ class ProductController {
         pricefilter = null;
       }
     }
-    const products = await Product.find(pricefilter).skip(page).limit(9).sort(sort[sortquery])
+    const products = await Product.find(pricefilter).skip(page).limit(9).sort(this.sort[sortquery])
     res.json(products);
+    res.end();
+
+  }
+
+  async findCart(req, res){
+    try{
+      const cartQuery = req.query.cart
+      if(cartQuery){
+        const cart = await Product.find({_id:{ $in: cartQuery.split('-')}})
+        console.log(cart);
+        res.json(cart);
+        res.end();
+      } else {
+        res.send("empty query");
+        res.end();
+      }
+
+    }  catch (error) {
+      console.error("Error:", error);
+    }
+
+
   }
 
 }

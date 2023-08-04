@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" href="../stylesheets/styles.css">
     <link rel="stylesheet" href="../stylesheets/shop.css">
+    <link rel="stylesheet" href="../stylesheets/cart.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -133,8 +134,7 @@
                     </ol>
                   </div></li>
                 <li><button class="user"><i class="fa-solid fa-user"></i></button></li>
-                <li><button class="cart"><i class="fa-solid fa-bag-shopping" value=0></i></button></li>
-                <!-- <li><button class="search"><i class="fa-solid fa-magnifying-glass"></i></button></li> -->
+                <li><button onclick="expandCart()" class="cart"><i class="fa-solid fa-bag-shopping" value=0></i></button></li>
                 <li>    <div class="search-box">
                   <input type="text" placeholder="Search...">
                   <a href="#">
@@ -144,9 +144,38 @@
                 
             </ul>
         </div>
+
+    </div>
+    <div class="cart-container">
+      <div class="cart-header">
+    <div class="center">
+      <span>Shopping Cart</span>
+      <button onclick="expandCart()">X</button>
+    </div>
+    <div class="center2"><i class="fa-solid fa-truck"></i> <span>Free shipping on orders over $150</span></div>
+  </div>
+   <div id="cart-product-container" class="cart-product-container">
+    <!--<div class="cart-product-card">
+      <div class="product-container">
+        <div class="product-image-container">
+        <img src="../assets/Skater.jpg">
+        </div>
+        <div class="product-btns">
+          <button>-</button>
+          <div><span class="cart-product-counter">1</span></div>
+          <button onclick="display()">+</button>
+        </div>
+    </div>
+      <div class="product-description">
+        <span class="product-name">Skater</span>
+        <span class="product-price">$99</span>
+      </div>
+    </div>
+  </div> -->
     </div>
 
     </nav>
+    
 
     <section class="hero">
       <div class="hero-container">
@@ -393,7 +422,7 @@
 
         
   
-      </section>
+      </section> 
 
     
 
@@ -403,6 +432,8 @@
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <script src="../javascript/shop.js"></script>
+    <script src="../javascript/cart.js"></script>
+
 
 
     
