@@ -4,10 +4,10 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Store</title>
-    <link rel="stylesheet" href="/public/stylesheets/root.css" />
-    <link rel="stylesheet" href="/public/stylesheets/bootstrap.min.css" />
-    <link rel="stylesheet" href="/public/stylesheets/styles.css">
-    <link rel="stylesheet" href="/public/stylesheets/shop.css">
+    <link rel="stylesheet" href="../stylesheets/root.css" />
+    <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
+    <link rel="stylesheet" href="../stylesheets/styles.css">
+    <link rel="stylesheet" href="../stylesheets/shop.css">
     <link
     rel="stylesheet"
     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
@@ -83,14 +83,14 @@
                     <div class ="dropdown-store-content">
                         <div class="dropdown-category">
                             <div class="image-container">
-                                <img src="/public/assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
+                                <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
                             </div>
                             <a>Accessories</a>
                         </div>
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img  src="/public/assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
+                            <img  src="../assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
                         </div>
 
                             <a>Outerwear</a>
@@ -98,7 +98,7 @@
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img src="/public/assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
+                            <img src="../assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
                         </div>
 
                             <a>Headwear</a>
@@ -106,7 +106,7 @@
                         <div class="dropdown-category">
                             <div class="image-container">
 
-                            <img  src="/public/assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
+                            <img  src="../assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
                         </div>
 
                             <a>Shorts</a>
@@ -143,14 +143,25 @@
     </nav>
 
     <section class="hero">
-        <div class="hero-image"></div>
-        <div class="hero-section">
-            <h4>The Store</h4>
-            <p>Choose well and buy less. We believe in owning fewer, quality things and making 
-            <br>them last a long time. That’s why if any of our product ever breaks down, you can 
-            <br>send it back to us and we’ll repair it.</p>
+      <div class="hero-container">
+        <div class="hero-image-container">
+          <img src="../assets/skaters2.jpg" alt="skaters">
         </div>
+        <div class="hero-section">
+          <h4>The Store</h4>
+          <p>Choose well and buy less. We believe in owning fewer, quality things and making 
+          <br>them last a long time. That’s why if any of our product ever breaks down, you can 
+          <br>send it back to us and we’ll repair it.</p>
+      </div>
+        </div>
+      </div>
+      
     </section>
+
+
+
+
+
       <section>
         <div class="store-container">
 
@@ -170,10 +181,10 @@
                   <em>Sort by</em>
                   <button class="sortbtn"  onclick="showsortlist()"><span>Best Selling </span> <i id="sort-chevron" class="fa-solid fa-chevron-down"></i></button>
                   <ul id="listdropdown" class="sort-list">
-                    <li>alphabatically (A to Z)</li>
-                    <li>alphabatically (Z to A)</li>
-                    <li>Price (low to high)</li>
-                    <li>Price (high to low)</li>
+                    <li id="AtoZ">alphabatically (A to Z)</li>
+                    <li id="ZtoA">alphabatically (Z to A)</li>
+                    <li id="lowToHigh">Price (low to high)</li>
+                    <li id="highToLow">Price (high to low)</li>
                   </ul>
               </div>
             <div class="accordion accordion-flush" style="width:73%" id="accordionPanel">
@@ -192,23 +203,23 @@
                                     <label class="custom-control-label" for="price-all">All Price</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-1">
+                                    <input type="checkbox" class="custom-control-input pricebox" id="price-1">
                                     <label class="custom-control-label" for="price-1">$0 - $100</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-2">
+                                    <input type="checkbox" class="custom-control-input pricebox" id="price-2">
                                     <label class="custom-control-label" for="price-2">$100 - $200</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-3">
+                                    <input type="checkbox" class="custom-control-input pricebox" id="price-3">
                                     <label class="custom-control-label" for="price-3">$200 - $300</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between mb-3">
-                                    <input type="checkbox" class="custom-control-input" id="price-4">
+                                    <input type="checkbox" class="custom-control-input pricebox" id="price-4">
                                     <label class="custom-control-label" for="price-4">$300 - $400</label>
                                 </div>
                                 <div class="custom-control custom-checkbox d-flex align-items-center justify-content-between">
-                                    <input type="checkbox" class="custom-control-input" id="price-5">
+                                    <input type="checkbox" class="custom-control-input pricebox" id="price-5">
                                     <label class="custom-control-label" for="price-5">$400 - $500</label>
                                 </div>
                             </form>
@@ -350,92 +361,34 @@
                   </div>
                 </div>
               </div>
-            </div>          </div>
-        </div>
-      </div>
-    </div>
-
-
-
-          <div class="products-container">
-            
-            <div class="product-card">
-              <div class="card-image-container">
-              <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-          </div>
-              <div class="product-desc">
-                  <span>lorem ipsum</span>
-                  <span>Price</span>
-              </div>
-          <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
-          </div>
-
-
-          <div class="product-card">
-            <div class="card-image-container">
-            <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-        </div>
-            <div class="product-desc">
-                <span>lorem ipsum</span>
-                <span>Price</span>
             </div>
-        <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
+          </div>          
         </div>
-
-
-
-        <div class="product-card">
-          <div class="card-image-container">
-          <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
       </div>
-          <div class="product-desc">
-              <span>lorem ipsum</span>
-              <span>Price</span>
+    </div>
+
+
+        <div>
+          <div class="products-container" id="products-container">
+        
           </div>
-      <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
-      </div>
-
-      <div class="product-card">
-        <div class="card-image-container">
-        <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-    </div>
-        <div class="product-desc">
-            <span>lorem ipsum</span>
-            <span>Price</span>
-        </div>
-    <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
-    </div>
-
-
-    <div class="product-card">
-      <div class="card-image-container">
-      <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-  </div>
-      <div class="product-desc">
-          <span>lorem ipsum</span>
-          <span>Price</span>
-      </div>
-  <button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
-  </div>
-
-
-
-  <div class="product-card">
-    <div class="card-image-container">
-    <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-</div>
-    <div class="product-desc">
-        <span>lorem ipsum</span>
-        <span>Price</span>
-    </div>
-<button class="add-cart-btn"><i class="fa-solid fa-cart-plus"></i></button>
-</div>
-
-
+          <div class="pagination-buttons">
+            <button class="page-down" onclick="pagedown()"><i class="fa-solid fa-caret-left"></i></button>
+            <span  class ="page-number" id="page-number">1</span>
+            <button class="page-up" onclick="pageup()"><i class="fa-solid fa-caret-right"></i></button>
           </div>
+
+
         </div>
+
+      </div>
+
+
+
+        
   
       </section>
+
     
 
 
@@ -444,6 +397,7 @@
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
     <script src="../javascript/shop.js"></script>
+
 
     
 

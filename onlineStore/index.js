@@ -1,16 +1,43 @@
-const express = require('express');
+// require("dotenv").config();
+// const express = require('express');
+// const mongoose = require("mongoose");
 
-PORT = "8080";
+
+// import { URL } from 'url';
+
+// const __filename = new URL('', import.meta.url).pathname;
+// const __dirname = new URL('.', import.meta.url).pathname;
+
+import express  from "express";
+import mongoose from "mongoose";
+import dotenv from "dotenv"; 
+import {router as productsRouter } from "./routes/shoproutes.js"
+dotenv.config()
+
+
+const PORT = "8080";
 
 const app = express();
-
+app.use(express.urlencoded({extended: true}));
+app.use(express.json());
 app.use(express.static('public'))
 
-app.get("/",(req,res)=>{
-    res.sendFile(__dirname + '/public/views/index.html');
-})
+
+mongoose
+    .connect(process.env.CONNECTION_STRING, {})
+    .then(() => {
+        console.log("Connected to MongoDB");
+    })
+    .catch((e) => {
+        console.log(e);
+    });
+
+
+app.use("/shop", productsRouter);
+
 
 app.listen(PORT, err => {
     if (err) return console.log(`Cannot Listen on PORT: ${PORT}`);
-    console.log(`Server is Listening on port: ${PORT}`);
+    console.log(`Server isrunning on http://localhost:${PORT}/`);
   });
+  

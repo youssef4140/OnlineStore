@@ -1,0 +1,33 @@
+const get = async () => {
+    try {
+        const response = await fetch('https://fakestoreapi.com/products');
+        const result = await response.json();
+        addtodatabase(result);
+        } catch (error) {
+            console.error("Error:", error);
+        }
+      };
+get();
+
+const productschema = new mongoose.Schema({
+id: Number,
+title: String,
+price: Number,
+description: String,
+category: String,
+image: String,
+rating: {
+    rate: Number,
+    count: Number,
+}
+})
+
+const product = mongoose.model('Product', productschema); 
+const addtodatabase = function (result){
+    let i;
+    for (i in result){
+        console.log(result[i]);
+        const productu = new product(result[i])
+        productu.save();
+    }
+}
