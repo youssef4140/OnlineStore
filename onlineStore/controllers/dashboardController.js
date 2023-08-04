@@ -10,7 +10,7 @@ const getDashboard  =  async(req,res) => {
         { $group: { _id : null, sum : { $sum: "$totalPrice" } } }
     ]);
 
-    res.send(totalSells);
+    res.send(orders);
 }
 
 

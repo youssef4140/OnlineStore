@@ -5,8 +5,8 @@ const orderSchema = new mongoose.Schema({
     paymentMethod: String,
     shippingMethod: String,
     userId: String,
-    subTotal: String,
-    totalPrice: String,
+    subTotal: Number,
+    totalPrice: Number,
     status: String,
     date: Date,
     shippingInfo: {
