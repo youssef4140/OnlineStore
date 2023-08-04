@@ -1,0 +1,189 @@
+@import url('./cart.css');
+
+:root {
+    --primary-color: #997a3b;
+    --secondary-color: white;
+    --third-color: #212121;
+    --text-color: #636363;
+    --secondary-text-color: #bcbcbc;
+  
+    --font-primary: "Open Sans", sans-serif;
+  
+    --font-light: 400;
+    --font-bold: 700;
+    --font-size-text: 13px;
+    --font-size-title: 20px;
+    --font-size-section-title: 48px;
+  }
+
+  
+
+*,
+*::after,
+*::before{
+    box-sizing: border-box;
+
+}
+
+.form-container{
+    display:grid;
+    place-content: center;
+    min-height: 100vh;
+}
+label{
+    display:block;
+    margin-bottom:0.5rem;
+}
+
+input{
+    display:block;
+    width: 100%;
+    padding: 0.75rem;
+    border:1px solid #ccc;
+    border-radius: 0.25rem;
+}
+
+
+
+.progressbar{
+    position: relative;
+    display:flex;
+    justify-content: space-between;
+    counter-reset: step;
+}
+
+.progressbar::before, .progress{
+    content:"";
+    position: absolute;
+    top:50%;
+    transform: translateY(-50%);
+    height:4px;
+    width:100%;
+    background-color: #dcdcdc;
+    z-index:-1;
+}
+
+.progress{
+    background-color: var(--primary-color);
+    width:0%;
+    transition: 1s ease-in-out;
+}
+
+.progress-step{
+    width: 2.1875rem;
+    height: 2.1875rem;
+    background-color: #dcdcdc;
+    border-radius: 100vh;
+    display:flex;
+    justify-content: center;
+    align-items: center;
+
+}
+
+.progress-step::before{
+    counter-increment: step;
+    content: counter(step);
+    z-index: 1;
+}
+
+.progress-step::after{
+    content: attr(data-title);
+    z-index:1;
+    position: absolute;
+    top:100%;
+    font-size:0.85rem;
+    color:#666;
+
+
+}
+.progress-step-active {
+    background-color: var(--primary-color);
+    color:white;
+}
+
+
+/* Form  */
+.form{
+    width: 70vw;
+    margin:0 auto;
+    border: 1px solid #ccc;
+    border-radius: 0.35rem;
+    padding:1.5rem;
+}
+.form-step{
+    display:none;
+}
+.form-step-active{
+    display:block;
+}
+
+.input-group{
+    margin: 2rem 0;
+}
+
+.button-align{
+    display: flex;
+    justify-content: space-between;
+}
+.boton{
+    width: 40%;
+    /* margin-left:auto; */
+    padding: 0.75rem;
+    display:block;
+    text-decoration: none;
+    background-color: var(--primary-color);
+    color: white;
+    text-align: center;
+    border-radius: 0.25rem;
+    cursor: pointer;
+}
+
+.boton:hover{
+    box-shadow: 0 0 0 2px #fff, 0 0 0 3px var(--primary-color);
+    color:white;
+}
+
+.text-center{
+    text-align: center;
+    font-size: 32px;
+}
+
+
+
+.form-grid{
+    height:70vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr ;
+    grid-template-rows: 1fr 1fr;
+    gap: 20px;
+}
+
+
+.cart-product-container {
+    background-color: #ffffff;
+    height: 500px;
+    width:100%;
+    overflow-y: scroll;
+}
+
+.cart-product-card{
+    width:100%;
+    height: 40%;
+    background-color: rgb(255, 255, 255);
+    margin-top: 20px;
+    margin-bottom:20px;
+    display:flex;
+}
+ .cart-product-container .cart-product-card .product-image-container{
+    width:120px;
+    height:120px;
+    overflow:hidden;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+ .cart-product-container .cart-product-card .product-image-container img {
+    width:auto;
+    height:120px;
+}
+

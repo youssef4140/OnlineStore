@@ -9,6 +9,7 @@ export default class Cart {
         this.checkoutPrice = document.querySelector('#checkout-price');
 
 
+
     }
 
     
@@ -17,25 +18,26 @@ export default class Cart {
         this.getCart(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
         // console.log('expand')
     }
-    async getCart() {
+    async getCart(cart) {
         const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
             try {
               const response = await fetch(`http://localhost:8080/shop/cart?cart=${cartquery}`);
               const result = await response.json();
               // console.log(result);
-              this.rendercart(result);
+              this.rendercart(result, cart);
             } catch (error) {
               console.error("Error:", error);
             }
           };
 
-    rendercart(productsdata) {
+    rendercart(productsdata ,cart) {
         let productshtml = "";
         for (let i = 0; i < productsdata.length; i++) {
           const product = productsdata[i];
           productshtml += this.cartProductCard(product);
         }
         this.cartProductContainer.innerHTML = productshtml;
+        cart.innerHTML = productshtml;
         this.totalprice(productsdata);
       };
 
@@ -47,12 +49,6 @@ export default class Cart {
           <div class="product-image-container">
           <img src="${product.image}">
           </div>
-          <div class="product-btns">
-            <button>-</button>
-            <div><span class="cart-product-counter">1</span></div>
-            <button onclick="display()">+</button>
-          </div>
-      </div>
         <div class="product-description">
           <span class="product-name">${product.title}</span>
           <span class="product-price">${product.price}</span>
@@ -76,7 +72,7 @@ export default class Cart {
 
   const cart = new Cart();
   const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
-  cart.getCart();
+  cart.getCart(cart.checkoutCart);
 
 // console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
 
