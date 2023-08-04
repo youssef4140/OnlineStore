@@ -1,8 +1,15 @@
-require("dotenv").config();
-const express = require('express');
-const mongoose = require("mongoose");
+import dotnav from "dotenv";
+import express from "express";
+import mongoose from "mongoose";
+import { fileURLToPath } from 'url';
+import { dirname } from 'path';
 
-PORT = "8080";
+const __filename = fileURLToPath(import.meta.url);
+const __dirname = dirname(__filename);
+
+dotnav.config();
+
+const PORT = process.env.PORT || 8080;
 
 const app = express();
 
@@ -14,7 +21,6 @@ mongoose
     .catch((e) => {
         console.log(e);
     });
-
 
 app.use(express.static('public'))
 
