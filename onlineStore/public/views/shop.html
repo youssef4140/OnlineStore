@@ -66,7 +66,7 @@
         </div>
         <div class="second-nav">
         <div class="dropdown-bars">
-            <button class="dropbtn-bars"><i class="fa-solid fa-bars"></i></button>
+            <button onclick="expanddropbtn()" class="dropbtn-bars"><i class="fa-solid fa-bars"></i></button>
             <div class ="dropdown-content-bars">
                 <button class="closebtn">&times;</button>
                 <a>Sign in</a>
@@ -155,23 +155,14 @@
     <div class="center2"><i class="fa-solid fa-truck"></i> <span>Free shipping on orders over $150</span></div>
   </div>
    <div id="cart-product-container" class="cart-product-container">
-    <!--<div class="cart-product-card">
-      <div class="product-container">
-        <div class="product-image-container">
-        <img src="../assets/Skater.jpg">
-        </div>
-        <div class="product-btns">
-          <button>-</button>
-          <div><span class="cart-product-counter">1</span></div>
-          <button onclick="display()">+</button>
-        </div>
+
     </div>
-      <div class="product-description">
-        <span class="product-name">Skater</span>
-        <span class="product-price">$99</span>
-      </div>
+    <div class="cart-footer">
+      <div class="spox"><div class="spc">
+        <span class="tax">Tax included and shipping calculated at checkout</span>
+      </div><div class="spc"><span class="tax">$</span><span id="checkout-price" class="tax"></span></div>
     </div>
-  </div> -->
+      <button class="checkout" href="index.html"><span>Checkout</span></button> 
     </div>
 
     </nav>

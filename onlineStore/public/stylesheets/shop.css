@@ -44,13 +44,16 @@
 @media screen and (max-width: 767px) {
     .hero-section p {
         margin-top:1.5em;
-        line-height:1.5em
+        line-height:1.5em;
+        word-wrap: break-word;
     }
     .hero-container .hero-section{
         position: absolute;
         top:22vh;
         background-color:white;
         padding-top:15px;
+        width:90vw;
+
     }
     
 }
@@ -291,6 +294,7 @@
 
 }
 @media screen and (max-width: 1000px){
+
     .products-container {
         margin-left: 0vw;
         margin-right: 0vw;
@@ -335,23 +339,27 @@
 
 .product-card{
     position: relative;
+    width:min-content;
+}
+
+.product-card span {
+    font-size: 15px;
+}
+/* .product-card .product-title */
+.add-cart-btn {
+    top: 50%;
+
+
 }
 
 
-.add-cart-btn:hover{
-    background-color: black;
-    color:white;
-    transition: 0.6s ease-in-out;
-
-
-}
 /* *************** */
 
-/*     
-    .parent-accordion .main{
+  
+    /* .parent-accordion .main{
         padding-left: 30px;
         padding-right:30px;
-    } */
+    }  */
     
     .store-container{
         display:flex;

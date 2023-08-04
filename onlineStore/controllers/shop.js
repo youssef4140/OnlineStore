@@ -37,7 +37,7 @@ class ProductController {
       const cartQuery = req.query.cart
       if(cartQuery){
         const cart = await Product.find({_id:{ $in: cartQuery.split('-')}})
-        console.log(cart);
+        // console.log(cart);
         res.json(cart);
         res.end();
       } else {

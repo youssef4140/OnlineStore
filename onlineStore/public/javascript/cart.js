@@ -4,25 +4,25 @@ export default class Cart {
     constructor(){
         this.cartProductContainer = document.getElementById('cart-product-container');
         this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
-
-
         this.cartList = JSON.parse(localStorage.getItem('cartitems'));
+        this.cartbtn = document.querySelector('#cart-btn');
+        this.checkoutPrice = document.querySelector('#checkout-price');
+
+
     }
 
     
     expandcart = ()=> {
         this.cartProductContainer.classList.toggle('cart-container-expands')
         this.getCart(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
-
-
-
+        // console.log('expand')
     }
     async getCart() {
         const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
             try {
               const response = await fetch(`http://localhost:8080/shop/cart?cart=${cartquery}`);
               const result = await response.json();
-              console.log(result);
+              // console.log(result);
               this.rendercart(result);
             } catch (error) {
               console.error("Error:", error);
@@ -36,6 +36,7 @@ export default class Cart {
           productshtml += this.cartProductCard(product);
         }
         this.cartProductContainer.innerHTML = productshtml;
+        this.totalprice(productsdata);
       };
 
     
@@ -61,6 +62,14 @@ export default class Cart {
           return productshtml;
       }
 
+      totalprice(products){
+        let price = 0
+        for (let i = 0; i < products.length; i++){
+          price += products[i].price;
+        }
+        this.checkoutPrice.innerHTML = price;
+
+      }
 
 
   }
@@ -69,7 +78,7 @@ export default class Cart {
   const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
   cart.getCart();
 
-console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
+// console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
 
 
 

@@ -67,8 +67,8 @@ import Cart from './cart.js';
                 <img src="${product.image}">
               </div>
               <div class="product-desc">
-                  <span>${product.title}</span>
-                  <span>${product.price}</span>
+                  <span class="product-title">${product.title}</span>
+                  <span class="product-price">$${product.price}</span>
               </div>
             <button class="add-cart-btn" onclick="products.addtocart(this, '${product._id}')"><i class="fa-solid fa-cart-plus"></i></button>
           </div>`;
