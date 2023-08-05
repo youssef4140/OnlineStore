@@ -4,12 +4,33 @@ import Cart from './cart.js';
       constructor(){
         super()
         this.cartlist = JSON.parse(localStorage.getItem('cartitems')) || [];
+        this.productsContainer = document.getElementById("products-container");
         this.page = 0;
         this.listdropdown = document.querySelector(".sort-list");
         this.chevronrotate = document.querySelector("#sort-chevron");
         this.pagenumber = document.querySelector(".page-number");
         this.cartCounter = document.querySelector(".fa-bag-shopping")
         this.counter = this.cartlist.length;
+        this.pageUp = document.querySelector('.page-up')
+        this.pageDown = document.querySelector('.page-down')
+
+        this.pageUp.addEventListener("click", ()=>{
+          this.pageup();
+          
+        })
+        
+        this.pageDown.addEventListener("click", ()=>{
+          this.pagedown();
+          
+        })
+
+        this.productsContainer.addEventListener('click', (event) => {
+          if (event.target.matches('.card-image-container')) {
+            const productId = event.target.dataset;
+            console.log(productId);
+            // window.location.href = `/product/${productId}`;
+          }
+        });
 
       }
       showsortlist = () =>{
@@ -56,15 +77,20 @@ import Cart from './cart.js';
           productshtml += this.productcardadded(product):
           productshtml += this.productcard(product);
         }
-        const productsContainer = document.getElementById("products-container");
-        productsContainer.innerHTML = productshtml;
+        this.productsContainer.innerHTML = productshtml;
       };
     
       productcard = (product) => {
         const productshtml =
          `<div class="product-card">
-              <div class="card-image-container">
+              <div href class="card-image-container">
+
+              <a href="/views/product.html?id=${product._id}">
                 <img src="${product.image}">
+                </a>
+                <div class="click-me">
+                <span>Click me!</span>
+                </div>
               </div>
               <div class="product-desc">
                   <span class="product-title">${product.title}</span>
@@ -79,11 +105,17 @@ import Cart from './cart.js';
         const productshtml =
         `<div class="product-card">
              <div class="card-image-container">
+             <a href="/views/product.html?id=${product._id}">
                <img src="${product.image}">
+               </a>
+               <div class="click-me">
+               <span>Click me!</span>
+               </div>
+
              </div>
              <div class="product-desc">
                  <span>${product.title}</span>
-                 <span>${product.price}</span>
+                 <span class="Pprice">${product.price}</span>
              </div>
            <button class="add-cart-btn added-to-cart" onclick="products.addtocart(this, '${product._id}')"><i class="fa-solid fa-cart-plus"></i></button>
          </div>`;
@@ -130,6 +162,7 @@ class SortAndFilter extends Products {
     this.priceCheckboxes = document.querySelectorAll(".pricebox");
     this.sortbtn = document.querySelector("#sorttext")
     this.selectedPrices = [];
+
 
     this.alphabaticallyAtoZ.addEventListener("click", () => {
       this.sort = "alphabaticallyAtoZ";
@@ -203,5 +236,8 @@ class SortAndFilter extends Products {
 const products = new Products();
 products.get(`http://localhost:8080/shop?page=${products.page}`);
 products.setCounter();
+
 const sortAndFilter = new SortAndFilter("http://localhost:8080/shop", products.page);
 window.products = products;
+
+

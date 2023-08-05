@@ -32,24 +32,30 @@ class ProductController {
 
   }
 
-  async findCart(req, res){
-    try{
-      const cartQuery = req.query.cart
-      if(cartQuery){
-        const cart = await Product.find({_id:{ $in: cartQuery.split('-')}})
-        // console.log(cart);
-        res.json(cart);
-        res.end();
-      } else {
-        res.send("empty query");
-        res.end();
-      }
 
-    }  catch (error) {
+  async findSearch(req, res){
+    const searchQuery = req.query.search;
+    try{
+      const searchResult = await Product.find({title:{$regex:new RegExp(searchQuery, 'i')}});
+    res.json(searchResult);
+
+    } catch (error){
+      console.error("Error:", error);
+
+    }
+  }
+
+
+  async findSingleProduct(req,res){
+    const productId = req.query.id
+    console.log('result:',productId)
+    try{
+      const product = await Product.findById(productId);
+      console.log(product);
+      res.json(product);
+    }catch (error){
       console.error("Error:", error);
     }
-
-
   }
 
 }

@@ -1,4 +1,4 @@
-@import url('./cart.css');
+/* @import url('./cart.css'); */
 
 :root {
     --primary-color: #997a3b;
@@ -187,3 +187,63 @@ input{
     height:120px;
 }
 
+.product-container .product-btns{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.product-container .product-btns button , .product-btns span{
+    outline: none;
+    border: 1px solid grey;
+    background-color: transparent;
+    padding: 0px 4px;
+    font-size: 12px;
+    display:block;
+}
+.product-container .product-btns a {
+    margin-left:13px;
+    cursor: pointer;
+    transition: .1s ease-in-out;
+}
+.product-container .product-btns a:hover {
+    transform: rotate(-20deg);
+    transition: .1s ease-in-out;
+
+}
+
+
+.product-description{
+    display: flex;
+    flex-direction: column;
+    margin-top: 10%;
+}
+.product-description .product-name{
+    font-size: 16px;
+}
+.product-description .product-price{
+    font-size:14px
+}
+
+.product-description .product-price::before{
+    content:'$';
+}
+@media screen and (max-width: 1000px) {
+    .form-grid {
+        height: fit-content;
+        display: grid;
+        grid-template-columns: 1fr;
+        grid-template-rows: 1fr ;
+        gap: 2px;
+    }
+    .cart-product-container{
+        margin-top:30px;
+        margin-bottom: 10px;
+        
+    }
+    .product-description .product-name{
+        font-size: 13px;
+    }
+    .product-description .product-price{
+        font-size:11px
+    }
+}

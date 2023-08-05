@@ -10,6 +10,7 @@ export default class Cart {
 
 
 
+
     }
 
     
@@ -18,7 +19,7 @@ export default class Cart {
         this.getCart(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
         // console.log('expand')
     }
-    async getCart(cart) {
+    async getCart() {
         const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
             try {
               const response = await fetch(`http://localhost:8080/shop/cart?cart=${cartquery}`);
@@ -37,7 +38,7 @@ export default class Cart {
           productshtml += this.cartProductCard(product);
         }
         this.cartProductContainer.innerHTML = productshtml;
-        cart.innerHTML = productshtml;
+        // cart.innerHTML = productshtml;
         this.totalprice(productsdata);
       };
 
@@ -72,10 +73,9 @@ export default class Cart {
 
   const cart = new Cart();
   const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
-  cart.getCart(cart.checkoutCart);
 
 // console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
 
-
+cart.getCart();
 
   

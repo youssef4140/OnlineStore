@@ -82,9 +82,9 @@ class Checkout {
           <img src="${product.image}">
           </div>
           <div class="product-btns">
-            <button>-</button>
+            <button class="dec-product">-</button>
             <div><span class="cart-product-counter">1</span></div>
-            <button>+</button>
+            <button class="inc-product">+</button>
             <a><i class="fa-regular fa-trash-can"></i></a>
 
           </div>
