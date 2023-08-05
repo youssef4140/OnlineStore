@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+
+        <link rel="stylesheet" href="/stylesheets/login.css">        
+    </head>
+    <body>
+
+        <form onsubmit="return false" id="form">
+
+            <h1>Login</h1>
+        
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        
+            <a onclick="forget()">Forget your password?</a>
+        
+            <button class="sign" type="submit">SIGN IN</button>
+            <button> <a href="register.html">Create ACCOUNT</a> </button>
+
+            <div id="g_id_onload"
+                    data-client_id="708309533369-seta0qag3n2t6n0ph6ppalt9gkesjsej.apps.googleusercontent.com"
+                    data-context="signup"
+                    data-ux_mode="popup"
+                    data-callback="googleSign"
+                    data-auto_prompt="false">
+            </div>
+            
+            <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="signup_with"
+                    data-size="large"
+                    data-logo_alignment="left">
+            </div>
+        
+        </form>
+        
+        
+        <script src="/javascript/login.js"></script>
+        <script src="https://accounts.google.com/gsi/client" async></script>
+    </body>
+</html>
+
+
