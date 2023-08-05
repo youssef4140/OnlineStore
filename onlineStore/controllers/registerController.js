@@ -1,11 +1,38 @@
 import usersModel from'../models/usersModel.js';
 import auth from '../middlewares/authentication.js';
-import yup, { date } from 'yup';
+import googleVerify from '../services/googleVerify.js';
+
+import yup from 'yup';
 
 
 const formRegister  =  async(req,res) => {
 
     let user = req.body;
+
+    createUser(res, user);
+
+}
+
+const googleRegister  =  async(req,res) => { 
+
+   const googleEmail = await googleVerify(req.body.credential).catch(
+     (error)=>{res.status(400).send('not verified')} 
+     );
+
+    const user = {
+        firstName: googleEmail.given_name,
+        lastName: googleEmail.family_name,
+        email: googleEmail.email,
+        password: googleEmail.iat.toString()
+    }
+
+    createUser(res, user);
+}
+
+
+
+async function createUser(res, user){
+
     user.lastActive = new Date();
     
     const vScheme = yup.object({
@@ -36,12 +63,6 @@ const formRegister  =  async(req,res) => {
     catch(error){
          res.status(400).send(error.toString());
     }
-
-}
-
-const googleRegister  =  async(req,res) => {
-
-
 
 }
 

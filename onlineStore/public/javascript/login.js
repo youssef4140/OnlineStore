@@ -1,6 +1,5 @@
 
-const register = async (url, data)=> {
-
+const login = async (url, data)=> {
     try{
         const response = await fetch(url, {
             method: "POST", 
@@ -37,13 +36,33 @@ form.addEventListener("submit", ()=>{
 
     const data = JSON.stringify(Object.fromEntries(formData));
 
-    register('/register/form',data);
+    login('/login/form',data);
 });
 
 
 globalThis.googleSign = async (response)=>{
     const data = JSON.stringify(response);
 
-    register('/register/google',data);
+    login('/login/google',data);
+
+}
+
+
+const forget= async()=>{
+
+    const formData = new FormData(form);
+
+    const data = JSON.stringify(Object.fromEntries(formData));
+
+        const response = await fetch("/login/forgetPassword", {
+            method: "POST", 
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: data, 
+            });
+
+            resData = await response.text();
+            alert(resData)
 
 }

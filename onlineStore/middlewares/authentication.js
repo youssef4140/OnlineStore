@@ -14,7 +14,7 @@ exports.generateToken = (user)=>{
     
 }
 
-exports.verify = (req,res,next)=>{
+exports.verify = async(req,res,next)=>{
 
     try{
 
@@ -22,7 +22,7 @@ exports.verify = (req,res,next)=>{
 
         const decoded = jwt.verify(token, secretKey);
 
-        if ( !usersModel.find(decoded.email) )  throw "user not found"  
+        if ( (await usersModel.countDocuments({email: decoded.email})) == 0 )  throw "user not found" 
 
         next();
     }

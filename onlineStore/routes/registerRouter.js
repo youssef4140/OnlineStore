@@ -7,9 +7,9 @@ const router = express.Router();
 router.use(express.json());
 
 
-router.post('/register/form', formRegister);
+router.post('/form', formRegister);
 
-router.post('/register/google', googleRegister);
+router.post('/google', googleRegister);
 
 
 export default router;

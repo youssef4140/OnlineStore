@@ -3,7 +3,11 @@ import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
-import registerRoute from './routes/registerRoute.js'
+import registerRouter from './routes/registerRouter.js'
+import loginRouter from './routes/loginRouter.js'
+import lastActive from './middlewares/lastActive.js'
+
+
 
 
 const __filename = fileURLToPath(import.meta.url);
@@ -24,9 +28,12 @@ mongoose
         console.log(e);
     });
 
+app.use(lastActive);
+
 app.use(express.static('public'))
 
-app.use("/", registerRoute);
+app.use("/register", registerRouter);
+app.use("/login", loginRouter);
 
 
 app.get("/",(req,res)=>{
