@@ -3,6 +3,8 @@ import express from "express";
 import mongoose from "mongoose";
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
+import registerRoute from './routes/registerRoute.js'
+
 
 const __filename = fileURLToPath(import.meta.url);
 const __dirname = dirname(__filename);
@@ -23,6 +25,9 @@ mongoose
     });
 
 app.use(express.static('public'))
+
+app.use("/", registerRoute);
+
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname + '/public/views/index.html');

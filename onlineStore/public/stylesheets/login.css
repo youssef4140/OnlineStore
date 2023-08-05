@@ -70,3 +70,7 @@ form button.sign{
 form a:hover,button:hover{
     opacity: 80%;
 }
+
+.g_id_signin{
+    margin-top: 30px;
+}
