@@ -119,6 +119,10 @@ class Products extends Cart {
     return cartItems.includes(id) ? false : true;
   };
   addtocart = (button, id) => {
+    // if(!this.cartlist){
+    //   this.cartlist = [id]
+    //   return
+    // }
     this.cartlist.includes(id)
       ? this.cartlist.splice(this.cartlist.indexOf(id), 1)
       : this.cartlist.push(id);
