@@ -3,17 +3,18 @@ import express from "express";
 import { Product } from "../models/productsModel.js";
 
 class ProductController {
-  constructor() {}
+  constructor() {
+    this.sort ={
+      alphabaticallyAtoZ : {title:1},
+      alphabaticallyZtoA : {title:-1},
+      priceLowToHigh: {price:1},
+      priceHighToLow: {price:-1}
+    }
+  }
 
   async findProducts(req,res){
     const page = parseInt(req.query.page) * 8;
     const sortquery = req.query.sort
-    const sort ={
-      alphabaticallyAtoZ : {title:1},
-      alphabaticallyZtoA : {title:-1},
-      priceLowToHigh: {price:-1},
-      priceHighToLow: {price:1}
-    }
     let pricefilter;
     if(req.query.range){
       let pricerange;
@@ -25,13 +26,37 @@ class ProductController {
         pricefilter = null;
       }
     }
-    const products = await Product.find(pricefilter).skip(page).limit(9).sort(sort[sortquery])
+    const products = await Product.find(pricefilter).skip(page).limit(9).sort(this.sort[sortquery])
     res.json(products);
+    res.end();
+
   }
 
-  // async filterProducts(range) {
-    
-  // }
+
+  async findSearch(req, res){
+    const searchQuery = req.query.search;
+    try{
+      const searchResult = await Product.find({title:{$regex:new RegExp(searchQuery, 'i')}});
+    res.json(searchResult);
+
+    } catch (error){
+      console.error("Error:", error);
+
+    }
+  }
+
+
+  async findSingleProduct(req,res){
+    const productId = req.query.id
+    console.log('result:',productId)
+    try{
+      const product = await Product.findById(productId);
+      console.log(product);
+      res.json(product);
+    }catch (error){
+      console.error("Error:", error);
+    }
+  }
 
 }
 
