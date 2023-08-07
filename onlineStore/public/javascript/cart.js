@@ -3,7 +3,7 @@
 export default class Cart {
     constructor(){
         this.cartProductContainer = document.getElementById('cart-product-container');
-        this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
+        this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-') || [];
         this.cartList = JSON.parse(localStorage.getItem('cartitems'));
         this.cartbtn = document.querySelector('#cart-btn');
         this.checkoutPrice = document.querySelector('#checkout-price');
@@ -72,7 +72,7 @@ export default class Cart {
   }
 
   const cart = new Cart();
-  const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
+  // const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
 
 // console.log(JSON.parse(localStorage.getItem('cartitems')).join('-'));
 
