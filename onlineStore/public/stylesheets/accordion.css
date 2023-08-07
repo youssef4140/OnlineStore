@@ -1,0 +1,147 @@
+
+.accordion-container{
+    margin-left: 20px;
+}
+.parent-btn{
+    display:none
+}
+.accordion-container{
+    display:flex;
+    flex-direction: column;
+    width:300px;
+    height: fit-content;
+}
+.accordion-btn{
+    width:100%;
+    height: 50px;
+    background-color: transparent;
+    outline: none;
+    border:none;
+    border-bottom:1px solid rgba(87, 87, 87, 0.4);
+    font-weight: 200;
+    letter-spacing: 0.08rem;
+    margin:0;
+}
+.accordion-btn span{
+    margin-left:auto;
+    font-size: large;
+    font-weight: 100;
+    transition: 0.2s ease-in-out;
+    display:inline-block;
+}
+.accordion{
+    max-height:fit-content;
+    overflow: hidden;
+    max-height: 1000px; 
+    transition: 0.5s ease-in-out 
+}
+
+.accordion-active{
+    max-height:0px;
+
+    transition: 0.5s ease-in-out 
+    
+}
+.plus-rotate{
+    transform: rotate(45deg);
+    transition: 0.2s ease-in-out;
+}
+
+
+
+.sort {
+    z-index:5;
+    margin-bottom:3vh;
+    width:100%;
+    text-align: left;
+    margin-top: 30px;
+    
+}
+ .sort .sort-list {
+    list-style-type: none;
+    margin:0px 20px;
+    width:20%; 
+    display:none;
+    position: absolute;
+    background-color: rgb(255, 255, 255);
+}
+
+.sort .sort-list li {
+    cursor: pointer;
+    padding: 5px;
+    text-align: left;
+    background-color: white;
+
+
+
+}
+.sort .sort-list li:hover {
+    color: rgb(255, 253, 253);
+    background-color: rgba(0, 0, 0, 0.7);
+    
+
+}
+#listdropdown.show {
+    display:block
+}
+
+
+ .sort em {
+    position: relative;
+    top: 10px;
+    left: 20px;
+    background-color: white;
+    font-style: normal;
+    font-weight: 300;
+}
+ .sort button {
+    border:rgba(0, 0, 0, 0.18) solid 1px;
+    padding: 14px 0 14px 0px;
+    background-color: white;
+    width: 270px;
+    text-align: left;
+
+}
+ .sort button span {
+    padding-left: 2%;
+    padding-right: 15%;
+}
+
+#sort-chevron {
+    transition: 0.2s ease-in-out;
+
+}
+#sort-chevron.chevron-rotate{
+    transform: rotate(-180deg);
+    transition: 0.2s ease-in-out;
+
+}
+
+
+@media screen and (max-width: 767px) {
+    .accordion-container{
+       margin-top: 40px;
+       margin-bottom:40px;
+    }
+    .parent-btn{
+        display:inline-block;
+        width:300px;
+        position: relative;
+        left: 10px
+    }
+.accordion{
+    max-height:0px;
+    transition: 0.5s ease-in-out 
+}
+.accordion-active{
+    max-height: 500px; 
+    transition: 0.5s ease-in-out 
+    
+}
+.plus-rotate{
+    transform: rotate(45deg);
+    transition: 0.2s ease-in-out;
+}
+
+}
+
