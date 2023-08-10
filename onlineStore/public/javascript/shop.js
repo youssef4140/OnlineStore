@@ -28,7 +28,7 @@ import Cart from './cart.js';
           if (event.target.matches('.card-image-container')) {
             const productId = event.target.dataset;
             console.log(productId);
-            // window.location.href = `/product/${productId}`;
+            window.location.href = `/product/${productId}`;
           }
         });
 
@@ -87,10 +87,11 @@ import Cart from './cart.js';
 
               <a href="/views/product.html?id=${product._id}">
                 <img src="${product.image}">
-                </a>
                 <div class="click-me">
                 <span>Click me!</span>
                 </div>
+                </a>
+
               </div>
               <div class="product-desc">
                   <span class="product-title">${product.title}</span>
@@ -107,10 +108,11 @@ import Cart from './cart.js';
              <div class="card-image-container">
              <a href="/views/product.html?id=${product._id}">
                <img src="${product.image}">
-               </a>
                <div class="click-me">
                <span>Click me!</span>
                </div>
+               </a>
+
 
              </div>
              <div class="product-desc">
