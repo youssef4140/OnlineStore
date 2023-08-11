@@ -7,7 +7,7 @@ const router = express.Router();
 router.use(express.json());
 
 
-router.get('/', getDashboard);
+router.get('/:startDate/:endDate', getDashboard);
 
 
 export default router;

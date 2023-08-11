@@ -3,12 +3,13 @@
 <header class="dash">
     <h1>
         Dashboard
+        <i class="fa-solid fa-spinner" id="spinner"></i>
     </h1>
 
     <div>
-    <input type="date" min="2018-01-01" value="2018-01-01">
+    <input id="startDate" type="date" min="2018-01-01" value="2018-01-01">
     <i class="fa-solid fa-chevron-right"></i>
-    <input type="date" min="2018-01-01" value="2018-07-22">
+    <input id="endDate" type="date" min="2018-01-01" value="2018-07-22">
     </div>
 
 </header>
@@ -16,34 +17,34 @@
 
 <section class="grid">
 
-    <div class="value v1">
+    <div class="value v1" >
         <h4>Total sells</h4>
-        <span>$3799.00</span>
+        <span id="totalSells">loading .. </span>
     </div>
 
-    <div class="value v2">
+    <div class="value v2" >
         <h4>Total orders</h4>
-        <span>578</span>
+        <span id="totalOrders">loading .. </span>
     </div>
 
-    <div class="value v3">
+    <div class="value v3" >
         <h4>Average order value</h4>
-        <span>$272.98</span>
+        <span id="averageOrderValue">loading .. </span>
     </div>
 
-    <div class="active">
+    <div class="active" >
         <h3>Active users</h3>
-        <span>148</span>
+        <span id="activeUser">loading .. </span>
     </div>
 
     <div class="statistics">
-        <canvas id="income"></canvas>
+        <canvas id="yearSales"></canvas>
     </div>
 
     <div class="sales">
         <h3>Sales by category</h3>
-        <canvas id="sales"></canvas>
-        <div><span class="catColor" style="background-color: #b91d47;"></span>Everyday wear<span></span></div>
+        <canvas id="categoriesSales"></canvas>
+        <!-- <div><span class="catColor" style="background-color: #b91d47;"></span>Everyday wear<span></span></div>
         <div><span class="catColor" style="background-color: #00aba9;"></span>Headwear<span></span></div>
         <div><span class="catColor" style="background-color: #2b5797;"></span>Outerwear<span></span></div>
         <div><span class="catColor" style="background-color: #e8c3b9;"></span>Packs & Luggage<span></span></div>
@@ -51,7 +52,7 @@
         <div><span class="catColor" style="background-color: purple;"></span>Shorts<span></span></div>
         <div><span class="catColor" style="background-color: blue;"></span>Sweaters<span></span></div>
         <div><span class="catColor" style="background-color: orange;"></span>Tees & Knits<span></span></div>
-        <div><span class="catColor" style="background-color: brown;"></span>Woven Shirts<span></span></div>
+        <div><span class="catColor" style="background-color: brown;"></span>Woven Shirts<span></span></div> -->
     </div>
 
     <div class="recent">
@@ -60,22 +61,29 @@
             <thead>
                 <tr>
                     <th>
-                        No.
+                        Customer Name
                     </th>
                     <th>
                         Status
                     </th>
                     <th>
-                        Customer
+                        Payment Method
                     </th>
                     <th>
-                        Date
+                        Shipping Country
                     </th>
                     <th>
                         Total
                     </th>
                 </tr>
             </thead>
+
+            <tbody id="lastOrders">
+                <tr>
+                    <td colspan="5">loading ..</td>
+                </tr>
+            </tbody>
+
         </table>
     </div>
 
