@@ -10,7 +10,8 @@ router.use(express.json());
 
 router.get('/getDashboard/:startDate/:endDate', getDashboard);
 
-router.get('/getProducts/:searchValue', getProducts);
+router.get('/getProducts/:searchValue/:skip', getProducts);
+router.get('/getProducts//:skip', getProducts);
 
 
 export default router;

@@ -4,8 +4,12 @@
     
     <h1>
         Products
-        <!-- <i class="fa-solid fa-spinner" id="spinner"></i> -->
+        <i class="fa-solid fa-spinner" id="spinner"></i>
     </h1>
+
+    <button>
+        New product
+    </button>
 
 </header>
 
@@ -14,22 +18,18 @@
 
     <thead>
         <tr>
-            <th colspan="6">
-                <input type="text">
+            <th colspan="7">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search" placeholder="Start typing to search products">
+                </div>
             </th>
         </tr>
     </thead>
 
     <thead>
         <tr>
-            <th>
-                image
-            </th>
-            <th>
-                Title
-            </th>
-            <th>
-                Price
+            <th colspan="2">
+                Product
             </th>
             <th>
                 Description
@@ -40,11 +40,17 @@
             <th>
                 Price
             </th>
+            <th>
+                
+            </th>
+            <th>
+                
+            </th>
         </tr>
     </thead>
 
     <tbody id="products">
-
+        
     </tbody>
 
 </table>

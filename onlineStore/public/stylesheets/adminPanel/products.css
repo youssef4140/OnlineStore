@@ -9,29 +9,75 @@ header.products{
 
 header.products h1{
     font-size: 30px;
-    width: 70%;
+    width: 80%;
     min-width: 400px;
+}
+
+header.products button{
+    padding: 10px;
+    background-color: var(--yellow);
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
 }
 
 
 .productList{
     width: 100%;
     border-collapse: collapse; 
+    background-color: white;
+    border: solid;
+    border-width: thin;
+    border-color: rgba(128, 128, 128, 0.363);
+    margin-bottom: 30px;
 }
 .productList th, td {
     text-align: left;
-    padding: 10px;
+    padding: 20px;
     border-bottom: solid;
     border-width: thin;
-    border-color: gray;
+    border-color: rgba(128, 128, 128, 0.363);
 }
 .productList tr{
    
 }
 
-.productList input{
-    width: 70%;
+.productList .search{
+    display: flex;
 }
+.productList .search i{
+    border: solid;
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+.productList .search input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline-color: rgba(128, 128, 128, 0.363);;
+}
+
+.productList img{
+    width: 50px;
+}
+
+.productList img{
+    width: 50px;
+}
+
+.productList button{
+    padding: 10px;
+    background-color: var(--yellow);
+    border: none;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+
+
+
 
 
 
