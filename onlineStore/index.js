@@ -1,7 +1,7 @@
 import dotnav from "dotenv";
 import express from "express";
 import mongoose from "mongoose";
-import dashboardRouter from './routes/dashboardRouter.js';
+import adminPanelRouter from './routes/adminPanelRouter.js';
 import { fileURLToPath } from 'url';
 import { dirname } from 'path';
 
@@ -25,7 +25,7 @@ mongoose
 
 app.use(express.static('public'))
 
-app.use('/getDashboard', dashboardRouter);
+app.use('/adminPanel', adminPanelRouter);
 
 app.get("/",(req,res)=>{
     res.sendFile(__dirname + '/public/views/index.html');

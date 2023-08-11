@@ -1,6 +1,7 @@
 
 async function products(){
     
+    const productsElement = document.getElementById("products")
   
 }
   

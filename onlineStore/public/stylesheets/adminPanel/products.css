@@ -14,6 +14,25 @@ header.products h1{
 }
 
 
+.productList{
+    width: 100%;
+    border-collapse: collapse; 
+}
+.productList th, td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: solid;
+    border-width: thin;
+    border-color: gray;
+}
+.productList tr{
+   
+}
+
+.productList input{
+    width: 70%;
+}
+
 
 
 

@@ -32,6 +32,8 @@ header.dash div i{
     grid-template-areas: 'value1 value2 value3' 'active statistics statistics' 'recent recent sales';
     column-gap: 30px;
     row-gap: 30px;
+
+    margin-bottom: 30px;
 }
 
 

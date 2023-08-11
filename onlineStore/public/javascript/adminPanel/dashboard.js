@@ -12,7 +12,7 @@ async function dashboard(){
 
   async function getDashboard(){
 
-    const response =  await fetch(`/getDashboard/${startDate.value}/${endDate.value}`);
+    const response =  await fetch(`/adminPanel/getDashboard/${startDate.value}/${endDate.value}`);
 
     const dash = await response.json();
 
@@ -94,7 +94,7 @@ function renderCategoriesSales(categoriesSales){
         }]
       },
       options: {
-        legend: {display: true},
+        legend: {display: false},
         title: {
           display: false,
           text: "Sales by category"
