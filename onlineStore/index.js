@@ -6,6 +6,9 @@ import { dirname } from 'path';
 import registerRouter from './routes/registerRouter.js'
 import loginRouter from './routes/loginRouter.js'
 import lastActive from './middlewares/lastActive.js'
+import authentication from './middlewares/authentication.js'
+import authorization from './middlewares/authorization.js'
+import cookieParser from 'cookie-parser'
 
 
 
@@ -36,7 +39,7 @@ app.use("/register", registerRouter);
 app.use("/login", loginRouter);
 
 
-app.get("/",(req,res)=>{
+app.get("/", (req,res)=>{
     res.sendFile(__dirname + '/public/views/index.html');
 })
 

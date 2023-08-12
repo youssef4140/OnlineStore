@@ -50,13 +50,15 @@ async function createUser(res, user){
     
         else{
 
+        user.role = "customer";
+
         await usersModel.create(user);
         
-        user.id = (await usersModel.find({email: user.email}))[0].id;
+        user.id = (await usersModel.findOne({email: user.email})).id;
 
-        user.token = auth.generateToken({email: user.email});
+        user.token = auth.generateToken({email: user.email, role: user.role});
             
-        res.send(user);
+        res.cookie('token', user.token).send(user);
         }
 
     }
