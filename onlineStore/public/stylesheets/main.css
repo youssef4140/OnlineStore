@@ -236,27 +236,402 @@ body {
   font-size: 20px;
 }
 
-@media screen and (max-width: 1000px) {
-  .second-nav .main-nav {
-    flex-direction: column-reverse;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
-  }
+/* carousel-section */
+.hero {
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  /* max-height: 500px; */
+}
 
-  .second-nav .main-nav .links {
+.hero .item {
+  width: 100%;
+}
+
+.hero .item .image-container {
+  max-width: 100%;
+  max-height: 100%;
+  overflow: hidden;
+}
+
+.hero .item .image-container img {
+  height: 500px;
+}
+.scale-down-center {
+  -webkit-animation: scale-down-center 8s cubic-bezier(0.25, 0.46, 0.45, 0.94)
+    forwards;
+  animation: scale-down-center 8s cubic-bezier(0.25, 0.46, 0.45, 0.94) forwards;
+}
+
+@-webkit-keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+@keyframes scale-down-center {
+  0% {
+    -webkit-transform: scale(1.5);
+    transform: scale(1.5);
+  }
+  100% {
+    -webkit-transform: scale(1);
+    transform: scale(1);
+  }
+}
+
+.hero .carousel-content {
+  text-align: left;
+  color: var(--secondary-color);
+}
+.hero .carousel-content p {
+  width: 350px;
+}
+
+.hero .carousel-content h5 {
+  position: relative;
+}
+
+@keyframes line {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 50px;
+  }
+}
+
+.hero .carousel-content h5::after {
+  content: "";
+  position: absolute;
+  animation: line 5s forwards;
+  height: 2px;
+  width: 0;
+  z-index: 100;
+  background-color: var(--main-color);
+  bottom: -5px;
+  left: 0;
+}
+
+.hero .carousel-content .buttons button:first-of-type {
+  padding: 15px 25px;
+  color: var(--secondary-color);
+  border: 1px var(--secondary-color) solid;
+  outline: none;
+  background-color: transparent;
+  font-size: var(--font-size-text);
+  margin-right: 10px;
+
+  transition: 0.5s;
+}
+
+.hero .carousel-content .buttons button:first-of-type:hover {
+  background-color: var(--secondary-color);
+  color: var(--third-color);
+}
+.hero .carousel-content .buttons button:last-of-type {
+  padding: 15px 25px;
+  color: var(--secondary-color);
+  border: none;
+  outline: none;
+  background-color: var(--main-color);
+  font-size: var(--font-size-text);
+  transition: 0.5s;
+}
+.hero .carousel-content .buttons button:last-of-type:hover {
+  background-color: #816428;
+}
+
+.hero .carousel-content .carousel-btn {
+  display: flex;
+  justify-content: flex-end;
+  align-items: center;
+}
+
+.hero .carousel-content .carousel-btn button {
+  color: var(--secondary-color);
+  padding: 5px;
+  background-color: var(--main-color);
+  margin-right: 10px;
+  outline: none;
+  border: none;
+  transition: 0.5s;
+}
+
+.hero .carousel-content .carousel-btn button span {
+  filter: none;
+}
+
+.hero .carousel-content .carousel-btn button:hover {
+  background-color: #816428;
+}
+
+/* collectio section */
+
+.collections {
+  margin: 3rem 0;
+}
+/* 
+.collections .carousel-inner .carousel-item.active,
+.collections .carousel-inner .carousel-item-next,
+.collections .carousel-inner .carousel-item-prev {
+  display: flex;
+} */
+
+/* .collections .carousel-inner .carousel-item-end.active,
+.collections .carousel-inner .carousel-item-next {
+  transform: translateX(25%);
+}
+
+.collections .carousel-inner .carousel-item-start.active,
+.collections .carousel-inner .carousel-item-prev {
+  transform: translateX(-25%);
+}
+
+.collections .carousel-inner .carousel-item-end,
+.collections .carousel-inner .carousel-item-start {
+  transform: translateX(0);
+} */
+
+.collections .products-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  margin: 6rem;
+  gap: 3rem;
+}
+
+.collections .card {
+  width: 100%;
+  border: none;
+  border-radius: 0;
+  text-align: center;
+}
+
+.collections .image-wrapper {
+  max-height: 100%;
+  max-width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.collections .image-wrapper img {
+  width: 100%;
+  height: 300px;
+  transition: 0.7s;
+}
+
+.collections .image-wrapper img:hover {
+  scale: 1.2;
+}
+
+.collections .image-wrapper .image-overlay {
+  position: absolute;
+  background-color: var(--main-color);
+  z-index: 3000;
+  bottom: 10px;
+  right: 10px;
+  filter: none;
+  padding: 10px;
+  border: none;
+  transition: 0.4s;
+}
+
+.collections .image-wrapper .image-overlay i {
+  color: var(--secondary-color);
+}
+
+.collections .image-wrapper .image-overlay:hover {
+  background-color: #816428;
+}
+
+.collections .carousel-btn a span {
+  filter: none;
+}
+.collections .carousel-btn a {
+  filter: none;
+  padding: 5px 0;
+  height: fit-content;
+  color: black;
+  top: 50%;
+  width: max-content;
+  background-color: var(--main-color);
+  opacity: 0.7;
+  transition: 0.4s;
+}
+
+.collections .carousel-btn a:hover {
+  opacity: 1;
+}
+
+.collections .info {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.collections .title {
+  position: relative;
+  color: #6d6d6d;
+  margin-bottom: 20px;
+}
+
+.collections .title::after {
+  content: "";
+  height: 2px;
+  width: 0;
+  animation: line 3s forwards;
+  bottom: -8px;
+  left: 35px;
+  position: absolute;
+  background-color: var(--main-color);
+}
+
+.collections .info .fields button {
+  padding: 10px 15px;
+  border: none;
+  background-color: white;
+  margin: 0 10px;
+  transition: 0.5s;
+  border-bottom: 2px solid var(--main-color);
+}
+
+.collections .info .fields button:last-of-type {
+  color: red;
+  border-bottom: 2px solid red;
+}
+
+.collections .info .fields button:hover {
+  background-color: #816428;
+  color: var(--secondary-color);
+  border: none;
+}
+
+.clicked {
+  background-color: #816428 !important ;
+  color: var(--secondary-color) !important;
+  border: none !important ;
+}
+
+.click {
+  background-color: #f11 !important;
+  color: var(--secondary-color) !important;
+  border: none !important;
+}
+
+/* social-media section */
+
+.social-media {
+  margin: 3rem 0;
+}
+
+.social-media .carousel-item .content {
+  margin: 2rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+  color: #464545;
+}
+
+.social-media .carousel-item h3 {
+  font-size: 40px;
+  color: #6d6d6d;
+}
+
+.social-media .carousel-item h4 {
+  line-height: 40px;
+  width: 60%;
+  margin-bottom: 20px;
+}
+
+.social-media .carousel-item p:first-of-type {
+  margin: 0;
+}
+
+.social-media .carousel-item p:last-of-type {
+  color: #6d6d6d;
+  font-size: var(--font-size-text);
+  margin: 0;
+}
+
+/* philosophy section */
+
+.philosophy {
+  max-width: 100%;
+  position: relative;
+  margin: 3rem;
+}
+
+.philosophy img {
+  width: 100%;
+  height: 600px;
+  filter: invert(10%);
+}
+
+.philosophy-overlay {
+  position: absolute;
+  color: white;
+  top: 50%;
+  right: 50%;
+  transform: translate(50%, -50%);
+  text-align: center;
+}
+
+.philosophy-overlay h1 {
+  margin-bottom: 2rem;
+  font-weight: bold;
+}
+.philosophy-overlay h4 {
+  width: 70%;
+  /* font-weight: var(--font-bold); */
+  line-height: 40px;
+  width: 100%;
+}
+
+.philosophy .philosophy-overlay p {
+  margin-top: 3rem;
+}
+
+.philosophy .philosophy-overlay button {
+  padding: 1rem 2rem;
+  border: 1px solid var(--secondary-color);
+  color: var(--secondary-color);
+  background-color: transparent;
+  font-size: var(--font-size-text);
+  transition: 0.4s;
+}
+
+.philosophy .philosophy-overlay button:hover {
+  color: var(--third-color);
+  background-color: var(--secondary-color);
+}
+
+@media (max-width: 767px) {
+  /* .collections .carousel-inner .carousel-item > div {
+    display: none;
     width: 100%;
-    justify-content: center;
-    align-items: center;
-    margin: auto;
-    padding-top: 0;
+  }
+  .collections .carousel-inner .carousel-item > div:first-child {
+    display: block;
+  } */
+
+  .social-media .carousel-item h4 {
+    font-size: 25px;
+    width: fit-content;
   }
 
-  .second-nav .icons .dropdowns p {
-    width: 80px;
+  .philosophy {
+    margin: 1rem;
   }
 
-  .second-nav .links li .dropdown-collections {
-    top: 174px;
+  .philosophy-overlay h4 {
+    font-size: 21px;
+    width: fit-content;
   }
 }
