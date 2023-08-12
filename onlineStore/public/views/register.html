@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="referrer" content="no-referrer-when-downgrade" />
+
+        <link rel="stylesheet" href="/stylesheets/login.css">        
+    </head>
+    <body>
+
+        <form onsubmit="return false" id="form">
+
+            <h1>Create Account</h1>
+
+            <label for="firstName">First Name</label>
+            <input type="text" name="firstName" id="firstName" required>
+
+            <label for="lastName">Last Name</label>
+            <input type="text" name="lastName" id="lastName" required> 
+
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+        
+            <label for="password">Password</label>
+            <input type="password" name="password" id="password" required>
+        
+            <button class="sign" type="submit">CREATE</button>
+            <button> <a href="shop.html">RETURN TO STORE</a> </button>
+
+            <div id="g_id_onload"
+                    data-client_id="708309533369-seta0qag3n2t6n0ph6ppalt9gkesjsej.apps.googleusercontent.com"
+                    data-context="signup"
+                    data-ux_mode="popup"
+                    data-callback="googleSign"
+                    data-auto_prompt="false">
+            </div>
+            
+            <div class="g_id_signin"
+                    data-type="standard"
+                    data-shape="pill"
+                    data-theme="outline"
+                    data-text="signup_with"
+                    data-size="large"
+                    data-logo_alignment="left">
+            </div>
+        
+        </form>
+        
+
+
+        <script src="/javascript/register.js"></script>
+        <script src="https://accounts.google.com/gsi/client" async></script>
+    </body>
+</html>
+
+
