@@ -32,6 +32,8 @@ mongoose
     });
 
 app.use(lastActive);
+app.use(cookieParser());
+app.use("/views/admin.html", authentication.verify, authorization.adminVerify);
 
 app.use(express.static('public'))
 
