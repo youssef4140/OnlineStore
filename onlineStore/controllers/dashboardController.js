@@ -62,9 +62,10 @@ async function getCategoriesSales(dateFilter){
 
     const categoriesSales = {};
 
+    const categoriesShort = ["men", "electronics", "jewelery", "women"];
     const categories = ["men's clothing", "electronics", "jewelery", "women's clothing"];
 
-    for( let cat of categories){
+    for( let [key, cat] of categoriesShort.entries()){
 
         const orders =  await ordersModel.aggregate([
             // Unwind the products array in each order
@@ -92,14 +93,14 @@ async function getCategoriesSales(dateFilter){
               },
     
               {
-                $match: { "productDetails.category": cat, date : dateFilter }
+                $match: { "productDetails.category": {$regex : cat}, date : dateFilter }
               },
               {
                 $count: "count"
               }
           ]);
 
-          categoriesSales[cat] = orders[0]?.count || 0;
+          categoriesSales[categories[key]] = orders[0]?.count || 0;
 
     }
    
