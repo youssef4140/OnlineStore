@@ -16,19 +16,34 @@ class ProductController {
     const page = parseInt(req.query.page) * 8;
     const sortquery = req.query.sort
     let pricefilter;
-    if(req.query.range){
-      let pricerange;
-      pricerange = req.query.range.split("X")
-      if (pricerange[0] !== 'Infinity') {
-        pricefilter =  { price: { $gte: pricerange[0], $lte: pricerange[1] } }
+    let categoryfilter;
+    let query = {$and:[]}
+    console.log(req.query.category, req.query.range)
+    try{
+      if(req.query.range){
+        let pricerange;
+        pricerange = req.query.range.split("X")
+        if (pricerange[0] !== 'Infinity') {
+          pricefilter =  { price: { $gte: pricerange[0], $lte: pricerange[1] } }
+          query.$and.push(pricefilter)
+        }
+        if(pricerange[0] === 'infinity'){
+          pricefilter = null;
+        }
       }
-      if(pricerange[0] === 'infinity'){
-        pricefilter = null;
+      if(req.query.category){
+        let categories = req.query.category.split('-')
+        categoryfilter = { category: { $in: categories}}
+        query.$and.push(categoryfilter)
       }
+      if(!req.query.category && (!req.query.range)) query={};
+      const products = await Product.find(query).skip(page).limit(9).sort(this.sort[sortquery])
+      res.json(products);
+      res.end();
+    } catch (error){
+      console.error("Error:",error)
     }
-    const products = await Product.find(pricefilter).skip(page).limit(9).sort(this.sort[sortquery])
-    res.json(products);
-    res.end();
+
 
   }
 

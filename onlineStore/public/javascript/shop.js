@@ -157,7 +157,9 @@ class SortAndFilter extends Products {
     this.priceCheckboxes = document.querySelectorAll(".pricebox");
     this.sortbtn = document.querySelector("#sorttext");
     this.selectedPrices = [];
-
+    this.allCategoryCheckbox = document.querySelector("#category-all");
+    this.categoryCheckBoxes = document.querySelectorAll('.categorybox')
+    this.selectedCategory = [];
     this.alphabaticallyAtoZ.addEventListener("click", () => {
       this.sort = "alphabaticallyAtoZ";
       this.getSortedResults();
@@ -194,13 +196,49 @@ class SortAndFilter extends Products {
       }
       this.updateSelectedPrices();
     });
+
+    this.categoryCheckBoxes.forEach((checkbox) => {
+      checkbox.addEventListener("change", () => {
+        if (checkbox.checked) {
+          this.allCategoryCheckbox.checked = false;
+        }
+        this.updateSelectedCategory();
+      });
+    });
+    this.allCategoryCheckbox.addEventListener("change", () => {
+      if (this.allCategoryCheckbox.checked) {
+        this.categoryCheckBoxes.forEach((checkbox) => {
+          checkbox.checked = false;
+        });
+      }
+      this.updateSelectedCategory();
+    });
   }
 
   getSortedResults() {
     const url = `${this.pageUrl}?page=${this.pageNumber}&sort=${
       this.sort
-    }&range=${this.getRange()}`;
+    }&range=${this.getRange()}&category=${this.getCategory()}`;
     this.get(url);
+  }
+  
+  updateSelectedCategory(){
+    this.selectedCategory = [];
+
+    this.categoryCheckBoxes.forEach((checkbox)=>{
+      if (checkbox.checked) {
+        const category = checkbox.value;
+        this.selectedCategory.push(category)
+
+      }
+    })
+    // console.log(this.selectedCategory)
+    this.getSortedResults();
+  }
+
+  getCategory(){
+    const category = this.selectedCategory.join("-")
+    return category;
   }
 
   updateSelectedPrices() {
@@ -213,7 +251,9 @@ class SortAndFilter extends Products {
         this.selectedPrices.push(priceValues);
         // console.log(this.selectedPrices)
       }
+
     });
+        // console.log(this.selectedPrices)
 
     this.getSortedResults();
   }
