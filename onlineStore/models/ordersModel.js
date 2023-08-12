@@ -1,14 +1,14 @@
-// const mongoose = require("mongoose");
 import mongoose from "mongoose";
-
 
 const orderSchema = new mongoose.Schema({
     products: [{ _id: String, quantity: Number, color: String, size: String, price: Number}],
     paymentMethod: String,
     shippingMethod: String,
     userId: String,
-    subTotal: String,
-    totalPrice: String,
+    subTotal: Number,
+    totalPrice: Number,
+    status: String,
+    date: Date,
     shippingInfo: {
         first_name: String,
         last_name: String,
@@ -23,6 +23,6 @@ const orderSchema = new mongoose.Schema({
       }
 });
 
-export const order = mongoose.model("order", orderSchema);
+const order = mongoose.model("order", orderSchema);
 
-// module.exports = order;
+export default order;

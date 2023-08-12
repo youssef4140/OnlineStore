@@ -17,18 +17,19 @@ exports.generateToken = (user)=>{
 exports.verify = async(req,res,next)=>{
 
     try{
-
-        const [_, token] = req.headers.authorization?.split(" ");
-
+        // const [_, token] = req.headers.authorization?.split(" ");
+        
+        const token = req.cookies.token;
         const decoded = jwt.verify(token, secretKey);
 
-        if ( (await usersModel.countDocuments({email: decoded.email})) == 0 )  throw "user not found" 
+        res.locals.user = decoded;
+
 
         next();
     }
     catch (error){
 
-        res.send("Not Authenticated, please login with authenticated user first")
+        res.status(400).send("Not Authenticated, please login with authenticated user first")
 
     }
     

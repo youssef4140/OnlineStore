@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="/stylesheets/adminPanel/fontawesome-free-6.4.0-web/css/fontawesome.css">
+        <link rel="stylesheet" href="/stylesheets/adminPanel/fontawesome-free-6.4.0-web/css/all.css">
+        <link rel="stylesheet" href="/stylesheets/adminPanel/main.css">
+    </head>
+    <body>
+
+        <nav class="sideNav" id="sideNav">
+
+            <header> <span>GUNNERS</span>  <span>ADMIN</span> </header>
+
+            <ul>
+                <li onclick="route('dashboard');"><i class="fa-solid fa-gauge-high"></i> Dashboard</li>
+                <li onclick="route('products')"><i class="fa-solid fa-database"></i> Products</li>
+                <li onclick="route('orders')"><i class="fa-solid fa-cart-shopping"></i> Orders</li>
+                <li onclick="route('users')"><i class="fa-solid fa-user"></i> Users</li>
+            </ul>
+
+
+        </nav>
+
+        <section class="page" id="page">
+            <div class="after" onclick="navToggle.remove()"></div>
+
+            <nav class="pageNav">
+                <i  onclick="navToggle.toggle()" class="fa-solid fa-bars"></i>
+
+                <div>
+                    <span id="adminEmail">email</span>
+                </div>
+
+            </nav>
+
+            <section id="router">
+
+            </section>
+
+        </section>
+        
+        <script src="/javascript/adminPanel/Chart.js" ></script>
+        <script src="/javascript/adminPanel/main.js" async defer></script>
+    </body>
+</html>
+

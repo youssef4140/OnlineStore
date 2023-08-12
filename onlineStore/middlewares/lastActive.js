@@ -8,13 +8,10 @@ const lastActive = async(req,res,next)=>{
 
     try{
 
-        if (req.headers.authorization){
-            console.log('ok')
-            const [_, token] = req.headers.authorization?.split(" ");
-        
+        if (req.cookies.token){
+
+            const token = req.cookies.token;
             const decoded = jwt.verify(token, secretKey);
-    
-            if ( (await usersModel.countDocuments({email: decoded.email})) == 0 )  throw "user not found" 
     
             await usersModel.updateOne({email: decoded.email }, {lastActive: new Date()})
         }

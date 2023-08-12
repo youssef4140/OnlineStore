@@ -1,0 +1,159 @@
+
+body,html{
+    margin: 0px;
+    padding: 0px;
+    display: flex;
+    width: 100%;
+    background-color: rgb(245, 247, 250);
+    --black:#3d464d;
+    --yellow:#ffd333;
+}
+
+.page{
+    width: 100%;
+    box-sizing: border-box;
+    margin-left: 270px;
+    transition: 0.5s;
+    position: relative;
+}
+.page.toggle{
+    margin-left: 0px;
+}
+.page .after{
+    display: none;
+}
+
+.pageNav{
+    position: sticky;
+    top: 0;
+    z-index: 1;
+    width: 100%;
+    height: 75px;
+    background-color: white;
+    display: flex;
+    align-items: center;
+}
+.pageNav i{
+    margin-left: 20px;
+    font-size: 25px;
+    cursor: pointer;
+}
+.pageNav div{
+    width: 300px;
+    margin-left: calc(100% - 320px);
+    overflow: hidden;
+}
+
+.pageNav div span{
+    display: block;
+    word-break: break-all
+}
+
+
+
+
+
+
+
+
+
+
+.sideNav{
+    position: fixed;
+    top: 0;
+    z-index: 1;
+    width: 270px;
+    box-sizing: border-box;
+    height: 100vh;
+    background-color: var(--black);
+    color: white;
+    font-family: sans-serif;
+    transition: 0.5s;
+    overflow: hidden;
+}
+.sideNav.toggle{
+    width: 0px;
+}
+
+
+.sideNav header{
+    background-color: var(--yellow);
+    padding: 20px;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.sideNav header span:first-child{
+    color: black;
+    font-size: 24px;
+    letter-spacing: 5px;
+    font-weight: 900;
+}
+
+.sideNav header span:last-child{
+    background-color: white;
+    padding: 5px 15px;
+    color: black;
+    font-size: 12px;
+    font-weight: 900;
+}
+
+.sideNav ul{
+   list-style:none;
+   margin: 0;
+   padding: 0;
+   margin-top: 20px;
+}
+.sideNav li{
+    display: flex;
+    font-size: 20px;
+    cursor: pointer;
+    padding: 15px 30px;
+}
+.sideNav li:hover{
+    background-color: gray;
+}
+.sideNav i{
+    margin-right: 10px;
+}
+
+
+#router{
+    padding: 0px 30px;
+    box-sizing: border-box;
+    width: 100%;
+    font-family: sans-serif;
+}
+
+
+@media only screen and (max-width: 992px) {
+
+    .page{
+        margin-left: 0px ;
+    }
+    .page.toggle{
+        margin-left: 0px;
+        position: relative;
+        
+    }
+    .page.toggle .after{
+        display: block;
+        position: absolute;
+        top: 0;
+        width: 100vw;
+        height: 100vh;
+        background-color: rgba(128, 128, 128, 0.484);
+        cursor: pointer;
+    }
+
+
+    .sideNav{
+        width: 0px;
+    }
+
+    .sideNav.toggle{
+        width: 250px;
+    }
+
+}

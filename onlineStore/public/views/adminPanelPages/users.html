@@ -1,0 +1,83 @@
+<link rel="stylesheet" href="/stylesheets/adminPanel/products.css">
+
+<header class="products">
+    
+    <h1>
+        Users
+        <i class="fa-solid fa-spinner" id="spinner"></i>
+    </h1>
+
+    <button id="new">
+        New user
+    </button>
+
+</header>
+
+<form class="modal hidden" id="modal" onsubmit="return false">
+
+    <h2>User</h2>
+
+    <label for="firstName">First name: </label><input id="firstName" name="firstName" type="text" required>
+    <label for="lastName">Last name: </label><input id="lastName" name="lastName" type="text" required>
+    <label for="email">Email: </label><input name="email" id="email" required></input>
+    <label for="role">Role: </label>
+    <select name="role" id="role">
+        <option value="customer">customer</option>
+        <option value="admin">admin</option>
+        <option value="super admin">super admin</option>
+    </select>
+    <label for="password">Password: </label><input id="password" name="password" type="text" required>
+
+    <button type="submit" id="addUser">Add</button>
+    <button type="submit" id="saveUser">Save edits</button>
+
+</form>
+<div class="grayBack hidden" id="grayBack"></div>
+
+
+<table class="productList">
+
+    <thead>
+        <tr>
+            <th colspan="8">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search" placeholder="Start typing to search products">
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th>
+                first Name
+            </th>
+            <th>
+                Last Name
+            </th>
+            <th>
+                Email
+            </th>
+            <th>
+                Password
+            </th>
+            <th>
+                Role
+            </th>
+            <th>
+                Last Active
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+
+    <tbody id="users">
+
+    </tbody>
+
+</table>
