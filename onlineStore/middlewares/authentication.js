@@ -22,10 +22,9 @@ exports.verify = async(req,res,next)=>{
         const token = req.cookies.token;
         const decoded = jwt.verify(token, secretKey);
 
-        if ( (await usersModel.countDocuments({email: decoded.email})) == 0 )  throw "user not found" ;
+       // if ( (await usersModel.countDocuments({email: decoded.email})) == 0 )  throw "user not found" ;
 
         res.locals.user = decoded;
-
 
         next();
     }
