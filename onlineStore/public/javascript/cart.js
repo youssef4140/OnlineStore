@@ -12,10 +12,12 @@ export default class Cart {
 
   expandcart = () => {
     this.cartProductContainer.classList.toggle("cart-container-expands");
-    this.getCart(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
+    this.getCart();
     // console.log('expand')
   };
   async getCart() {
+    this.cartList = JSON.parse(localStorage.getItem("cartitems")) || [];
+    this.cartquery = this.cartList.join("-");
     try {
       if (this.cartquery) {
         const response = await fetch(

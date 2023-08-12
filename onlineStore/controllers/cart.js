@@ -30,7 +30,7 @@ class CartController {
         // res.json({url:'hi'})
         // console.log( await this.findLineItems(req,res))
         try{
-            console.log(req.body)
+            //console.log(req.body)
             const session = await stripe.checkout.sessions.create({
                 payment_method_types: ['card'],
                 mode: 'payment',

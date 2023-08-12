@@ -18,7 +18,7 @@ class ProductController {
     let pricefilter;
     let categoryfilter;
     let query = {$and:[]}
-    console.log(req.query.category, req.query.range)
+    //console.log(req.query.category, req.query.range)
     try{
       if(req.query.range){
         let pricerange;
@@ -63,10 +63,10 @@ class ProductController {
 
   async findSingleProduct(req,res){
     const productId = req.query.id
-    console.log('result:',productId)
+    //console.log('result:',productId)
     try{
       const product = await Product.findById(productId);
-      console.log(product);
+      //console.log(product);
       res.json(product);
     }catch (error){
       console.error("Error:", error);
