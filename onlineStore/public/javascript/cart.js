@@ -1,39 +1,36 @@
-
-
 export default class Cart {
   constructor() {
-    this.cartProductContainer = document.getElementById('cart-product-container');
-    this.cartList = JSON.parse(localStorage.getItem('cartitems')) || []
-    this.cartquery = this.cartList.join('-');
+    this.cartProductContainer = document.getElementById(
+      "cart-product-container"
+    );
+    this.cartList = JSON.parse(localStorage.getItem("cartitems")) || [];
+    this.cartquery = this.cartList.join("-");
 
-    this.cartbtn = document.querySelector('#cart-btn');
-    this.checkoutPrice = document.querySelector('#checkout-price');
-
-
-
-
+    this.cartbtn = document.querySelector("#cart-btn");
+    this.checkoutPrice = document.querySelector("#checkout-price");
   }
-
 
   expandcart = () => {
-    this.cartProductContainer.classList.toggle('cart-container-expands')
+    this.cartProductContainer.classList.toggle("cart-container-expands");
     this.getCart(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
     // console.log('expand')
-  }
+  };
   async getCart() {
     try {
       if (this.cartquery) {
-        const response = await fetch(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
+        const response = await fetch(
+          `http://localhost:8080/shop/cart?cart=${this.cartquery}`
+        );
         const result = await response.json();
         console.log(result);
         this.rendercart(result);
       } else {
-        return
+        return;
       }
     } catch (error) {
       console.error("Error:", error);
     }
-  };
+  }
 
   rendercart(productsdata) {
     let productshtml = "";
@@ -44,12 +41,10 @@ export default class Cart {
     this.cartProductContainer.innerHTML = productshtml;
     // cart.innerHTML = productshtml;
     this.totalprice(productsdata);
-  };
-
+  }
 
   cartProductCard(product) {
-    const productshtml =
-      `<div class="cart-product-card">
+    const productshtml = `<div class="cart-product-card">
         <div class="product-container">
           <div class="product-image-container">
           <img src="${product.image}">
@@ -59,25 +54,21 @@ export default class Cart {
           <span class="product-price">${product.price}</span>
         </div>
       </div>
-    </div>`
+    </div>`;
     return productshtml;
   }
 
   totalprice(products) {
-    let price = 0
+    let price = 0;
     for (let i = 0; i < products.length; i++) {
       price += products[i].price;
     }
     this.checkoutPrice.innerHTML = price;
-
   }
-
-
 }
 
 const cart = new Cart();
 // const cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
 
-console.log(JSON.parse(localStorage.getItem('cartitems')));
+console.log(JSON.parse(localStorage.getItem("cartitems")));
 cart.getCart();
-

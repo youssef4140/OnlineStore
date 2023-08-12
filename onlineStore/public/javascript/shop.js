@@ -17,13 +17,13 @@ class Products extends Cart {
       this.pageup();
     });
 
-        this.productsContainer.addEventListener('click', (event) => {
-          if (event.target.matches('.card-image-container')) {
-            const productId = event.target.dataset;
-            console.log(productId);
-            window.location.href = `/product/${productId}`;
-          }
-        });
+    this.productsContainer.addEventListener("click", (event) => {
+      if (event.target.matches(".card-image-container")) {
+        const productId = event.target.dataset;
+        console.log(productId);
+        window.location.href = `/product/${productId}`;
+      }
+    });
     this.pageDown.addEventListener("click", () => {
       this.pagedown();
     });
@@ -158,7 +158,7 @@ class SortAndFilter extends Products {
     this.sortbtn = document.querySelector("#sorttext");
     this.selectedPrices = [];
     this.allCategoryCheckbox = document.querySelector("#category-all");
-    this.categoryCheckBoxes = document.querySelectorAll('.categorybox')
+    this.categoryCheckBoxes = document.querySelectorAll(".categorybox");
     this.selectedCategory = [];
     this.alphabaticallyAtoZ.addEventListener("click", () => {
       this.sort = "alphabaticallyAtoZ";
@@ -221,23 +221,22 @@ class SortAndFilter extends Products {
     }&range=${this.getRange()}&category=${this.getCategory()}`;
     this.get(url);
   }
-  
-  updateSelectedCategory(){
+
+  updateSelectedCategory() {
     this.selectedCategory = [];
 
-    this.categoryCheckBoxes.forEach((checkbox)=>{
+    this.categoryCheckBoxes.forEach((checkbox) => {
       if (checkbox.checked) {
         const category = checkbox.value;
-        this.selectedCategory.push(category)
-
+        this.selectedCategory.push(category);
       }
-    })
+    });
     // console.log(this.selectedCategory)
     this.getSortedResults();
   }
 
-  getCategory(){
-    const category = this.selectedCategory.join("-")
+  getCategory() {
+    const category = this.selectedCategory.join("-");
     return category;
   }
 
@@ -251,9 +250,8 @@ class SortAndFilter extends Products {
         this.selectedPrices.push(priceValues);
         // console.log(this.selectedPrices)
       }
-
     });
-        // console.log(this.selectedPrices)
+    // console.log(this.selectedPrices)
 
     this.getSortedResults();
   }
