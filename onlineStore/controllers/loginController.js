@@ -4,6 +4,7 @@ import googleVerify from '../services/googleVerify.js';
 import nodemailer  from 'nodemailer';
 
 import yup from 'yup';
+import user from '../models/usersModel.js';
 
 
 const formLogin  =  async(req,res) => {
@@ -59,12 +60,12 @@ const googleLogin  =  async(req,res) => {
 
 async function sendUser(res, userEmail){
 
-    const foundUser = (await usersModel.find({email: userEmail}).lean().exec())[0];
+    const foundUser = await usersModel.findOne({email: userEmail}).lean();
 
-    foundUser.token = auth.generateToken({email: userEmail});
+    foundUser.token = auth.generateToken({email: userEmail, role: foundUser.role});
     foundUser.id = foundUser._id;
     
-    res.send(foundUser);
+    res.cookie('token', foundUser.token).send(foundUser);
 }
 
 
@@ -72,7 +73,7 @@ const forgetPassword  =  async(req,res) => {
 
     if ( (await usersModel.countDocuments({email: req.body.email})) > 0 ){
         
-        const foundUser = (await usersModel.find({email: req.body.email}).lean().exec())[0];
+        const foundUser = await usersModel.find({email: req.body.email}).lean();
 
         let transporter = nodemailer.createTransport({
             service: 'gmail',

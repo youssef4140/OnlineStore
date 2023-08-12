@@ -1,5 +1,3 @@
-// const mongoose = require("mongoose");
-
 import mongoose from "mongoose";
 
 // const productSchema = new mongoose.Schema({
@@ -8,19 +6,26 @@ import mongoose from "mongoose";
 //     made: { type: String, required: true },
 //     features: { type: Array, required: true },
 //     ProductType: { type: String, required: true },
-//     price: { type: String, required: true },
+//     price: { type: Number, required: true },
 //     brand: { type: String, required: true },
 //     images: { type: Array, required: true },
+//     colors: { type: Array, required: true },
 //     sizes: { type: Array, required: true },
 //     stock: { type: Number, required: true },
-//     colors: { type: Array, required: true },
 // });
 
 const productSchema = new mongoose.Schema({
-    name: { type: String, required: true},
-    price: {type: Number, required: true}
-})
+    title: { type: String, required: true},
+    description: { type: String, required: true },
+    price: { type: Number, required: true },
+    category: { type: String, required: true },
+    image: { type: String, required: true },
+    rating: { 
+        rate: Number,
+        count: Number 
+     }
+});
 
-export const Product = mongoose.model("products", productSchema, "products")
+const product = mongoose.model("product", productSchema);
 
-// module.exports = product;
+export default product;

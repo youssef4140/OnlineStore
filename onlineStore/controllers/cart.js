@@ -1,4 +1,4 @@
-import { Product } from "../models/productsModel.js";
+import  Product  from "../models/productsModel.js";
 import Stripe from "stripe";
 import dotenv from "dotenv"; 
 dotenv.config()

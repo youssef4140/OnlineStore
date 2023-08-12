@@ -1,6 +1,6 @@
 
 import express from "express";
-import { Product } from "../models/productsModel.js";
+import  Product  from "../models/productsModel.js";
 
 class ProductController {
   constructor() {

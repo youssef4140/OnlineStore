@@ -1,0 +1,91 @@
+<link rel="stylesheet" href="/stylesheets/adminPanel/dashboard.css">
+
+<header class="dash">
+    
+    <h1>
+        Dashboard
+        <i class="fa-solid fa-spinner" id="spinner"></i>
+    </h1>
+
+    <div>
+    <input id="startDate" type="date" min="2018-01-01" value="2018-01-01">
+    <i class="fa-solid fa-chevron-right"></i>
+    <input id="endDate" type="date" min="2018-01-01" value="2018-07-22">
+    </div>
+
+</header>
+
+
+<section class="grid">
+
+    <div class="value v1" >
+        <h4>Total sells</h4>
+        <span id="totalSells">loading .. </span>
+    </div>
+
+    <div class="value v2" >
+        <h4>Total orders</h4>
+        <span id="totalOrders">loading .. </span>
+    </div>
+
+    <div class="value v3" >
+        <h4>Average order value</h4>
+        <span id="averageOrderValue">loading .. </span>
+    </div>
+
+    <div class="active" >
+        <h3>Active users</h3>
+        <span id="activeUser">loading .. </span>
+    </div>
+
+    <div class="statistics">
+        <canvas id="yearSales"></canvas>
+    </div>
+
+    <div class="sales">
+        <h3>Sales by category</h3>
+        <canvas id="categoriesSales"></canvas>
+        <div><span class="catColor" style="background-color: #b91d47;"></span>men's clothing<span></span></div>
+        <div><span class="catColor" style="background-color: #00aba9;"></span>electronics<span></span></div>
+        <div><span class="catColor" style="background-color: #2b5797;"></span>jewelery<span></span></div>
+        <div><span class="catColor" style="background-color: #e8c3b9;"></span>women's clothing<span></span></div>
+        <!--<div><span class="catColor" style="background-color: #1e7145;"></span>Patches & Pins<span></span></div>
+        <div><span class="catColor" style="background-color: purple;"></span>Shorts<span></span></div>
+        <div><span class="catColor" style="background-color: blue;"></span>Sweaters<span></span></div>
+        <div><span class="catColor" style="background-color: orange;"></span>Tees & Knits<span></span></div>
+        <div><span class="catColor" style="background-color: brown;"></span>Woven Shirts<span></span></div> -->
+    </div>
+
+    <div class="recent">
+        <h3>Recent orders</h3>
+        <table >
+            <thead>
+                <tr>
+                    <th>
+                        Customer Name
+                    </th>
+                    <th>
+                        Status
+                    </th>
+                    <th>
+                        Payment Method
+                    </th>
+                    <th>
+                        Shipping Country
+                    </th>
+                    <th>
+                        Total
+                    </th>
+                </tr>
+            </thead>
+
+            <tbody id="lastOrders">
+                <tr>
+                    <td colspan="5">loading ..</td>
+                </tr>
+            </tbody>
+
+        </table>
+    </div>
+
+</section>

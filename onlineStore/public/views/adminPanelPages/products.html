@@ -1,0 +1,78 @@
+<link rel="stylesheet" href="/stylesheets/adminPanel/products.css">
+
+<header class="products">
+    
+    <h1>
+        Products
+        <i class="fa-solid fa-spinner" id="spinner"></i>
+    </h1>
+
+    <button id="new">
+        New product
+    </button>
+
+</header>
+
+<form class="modal hidden" id="modal" onsubmit="return false">
+
+    <h2>Product</h2>
+
+    <label for="image">Image link: </label><input id="image" name="image" type="text" required>
+    <label for="title">Title: </label><input id="title" name="title" type="text" required>
+    <label for="description">Description: </label><textarea name="description" id="description" cols="30" rows="10" required></textarea>
+    <label for="category">Category: </label>
+    <select name="category" id="category">
+        <option value="men's clothing">men's clothing</option>
+        <option value="electronics">electronics</option>
+        <option value="jewelery">jewelery</option>
+        <option value="women's clothing">women's clothing</option>
+    </select>
+    <label for="price">Price in dollars: </label><input id="price" name="price" type="number" required>
+
+    <button type="submit" id="addProduct">Add</button>
+    <button type="submit" id="saveProduct">Save edits</button>
+
+</form>
+<div class="grayBack hidden" id="grayBack"></div>
+
+
+<table class="productList">
+
+    <thead>
+        <tr>
+            <th colspan="7">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search" placeholder="Start typing to search products">
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th colspan="2">
+                Product
+            </th>
+            <th>
+                Description
+            </th>
+            <th>
+                Category
+            </th>
+            <th>
+                Price
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+
+    <tbody id="products">
+
+    </tbody>
+
+</table>

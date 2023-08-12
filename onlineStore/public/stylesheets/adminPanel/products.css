@@ -1,0 +1,144 @@
+
+header.products{
+    display: flex;
+    align-items: center;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    margin-bottom: 20px;
+}
+
+header.products h1{
+    font-size: 30px;
+    width: 80%;
+    min-width: 400px;
+}
+
+header.products button{
+    padding: 10px;
+    background-color: var(--yellow);
+    border: none;
+    font-size: 17px;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+
+.productList{
+    width: 100%;
+    border-collapse: collapse; 
+    background-color: white;
+    border: solid;
+    border-width: thin;
+    border-color: rgba(128, 128, 128, 0.363);
+    margin-bottom: 30px;
+}
+.productList th, td {
+    text-align: left;
+    padding: 20px;
+    border-bottom: solid;
+    border-width: thin;
+    border-color: rgba(128, 128, 128, 0.363);
+}
+.productList tr{
+   
+}
+
+.productList .search{
+    display: flex;
+}
+.productList .search i{
+    border: solid;
+    padding: 10px;
+    background-color: white;
+    border: none;
+}
+.productList .search input{
+    width: 100%;
+    padding: 10px;
+    border: none;
+    outline-color: rgba(128, 128, 128, 0.363);;
+}
+
+.productList img{
+    width: 50px;
+}
+
+.productList img{
+    width: 50px;
+}
+
+.productList button{
+    padding: 10px;
+    background-color: var(--yellow);
+    border: none;
+    font-weight: bold;
+    margin-left: 10px;
+    cursor: pointer;
+}
+.productList i{
+    cursor: pointer;
+}
+
+
+.modal{
+    position: absolute;
+    top:50px;
+    left:calc(50% - 250px);
+    width: 500px;
+    height: fit-content;
+    background-color: rgb(245, 247, 250);
+    box-sizing: border-box;
+    padding: 30px;
+    z-index: 100;
+}
+
+.modal button{
+    background-color: var(--yellow);
+    color: black;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.modal input, .modal textarea, .modal select{
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding:10px;
+    color: black;
+    border: solid;
+    border-width: thin;
+}
+
+.grayBack{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(128, 128, 128, 0.39);
+    cursor:pointer;
+}
+
+
+
+
+
+.fa-spinner{
+    animation-name: spin;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-timing-function:linear;
+}
+.hidden{
+    display: none;
+}
+
+@keyframes spin {
+    from {transform:rotate(0deg);}
+    to {transform:rotate(360deg);}
+}
