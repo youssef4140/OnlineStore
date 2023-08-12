@@ -1,3 +1,4 @@
+
 class Navbar {
   constructor() {
     this.closeBtn = document.querySelector(".closebtn");
@@ -129,8 +130,20 @@ const signout = () => {
     localStorage.removeItem(key);
   }
 
-  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC;";
   location.reload();
 }
 
+try{
+  const token = localStorage.getItem("token");
+
+  const role = JSON.parse( atob(token.split(".")[1]) ).role;
+  
+  if (role === "admin" || role ==="super admin"){
+    document.getElementById("adminPanelNav").classList.remove("d-none")
+  }
+}
+catch{
+  
+}
 
