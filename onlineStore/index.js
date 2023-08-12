@@ -35,7 +35,7 @@ mongoose
     
 app.use(cookieParser());
 app.use(lastActive);
-app.use("/views/admin.html", authentication.verify, authorization.adminVerify,);
+app.use("/views/admin.html", authentication.verify, authorization.adminVerify);
 app.use("/views/adminPanelPages/users.html", authentication.verify, authorization.superAdminVerify);
 app.use("/javascript/adminPanel/users.js", authentication.verify,authorization.superAdminVerify);
 
@@ -51,6 +51,9 @@ app.use("/login", loginRouter);
 
 app.get("/", (req,res)=>{
     res.sendFile(__dirname + '/public/views/index.html');
+})
+app.get("/admin", authentication.verify, authorization.adminVerify, (req,res)=>{
+    res.sendFile(__dirname + '/public/views/admin.html');
 })
 
 

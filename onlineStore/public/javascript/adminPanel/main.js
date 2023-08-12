@@ -27,7 +27,7 @@ const navToggle = {
 
 async function route(page){
 
-const result = await fetch(`adminPanelPages/${page}.html`);
+const result = await fetch(`/views/adminPanelPages/${page}.html`);
 
 const pageHtml = await result.text()
 
