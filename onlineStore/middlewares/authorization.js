@@ -33,7 +33,7 @@ exports.superAdminVerify = async(req,res,next)=>{
             next();
         }
         else{
-            throw "not admin"
+            throw "not super admin"
         }
 
     }
