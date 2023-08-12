@@ -20,8 +20,7 @@
                 <li onclick="route('dashboard');"><i class="fa-solid fa-gauge-high"></i> Dashboard</li>
                 <li onclick="route('products')"><i class="fa-solid fa-database"></i> Products</li>
                 <li onclick="route('orders')"><i class="fa-solid fa-cart-shopping"></i> Orders</li>
-                <li onclick="route('customers')"><i class="fa-solid fa-user"></i> Customers</li>
-                <li onclick="route('admins')"><i class="fa-solid fa-user-tie"></i> Admins</li>
+                <li onclick="route('users')"><i class="fa-solid fa-user"></i> Users</li>
             </ul>
 
 
@@ -32,6 +31,11 @@
 
             <nav class="pageNav">
                 <i  onclick="navToggle.toggle()" class="fa-solid fa-bars"></i>
+
+                <div>
+                    <span id="adminEmail">email</span>
+                </div>
+
             </nav>
 
             <section id="router">

@@ -11,10 +11,10 @@
 
 <form class="modal hidden" id="modal" onsubmit="return false">
 
-    <h2>Add order</h2>
+    <h2>Order</h2>
 
     <label for="totalPrice">Total Price: </label><input id="totalPrice" name="totalPrice" type="number" required>
-    <label for="shippingMethod">Shipping Method: </label><textarea name="shippingMethod" id="shippingMethod" cols="30" rows="10" required></textarea>
+    <label for="shippingMethod">Shipping Method: </label><input name="shippingMethod" id="shippingMethod" type="text"  required></input>
     <label for="paymentMethod">Payment Method: </label><input id="paymentMethod" name="paymentMethod" type="text" required>
     <label for="status">Status: </label>
     <select name="status" id="status">
@@ -33,7 +33,7 @@
 
     <thead>
         <tr>
-            <th colspan="7">
+            <th colspan="8">
                 <div class="search">
                     <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search" placeholder="Start typing to search orders">
                 </div>

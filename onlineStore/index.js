@@ -31,9 +31,12 @@ mongoose
         console.log(e);
     });
 
-app.use(lastActive);
+    
 app.use(cookieParser());
-app.use("/views/admin.html", authentication.verify, authorization.adminVerify);
+app.use(lastActive);
+app.use("/views/admin.html", authentication.verify, authorization.adminVerify,);
+app.use("/views/adminPanelPages/users.html", authentication.verify, authorization.superAdminVerify);
+app.use("/javascript/adminPanel/users.js", authentication.verify,authorization.superAdminVerify);
 
 app.use(express.static('public'))
 

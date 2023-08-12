@@ -1,5 +1,6 @@
 
-
+adminEmail = document.getElementById("adminEmail");
+adminEmail.innerHTML = localStorage.getItem("email");
 
 const navToggle = {
 
