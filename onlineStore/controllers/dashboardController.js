@@ -62,7 +62,7 @@ async function getCategoriesSales(dateFilter){
 
     const categoriesSales = {};
 
-    const categories = ["men's clothing", "electronics", "jewelery"];
+    const categories = ["men's clothing", "electronics", "jewelery", "women's clothing"];
 
     for( let cat of categories){
 

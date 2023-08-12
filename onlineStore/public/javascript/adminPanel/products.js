@@ -1,27 +1,111 @@
 
+let searchElement;
+let newButton;
+let modal;
+let grayBack;
+let addProduct;
+let saveProduct;
+let spinner;
+let productsElement;
+let skip;
+let productToEdit;
+let productToDelete;
+
 async function products(){
 
-    const values = {skip:0};
-    
-    const searchElement = document.getElementById("search");
-    
-    getProducts(values);
+    searchElement = document.getElementById("search");
+    newButton = document.getElementById("new");
+    modal = document.getElementById("modal");
+    grayBack = document.getElementById("grayBack");
+    addProduct = document.getElementById("addProduct");
+    saveProduct = document.getElementById("saveProduct");
+    spinner = document.getElementById("spinner");
+    productsElement = document.getElementById("products");
+    skip = 0;
+
+    await getProducts();
 
     searchElement.onkeyup = ()=>{
-        getProducts(values);
+        skip = 0;
+        getProducts();
+    }
+
+    newButton.onclick = ()=>{
+
+        modal.classList.remove("hidden");
+        grayBack.classList.remove("hidden");
+        addProduct.classList.remove("hidden");
+        saveProduct.classList.add("hidden");
+
+        fillForm({image:"", title:"", description:"", category : "men's clothing", price: 0});
+
+    }
+    
+    grayBack.onclick = ()=>{
+        modal.classList.add("hidden");
+        grayBack.classList.add("hidden");
+    }
+
+    addProduct.onclick = async()=>{
+
+        const formData = new FormData(modal);
+        const data = JSON.stringify(Object.fromEntries(formData))
+
+        const response = await fetch(`/adminPanel/addProduct`,{
+            method: "POST",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
+
+        if (response.status >= 400 && response.status < 600) {
+            alert(await response.text());
+        }
+        else{
+            modal.classList.add("hidden");
+            grayBack.classList.add("hidden");
+            getProducts();
+        }
+
+    }
+
+    saveProduct.onclick = async()=>{
+
+        const formData = new FormData(modal);
+        const data = JSON.stringify(Object.fromEntries(formData))
+
+        const response = await fetch(`/adminPanel/editProduct/${productToEdit._id}`,{
+            method: "PUT",
+            headers: {
+              "Content-Type": "application/json",
+            },
+            body: data,
+          });
+
+        if (response.status >= 400 && response.status < 600) {
+            alert(await response.text());
+        }
+        else{
+            modal.classList.add("hidden");
+            grayBack.classList.add("hidden");
+            getProducts();
+        }
+
     }
 
 }
 
 
-async function getProducts(values){
-
-    const searchElement = document.getElementById("search");
-    const spinner = document.getElementById("spinner");
+async function getProducts(){
 
     spinner.classList.remove("hidden");
 
-    const response =  await fetch(`/adminPanel/getProducts/${searchElement.value}/${values.skip}`);
+    const response =  await fetch(`/adminPanel/getProducts/${searchElement.value}/${skip}`);
+    
+    if (response.status >= 400 && response.status < 600) {
+        alert(await response.text());
+    }
 
     const resJson = await response.json()
     
@@ -31,34 +115,63 @@ async function getProducts(values){
 
     spinner.classList.add("hidden");
 
-    renderProducts(products, productCount, values);
+    renderProducts(products, productCount);
 
     const nextElement = document.getElementById("next");
     const previousElement = document.getElementById("previous");
 
-
-    nextElement.disabled = (values.skip+9 >= productCount)? true:false;
-    previousElement.disabled = (values.skip-9 < 0)? true:false;
-
     nextElement.onclick = ()=>{
-        values.skip+= 9;
-        getProducts(values);
+        skip+= 9;
+        getProducts();
     }
     previousElement.onclick = ()=>{
-        values.skip-= 9;
-        getProducts(values);
+        skip-= 9;
+        getProducts();
+    }
+
+    for(const key in products){
+
+        const editButton = document.getElementById("edit" + key);
+        const deleteButton = document.getElementById("delete" + key);
+
+        editButton.onclick = ()=>{
+            fillForm(products[key]);
+            modal.classList.remove("hidden");
+            grayBack.classList.remove("hidden");
+            productToEdit = products[key];
+            addProduct.classList.add("hidden");
+            saveProduct.classList.remove("hidden");
+        }
+
+        deleteButton.onclick = async()=>{
+
+            productToDelete = products[key];
+
+            const response = await fetch(`/adminPanel/deleteProduct/${productToDelete._id}`,{
+                method: "DELETE",
+                headers: {
+                  "Content-Type": "application/json",
+                }
+              });
+    
+            if (response.status >= 400 && response.status < 600) {
+                alert(await response.text());
+            }
+            else{
+                getProducts();
+            }
+        }
+
     }
 
 
 }
 
-function renderProducts(products, productCount, values){
-
-    const productsElement = document.getElementById("products");
+function renderProducts(products, productCount){
 
     let html = "";
 
-    for (const product of products){
+    for (const [index, product] of products.entries()){
       html += `
         <tr>
             <td>
@@ -77,10 +190,10 @@ function renderProducts(products, productCount, values){
                 ${"$" + product.price}
             </td>
             <td>
-                <i class="fa-regular fa-pen-to-square"></i>
+                <i class="fa-regular fa-pen-to-square" id="edit${index}"></i>
             </td>
             <td>
-                <i class="fa-solid fa-trash-arrow-up"></i>
+                <i class="fa-solid fa-trash-arrow-up" id="delete${index}"></i>
             </td>
         </tr>
     `;
@@ -89,11 +202,11 @@ function renderProducts(products, productCount, values){
     html += `
             <tr >
                 <td colspan="3">
-                    <button id="previous" >Previous</button>
-                    <button id="next" >Next</button>
+                    <button id="previous" ${(skip-9 < 0)? "disabled":""} >Previous</button>
+                    <button id="next" ${(skip+9 >= productCount)? "disabled":"false"} >Next</button>
                 </td>
                 <td colspan="4">
-                    Showing ${values.skip +1} to ${(values.skip +9 > productCount)? productCount:values.skip +9 }
+                    Showing ${skip +1} to ${(skip +9 > productCount)? productCount:skip +9 }
                      of ${productCount}
                 </td>
             </tr>
@@ -103,7 +216,18 @@ function renderProducts(products, productCount, values){
     productsElement.innerHTML = html;
 
 }
-  
+ 
+function fillForm(data){
+
+    const keys =  ["image", "title", "description", "category", "price"];
+
+    for(const key of keys){
+
+        const element = document.getElementById(key);
+        element.value = data[key];
+
+    }
+}
   
   
   

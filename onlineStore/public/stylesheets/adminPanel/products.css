@@ -75,9 +75,54 @@ header.products button{
     margin-left: 10px;
     cursor: pointer;
 }
+.productList i{
+    cursor: pointer;
+}
 
 
+.modal{
+    position: absolute;
+    top:50px;
+    left:calc(50% - 250px);
+    width: 500px;
+    height: fit-content;
+    background-color: rgb(245, 247, 250);
+    box-sizing: border-box;
+    padding: 30px;
+    z-index: 100;
+}
 
+.modal button{
+    background-color: var(--yellow);
+    color: black;
+    padding: 10px 20px;
+    font-size: 20px;
+    border: none;
+    margin-left: 20px;
+    cursor: pointer;
+}
+
+.modal input, .modal textarea, .modal select{
+    box-sizing: border-box;
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 20px;
+    padding:10px;
+    color: black;
+    border: solid;
+    border-width: thin;
+}
+
+.grayBack{
+    position: absolute;
+    top: 0px;
+    left: 0px;
+    width: 100%;
+    height: 100%;
+    z-index: 10;
+    background-color: rgba(128, 128, 128, 0.39);
+    cursor:pointer;
+}
 
 
 
@@ -89,7 +134,7 @@ header.products button{
     animation-iteration-count: infinite;
     animation-timing-function:linear;
 }
-.fa-spinner.hidden{
+.hidden{
     display: none;
 }
 

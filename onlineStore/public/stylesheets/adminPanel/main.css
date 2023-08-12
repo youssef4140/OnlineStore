@@ -14,6 +14,7 @@ body,html{
     box-sizing: border-box;
     margin-left: 270px;
     transition: 0.5s;
+    position: relative;
 }
 .page.toggle{
     margin-left: 0px;
