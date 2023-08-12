@@ -24,7 +24,7 @@ class Checkout {
     }).then(({url}) =>{
       console.log(url);
       // this.checkoutPanel.src = url
-      // window.location = url
+      window.location = url
     }).catch(err =>{
       console.error(err.error)
     })

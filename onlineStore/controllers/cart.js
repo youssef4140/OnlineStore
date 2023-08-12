@@ -37,6 +37,14 @@ class CartController {
                 line_items: await this.findLineItems(req,res),
                 success_url: 'http://localhost:8080/views/shop.html',
                 cancel_url: 'http://localhost:8080/views/checkout.html',
+                shipping_address_collection: {
+                    allowed_countries: ['US','CA','AE'],
+                  },
+                  shipping_options: [
+                    {
+                      shipping_rate: 'shr_1Ne829J4aFi2GGEPucI2WL2y',
+                    },
+                ],
             })
             res.json({url: session.url})
         }catch(err){
