@@ -183,10 +183,10 @@ nav .second-nav {
   display: flex;
 }
 
-.s-navbar ul li .currency-dropdown {
+.s-navbar ul li .user-dropdown {
   position: relative;
 }
-.s-navbar ul li .currency-dropdown .currency-list {
+.s-navbar ul li .user-dropdown .user-list {
   position: absolute;
   display: block;
   flex-direction: column;
@@ -199,39 +199,51 @@ nav .second-nav {
   z-index: 9;
 }
 
-.s-navbar ul li .currency-dropdown button {
+.s-navbar ul li .user-dropdown button {
   height: 100%;
   padding: 19px 10px;
-  font-size: 12px;
+  font-size: 16px;
   font-weight: 300;
   color: #1a1a1a;
   letter-spacing: 0.5px;
   cursor: pointer;
   z-index: 4;
 }
-.s-navbar ul li .currency-dropdown button em {
+.s-navbar ul li .user-dropdown button em {
   border: rgba(0, 0, 0, 0.2) solid 1px;
   font-style: normal;
   padding: 6px;
 }
-.s-navbar ul li .currency-dropdown .currency-list li {
+.s-navbar ul li .user-dropdown .user-list li {
   background-color: rgba(0, 0, 0, 0.3);
   border-bottom: rgba(0, 0, 0, 0.2) solid 1px;
   cursor: pointer;
 }
-.s-navbar ul li .currency-dropdown .currency-list li:hover {
+.s-navbar ul li .user-dropdown .user-list li:hover {
   background-color: rgba(0, 0, 0, 1);
 }
-.s-navbar ul li .currency-dropdown .currency-list li a {
+/* .s-navbar ul li .user-dropdown .user-list li a {
   font-size: small;
   color: white;
-  font-size: 12px;
+  font-size: 15px;
   font-weight: 300;
   letter-spacing: 0.5px;
   cursor: pointer;
   z-index: 2;
+  background:transparent;
+} */
+.s-navbar ul li .user-dropdown .user-list li button {
+  font-size: small;
+  color: white;
+  font-size: 15px;
+  font-weight: 300;
+  letter-spacing: 0.5px;
+  cursor: pointer;
+  z-index: 2;
+  background:transparent;
+  padding:4px;
 }
-.s-navbar ul li .currency-dropdown:hover .currency-list {
+.s-navbar ul li .user-dropdown:hover .user-list {
   visibility: visible;
   opacity: 1;
   transition: opacity 0.4s ease-in-out;
@@ -413,7 +425,7 @@ nav .second-nav {
   .second-nav {
     height: 10vh;
   }
-  .currency-dropdown {
+  .user-dropdown {
     display: none;
   }
 

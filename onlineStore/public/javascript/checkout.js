@@ -11,10 +11,17 @@ class Checkout {
   this.cartquery = JSON.parse(localStorage.getItem('cartitems')).join('-')
   this.items = this.convertIdsToObjects(JSON.parse(localStorage.getItem('cartitems')))
   this.checkoutPanel = document.getElementById('checkout-panel');
+
+
   this.stripeBtn.addEventListener("click", ()=>{
-    fetch('http://localhost:8080/shop/checkout-session',{
+    const token = localStorage.getItem('token');
+    if (token){
+      fetch('http://localhost:8080/shop/checkout-session',{
       method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
+      headers: { 
+        'Content-Type': 'application/json',
+        'Authorization': `Bearer ${token}`
+      },
       body: JSON.stringify({
         items: this.items
       })
@@ -23,11 +30,14 @@ class Checkout {
       return res.json().then(json => Promise.reject(json))
     }).then(({url}) =>{
       console.log(url);
-      // this.checkoutPanel.src = url
       window.location = url
     }).catch(err =>{
       console.error(err.error)
     })
+    } else {
+      window.location = '/views/login.html'
+    }
+    
   })
   this.progressBar = {
       0 : 0,
@@ -108,24 +118,23 @@ class Checkout {
 
     CheckOutProductCard(product) {
       const productshtml =
-      `<div class="cart-product-card" data-product-id="${product._id}">
-      <div class="product-container">
-        <div class="product-image-container">
-        <img src="${product.image}">
+    `<div class="cart-product-card" data-product-id="${product._id}">
+        <div class="product-container">
+              <div class="product-image-container">
+                  <img src="${product.image}">
+              </div>
+              <div class="product-description">
+                  <span class="product-name">${product.title}</span>
+                  <span class="product-price">${product.price}</span>
+              </div>
+              <div class="product-btns">
+                <button  onclick="changeCount('${product._id}',-1,'${product.price}')">-</button>
+                <div><span class="cart-product-counter " >1</span></div>
+                <button  onclick="changeCount('${product._id}',1,'${product.price}')">+</button>
+                <button class="delete" onclick="deleteProduct('${product._id}')"><i class="fa-regular fa-trash-can"></i></button>
+              </div>
         </div>
-        <div class="product-btns">
-          <button  onclick="changeCount('${product._id}',-1,'${product.price}')">-</button>
-          <div><span class="cart-product-counter " >1</span></div>
-          <button  onclick="changeCount('${product._id}',1,'${product.price}')">+</button>
-          <button class="delete" onclick="deleteProduct('${product._id}')"><i class="fa-regular fa-trash-can"></i></button>
-        </div>
-    </div>
-      <div class="product-description">
-        <span class="product-name">${product.title}</span>
-        <span class="product-price">${product.price}</span>
-      </div>
-    </div>
-  </div>`
+    </div>`
         return productshtml;
     }
 

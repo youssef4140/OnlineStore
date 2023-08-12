@@ -99,7 +99,7 @@
 
 .cart-product-container .cart-product-card{
     width:100%;
-    height: 40%;
+    /* height: 40%; */
     background-color: rgb(255, 255, 255);
     margin-top: 20px;
     margin-bottom:20px;
