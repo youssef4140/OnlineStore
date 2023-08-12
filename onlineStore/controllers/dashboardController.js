@@ -70,10 +70,11 @@ async function getCategoriesSales(dateFilter){
             // Unwind the products array in each order
             { $unwind: "$products" },
             // Perform a lookup to get the actual product details
+            { "$addFields": { "product_id": { "$toObjectId": "$products._id" }}},
             {
               $lookup: {
                 from: "products", // Collection name
-                localField: "products._id",
+                localField: "product_id",
                 foreignField: "_id",
                 as: "productDetails"
               }
