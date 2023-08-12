@@ -1,0 +1,88 @@
+footer .first-footer {
+  background-image: url(../assets/carousel-1.avif);
+  background-position: 10%;
+  background-size: cover;
+  height: 100%;
+  background-attachment: fixed;
+  position: relative;
+  height: 100px;
+  overflow: hidden;
+}
+
+footer .first-footer::after {
+  content: " ";
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  width: 100%;
+
+  background-color: black;
+  opacity: 0.3;
+}
+
+@keyframes loop {
+  0% {
+    translate: 100%;
+  }
+  25% {
+    translate: 74%;
+  }
+  50% {
+    translate: 48%;
+  }
+  75% {
+    translate: 10%;
+  }
+  100% {
+    translate: -30%;
+    opacity: 0.3;
+  }
+}
+
+footer .first-footer p {
+  height: 100%;
+  animation: loop linear infinite 11s;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  font-size: 50px;
+  letter-spacing: 10px;
+  font-weight: 1000;
+  -webkit-text-fill-color: transparent;
+  -webkit-text-stroke-width: 1px;
+  color: white;
+  overflow: hidden;
+}
+
+footer .second-footer {
+  margin-top: 3rem;
+  /* margin-left: 20px; */
+}
+
+footer .second-footer .list a {
+  cursor: pointer;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+}
+footer .second-footer .list a:hover {
+  cursor: pointer;
+  text-decoration: underline;
+  color: #414040;
+}
+
+footer .second-footer i {
+  color: #414040;
+  font-size: 18px;
+  padding: 5px;
+  border: 1px solid #414040;
+  border-radius: 50%;
+  margin: 10px;
+  transition: 0.4s;
+}
+
+footer .second-footer i:hover {
+  color: white;
+  background-color: #414040;
+}
