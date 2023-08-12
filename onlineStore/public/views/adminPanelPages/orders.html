@@ -1,1 +1,77 @@
-Orders
+<link rel="stylesheet" href="/stylesheets/adminPanel/products.css">
+
+<header class="products">
+    
+    <h1>
+        Orders
+        <i class="fa-solid fa-spinner" id="spinner"></i>
+    </h1>
+
+</header>
+
+<form class="modal hidden" id="modal" onsubmit="return false">
+
+    <h2>Add order</h2>
+
+    <label for="totalPrice">Total Price: </label><input id="totalPrice" name="totalPrice" type="number" required>
+    <label for="shippingMethod">Shipping Method: </label><textarea name="shippingMethod" id="shippingMethod" cols="30" rows="10" required></textarea>
+    <label for="paymentMethod">Payment Method: </label><input id="paymentMethod" name="paymentMethod" type="text" required>
+    <label for="status">Status: </label>
+    <select name="status" id="status">
+        <option value="pending">pending</option>
+        <option value="completed">completed</option>
+        <option value="canceled">canceled</option>
+    </select>
+
+    <button type="submit" id="saveOrder">Save edits</button>
+
+</form>
+<div class="grayBack hidden" id="grayBack"></div>
+
+
+<table class="productList">
+
+    <thead>
+        <tr>
+            <th colspan="7">
+                <div class="search">
+                    <i class="fa-solid fa-magnifying-glass"></i><input type="text" id="search" placeholder="Start typing to search orders">
+                </div>
+            </th>
+        </tr>
+    </thead>
+
+    <thead>
+        <tr>
+            <th>
+                Order date
+            </th>
+            <th>
+                Name
+            </th>
+            <th>
+                Total price
+            </th>
+            <th>
+                status
+            </th>
+            <th>
+                Address1
+            </th>
+            <th>
+                Address2
+            </th>
+            <th>
+                
+            </th>
+            <th>
+                
+            </th>
+        </tr>
+    </thead>
+
+    <tbody id="orders">
+
+    </tbody>
+
+</table>
