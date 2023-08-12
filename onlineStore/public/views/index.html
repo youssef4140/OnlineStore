@@ -76,15 +76,17 @@
           </button>
           <div class="dropdown-content-bars">
             <button class="closebtn">&times;</button>
-            <a href="">Sign in</a>
-            <a>Store</a>
-            <a>Collections</a>
+            <a href="views/index.html">Home</a>
+            <a href="views/login.html">Sign in</a>
+            <a href="views/shop.html">Store</a>
             <a>Blog</a>
             <a style="color: red">Sale</a>
           </div>
         </div>
         <div class="m-navbar">
           <ul>
+            <li><a href="./index.html">Home</a></li>
+
             <li>
               <div class="dropdown-store">
                 <a class="store-drp-btn" href="Collections.html">Collections</a>
@@ -127,14 +129,12 @@
                 </div>
               </div>
             </li>
-            <li><a onclick="route('shop')">Store</a></li>
-            <li><a href="Blog.html">Blog</a></li>
-            <li><a style="color: red">Sale</a></li>
+            <li><a href="./shop.html">Store</a></li>
+            <li><a href="./Blog.html">Blog</a></li>
+            <!-- <li><a style="color: red" >Sale</a></li> -->
           </ul>
         </div>
-        <h3 class="logo" style="cursor: pointer" onclick="route('index')">
-          Morning
-        </h3>
+        <h3 class="logo" style="cursor: pointer">Morning</h3>
         <div class="s-navbar">
           <ul style="z-index: 1000">
             <li></li>
@@ -185,9 +185,7 @@
               ><span id="checkout-price" class="tax"></span>
             </div>
           </div>
-          <a class="checkout" onclick="route('checkout')"
-            ><span>Checkout</span></a
-          >
+          <a class="checkout" href="./checkout.html"><span>Checkout</span></a>
         </div>
       </div>
     </nav>
