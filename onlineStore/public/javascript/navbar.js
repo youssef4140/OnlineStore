@@ -126,8 +126,10 @@ navbar.setUser()
 const signout = () => {
   const userInfo = ['user_id', 'email', 'name', 'cartitems', 'token']
   for (let key of userInfo) {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   }
+
+  document.cookie = "token=; expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
   location.reload();
 }
 
