@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,15 +8,14 @@
     <link rel="stylesheet" href="../stylesheets/root.css" />
     <link rel="stylesheet" href="../stylesheets/bootstrap.min.css" />
     <link rel="stylesheet" href="../stylesheets/styles.css">
-    <!-- <link rel="stylesheet" href="../stylesheets/cart.css"> -->
-    <link
-    rel="stylesheet"
-    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"/>
+    <link rel="stylesheet" href="../stylesheets/cart.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" />
 
     <link rel="stylesheet" href="../stylesheets/checkout.css" />
 
 
 </head>
+
 <body>
     <nav>
         <div class="first-nav">
@@ -74,7 +74,7 @@
                 <a href="collections.html">Collections</a>
                 <a href="Blog.html">Blog</a>
                 <a style="color:red">Sale</a>
-
+    
             </div>
         </div>  
         <div class="m-navbar">
@@ -90,26 +90,26 @@
                         </div>
                         <div class="dropdown-category">
                             <div class="image-container">
-
+    
                             <img  src="../assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
                         </div>
-
+    
                             <a>Outerwear</a>
                         </div>
                         <div class="dropdown-category">
                             <div class="image-container">
-
+    
                             <img src="../assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
                         </div>
-
+    
                             <a>Headwear</a>
                         </div>
                         <div class="dropdown-category">
                             <div class="image-container">
-
+    
                             <img  src="../assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
                         </div>
-
+    
                             <a>Shorts</a>
                         </div>
                     </div>
@@ -134,110 +134,148 @@
                     </ol>
                   </div></li>
                 <li><button class="user"><i class="fa-solid fa-user"></i></button></li>
-                <li><button onclick="expandCart()" class="cart"><i class="fa-solid fa-bag-shopping" value=0></i></button></li>
+                <li><button class="expandCart"  class="cart"><i class="fa-solid fa-bag-shopping" value=0></i></button></li>
                 <li>    <div class="search-box">
-                  <input type="text" placeholder="Search...">
+                  <input type="text" class="searchBar" placeholder="Search...">
                   <a href="#">
                       <i class="fa-solid fa-magnifying-glass"></i>
                   </a>
-              </div></li>
+              </div>
+            </li>
                 
             </ul>
         </div>
-
+    
     </div>
+    <div class="search-result" >
+      <div class="search-result-product-container"></div>
+    </div>
+    
+    
+    
+    <div class="cart-container">
+      <div class="cart-header">
+    <div class="center">
+      <span>Shopping Cart</span>
+      <button class="expandCart">X</button>
+    </div>
+    <div class="center2"><i class="fa-solid fa-truck"></i> <span>Free shipping on orders over $150</span></div>
+    </div>
+    <div id="cart-product-container" class="cart-product-container">
+    
+    </div>
+    <div class="cart-footer">
+      <div class="spox"><div class="spc">
+        <span class="tax">Tax included and shipping calculated at checkout</span>
+      </div><div class="spc"><span class="tax">$</span><span id="checkout-price" class="tax"></span></div>
+    </div>
+      <a class="checkout" href="checkout.html"><span>Checkout</span></a> 
+    </div>
+    </div>
+    
+    </nav>
 
-    </nav> 
+
+
     <div class="form-container">
         <form action="#" class="form">
             <h2 class="text-center">Checkout Form</h2>
             <div class="progressbar">
                 <div class="progress" id="progress"></div>
-                <div class="progress-step progress-step-active" data-title="Address"></div>
+                <div class="progress-step progress-step-active" data-title="Cart"></div>
+                <div class="progress-step" data-title="Address"></div>
                 <div class="progress-step" data-title="Payment"></div>
-                <div class="progress-step" data-title="Checkout"></div>
             </div>
             <div class="form-step form-step-active">
-                <div class="form-grid">
-                <div class="input-group">
-                    <label for="country">Country/Region</label>
-                    <input type="text" name="country" id="country">
-                </div>
-                <div class="input-group">
-                    <label for="fullname">Full name</label>
-                    <input type="text" name="fullname" id="fullname">
-                </div>
-                <div class="input-group">
-                    <label for="number">Mobile number</label>
-                    <input type="number" name="number" id="number">
-                </div>
-                <div class="input-group">
-                    <label for="street">Street address</label>
-                    <input type="text" name="street" id="street">
-                </div>
-                <div class="input-group">
-                    <label for="building">Building name/no</label>
-                    <input type="text" name="building" id="building">
-                </div>
-                <div class="input-group">
-                    <label for="city">City/Area</label>
-                    <input type="text" name="city" id="city">
-                </div>
-            </div>
-                <div class="button-align" >
-                    <a  class="boton btn-next" style="margin-left: auto;">Next</a>
-                </div>
+                <div id="checkout-product-container" class="cart-product-container ">
 
+                </div>
+                <div class="button-align">
+                    <a class="boton btn-prev">Previous</a>
+                    <a class="boton btn-next" >Next</a>
+                </div>
             </div>
             <div class="form-step">
                 <div class="form-grid">
-                <div class="input-group">
-                    <label for="cardno">Card number</label>
-                    <input type="number" name="cardno" id="cardno">
+                    <div class="input-group">
+                        <label for="country">Country/Region</label>
+                        <input type="text" name="country" id="country">
+                    </div>
+                    <div class="input-group">
+                        <label for="fullname">Full name</label>
+                        <input type="text" name="fullname" id="fullname">
+                    </div>
+                    <div class="input-group">
+                        <label for="number">Mobile number</label>
+                        <input type="number" name="number" id="number">
+                    </div>
+                    <div class="input-group">
+                        <label for="street">Street address</label>
+                        <input type="text" name="street" id="street">
+                    </div>
+                    <div class="input-group">
+                        <label for="building">Building name/no</label>
+                        <input type="text" name="building" id="building">
+                    </div>
+                    <div class="input-group">
+                        <label for="city">City/Area</label>
+                        <input type="text" name="city" id="city">
+                    </div>
                 </div>
-                <div class="input-group">
-                    <label for="cardname">Name on card</label>
-                    <input type="text" name="cardname" id="cardname">
+                <div class="button-align">
+                    <a class="boton btn-prev">Previous</a>
+                    <a class="boton btn-next" style="margin-left: auto;" id="Stripe">Checkout</a>
                 </div>
-                <div class="input-group">
-                    <label for="expdate">Expiration date</label>
-                    <input type="date" name="expdate" id="expdate">
-                </div>
-                <div class="input-group">
-                    <label for="cvv">cvv</label>
-                    <input type="number" name="cvv" id="cvv">
-                </div>
-                <div class="input-group" style="visibility:hidden">
-                    <label >:P</label>
-                    <input >
-                </div>
-                <div class="input-group" style="visibility:hidden">
-                    <label >:P</label>
-                    <input >
-                </div>
-            </div>
-            <div class="button-align">
-                <a  class="boton btn-prev">Previous</a>
-                <a  class="boton btn-next">Next</a>
-            </div>
-            </div>
-            <div class="form-step">
-            <div id="checkout-product-container" class="cart-product-container ">
 
             </div>
-            <div class="button-align">
-                <a  class="boton btn-prev">Previous</a>
-                <a  class="boton btn-next">checkout</a>
-            </div>
-        </div>
+<!-- 
+            <div class="form-step">
+                <div class="form-grid">
+                    <iframe id="checkout-panel" src="url" title="description"></iframe>
+                </div>
+
+                <div class="button-align">
+                    <a class="boton btn-prev">Previous</a>
+                    <a class="boton " id="Stripe">Checkout</a>
+                </div>
+            </div> -->
+
         </form>
     </div>
-    
-    
+
+
     <script src="../javascript/navbar.js"></script>
     <script src="../javascript/bootstrap.bundle.min.js"></script>
-    <script src="../javascript/shop.js" type="module"></script>
-    <script src="../javascript/cart.js"  type="module"></script>
-    <script src="../javascript/checkout.js"  ></script>
+    <!-- <script src="../javascript/shop.js" type="module"></script> -->
+    <script src="../javascript/cart.js" type="module"></script>
+    <script src="../javascript/checkout.js"></script>
 
 </body>
+
+
+<!-- <div class="form-grid">
+    <div class="input-group">
+        <label for="cardno">Card number</label>
+        <input type="number" name="cardno" id="cardno">
+    </div>
+    <div class="input-group">
+        <label for="cardname">Name on card</label>
+        <input type="text" name="cardname" id="cardname">
+    </div>
+    <div class="input-group">
+        <label for="expdate">Expiration date</label>
+        <input type="date" name="expdate" id="expdate">
+    </div>
+    <div class="input-group">
+        <label for="cvv">cvv</label>
+        <input type="number" name="cvv" id="cvv">
+    </div>
+    <div class="input-group" style="visibility:hidden">
+        <label>:P</label>
+        <input>
+    </div>
+    <div class="input-group" style="visibility:hidden">
+        <label>:P</label>
+        <input>
+    </div>
+</div> -->

@@ -10,3 +10,4 @@ router.get("/", ProductController.findProducts.bind(ProductController));
 router.get("/cart", CartController.findCart.bind(CartController));
 router.get("/search", ProductController.findSearch.bind(ProductController));
 router.get("/product", ProductController.findSingleProduct.bind(ProductController));
+router.post('/checkout-session',CartController.checkoutSession.bind(CartController));

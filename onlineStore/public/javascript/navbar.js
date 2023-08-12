@@ -9,6 +9,8 @@ class Navbar {
     this.searchBox = document.querySelector(".search-box");
     this.searchResult = document.querySelector(".search-result");
     this.searchProducts = document.querySelector(".search-result-product-container");
+    this.cartlist = JSON.parse(localStorage.getItem('cartitems')) || [];
+    this.cartCounter = document.querySelector(".fa-bag-shopping")
 
 
     this.closeBtn.addEventListener("click", ()=> {
@@ -86,6 +88,11 @@ searchProduct(product) {
   </div>`;
   return productHTML;
 }
+setCounter= ()=> {
+  // this.counter = this.cartlist.length;
+  this.cartCounter.setAttribute('value', this.cartlist.length)
+
+}
 
 
 
@@ -97,6 +104,7 @@ searchProduct(product) {
 
 
 const navbar = new Navbar();
+navbar.setCounter()
 
 
 
