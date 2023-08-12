@@ -25,8 +25,8 @@ export default class Cart {
       if (this.cartquery) {
         const response = await fetch(`http://localhost:8080/shop/cart?cart=${this.cartquery}`);
         const result = await response.json();
-        // console.log(result);
-        this.rendercart(result, cart);
+        console.log(result);
+        this.rendercart(result);
       } else {
         return
       }
@@ -35,7 +35,7 @@ export default class Cart {
     }
   };
 
-  rendercart(productsdata, cart) {
+  rendercart(productsdata) {
     let productshtml = "";
     for (let i = 0; i < productsdata.length; i++) {
       const product = productsdata[i];

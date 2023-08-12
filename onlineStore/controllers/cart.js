@@ -1,5 +1,9 @@
 import { Product } from "../models/productsModel.js";
+import Stripe from "stripe";
+import dotenv from "dotenv"; 
+dotenv.config()
 
+const stripe = new Stripe(process.env.STRIPE_KEY)
 
 class CartController {
     async findCart(req, res){
@@ -20,6 +24,51 @@ class CartController {
         }
 
 
+    }
+
+    async checkoutSession(req, res) {
+        // res.json({url:'hi'})
+        console.log(req.body)
+        console.log( await this.findLineItems(req,res))
+        try{
+            console.log('smth')
+            const session = await stripe.checkout.sessions.create({
+                payment_method_types: ['card'],
+                mode: 'payment',
+                line_items: await this.findLineItems(req,res),
+                success_url: 'http://localhost:8080/views/shop.html',
+                cancel_url: 'http://localhost:8080/views/checkout.html',
+            })
+            res.json({url: session.url})
+        }catch(err){
+            res.status(500).json({error: err.message})
+        }
+    }
+
+    async findLineItems(req,res) {
+        const itemIds = req.body
+        const ids = itemIds.items.map(item => item.id)
+        // const quantity = itemIds.items.map(item => item.quantity)
+
+        const items = JSON.parse(JSON.stringify(await Product.find({_id:{$in:ids}})))
+        let itemswithquantity = []
+        for (let i in items){
+            let obj = {
+                price_data: {
+                    currency: 'usd',
+                    product_data: {
+                        name: items[i].title
+                    },
+                    unit_amount: items[i].price * 100
+                },
+                quantity: itemIds.items.map(item => item.quantity)[i]
+            }
+            itemswithquantity.push(obj)
+        }
+        
+
+        return  itemswithquantity;
+        
     }
 }
 

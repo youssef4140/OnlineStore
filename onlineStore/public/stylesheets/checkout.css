@@ -196,16 +196,16 @@ input{
     outline: none;
     border: 1px solid grey;
     background-color: transparent;
-    padding: 0px 4px;
+    padding: 2px 7px;
     font-size: 12px;
     display:block;
 }
-.product-container .product-btns a {
+.product-container .product-btns .delete {
     margin-left:13px;
     cursor: pointer;
     transition: .1s ease-in-out;
 }
-.product-container .product-btns a:hover {
+.product-container .product-btns .delete:hover {
     transform: rotate(-20deg);
     transition: .1s ease-in-out;
 
@@ -226,6 +226,10 @@ input{
 
 .product-description .product-price::before{
     content:'$';
+}
+
+.delete{
+    border:none;
 }
 @media screen and (max-width: 1000px) {
     .form-grid {
