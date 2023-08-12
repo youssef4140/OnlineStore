@@ -1,5 +1,7 @@
-class Index {
+import Cart from "./cart.js";
+class Index extends Cart {
   constructor() {
+    super();
     this.cartlist = JSON.parse(localStorage.getItem("cartitems")) || [];
     this.card = document.getElementById("product-card");
     this.newSeasonBtn = document.getElementById("new-season");
@@ -55,7 +57,7 @@ class Index {
                           class="card-img-top"
                           alt="product image"
                           />
-                          <button class="image-overlay" onclick="index.addToCart('${el._id}')" >
+                          <button class="image-overlay" onclick="index.addToCart(this,'${el._id}')" >
                           <i class="fa-solid fa-cart-plus"></i>
                           </button>
                           </div>
@@ -70,25 +72,28 @@ class Index {
     this.card.innerHTML = a;
   }
 
-  addToCart(id) {
-    console.log("!");
+  IsInCart = (id) => {
+    const cartItems = JSON.parse(localStorage.getItem("cartitems"));
+    return cartItems.includes(id) ? false : true;
+  };
+  addToCart = (button, id) => {
     this.cartlist.includes(id)
       ? this.cartlist.splice(this.cartlist.indexOf(id), 1)
       : this.cartlist.push(id);
-
+    button.classList.toggle("added-to-cart");
     this.setCounter();
-
     localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
-    console.log(localStorage.getItem("cartitems"));
-  }
+    super.getCart();
+  };
 
-  setCounter() {
+  setCounter = () => {
     this.counter = this.cartlist.length;
     this.cartCounter.setAttribute("value", this.counter);
-  }
+  };
 }
 
 const index = new Index();
+window.index = index;
 index.setCounter();
 
 console.log(localStorage.getItem("cartitems"));
