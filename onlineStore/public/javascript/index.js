@@ -1,5 +1,3 @@
-// import Products from "./shop.js";
-
 class Index {
   constructor() {
     this.cartlist = JSON.parse(localStorage.getItem("cartitems")) || [];
@@ -9,7 +7,7 @@ class Index {
     this.teenKitsBtn = document.getElementById("teens-kits");
     this.cartCounter = document.querySelector(".fa-bag-shopping");
     this.counter = this.cartlist.length;
-    this.addproduct = document.querySelectorAll(".data-set")
+    this.addproduct = document.querySelectorAll(".data-set");
 
     this.getProducts("http://localhost:8080/shop?page=0");
 
@@ -42,8 +40,6 @@ class Index {
     console.log(data);
 
     this.renderProducts(data);
-
-    // btn();
   };
 
   renderProducts(data) {
@@ -92,34 +88,7 @@ class Index {
   }
 }
 
-
-
 const index = new Index();
-index.setCounter()
-// const addToCart = (id) >= {
-//   index.
-//     index.cartlist.includes(id)
-//       ? this.cartlist.splice(this.cartlist.indexOf(id), 1)
-//       : this.cartlist.push(id);
-
-//     this.setCounter();
-
-//     localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
-// }
-// const  addToCart=(id)=> {
-//   console.log("!");
-//   index.cartlist.includes(id)
-//     ? index.cartlist.splice(index.cartlist.indexOf(id), 1)
-//     : index.cartlist.push(id);
-
-//   this.setCounter();
-
-//   localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
-// }
+index.setCounter();
 
 console.log(localStorage.getItem("cartitems"));
-
-// window.addToCart = addToCart;
-// const button = document.getElementById("button");
-
-// button.addEventListener("click", () => addToCart("123"));
