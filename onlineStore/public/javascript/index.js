@@ -9,6 +9,7 @@ class Index {
     this.teenKitsBtn = document.getElementById("teens-kits");
     this.cartCounter = document.querySelector(".fa-bag-shopping");
     this.counter = this.cartlist.length;
+    this.addproduct = document.querySelectorAll(".data-set")
 
     this.getProducts("http://localhost:8080/shop?page=0");
 
@@ -58,7 +59,7 @@ class Index {
                           class="card-img-top"
                           alt="product image"
                           />
-                          <button class="image-overlay onclick="index.addToCart('${el._id}')" >
+                          <button class="image-overlay" onclick="index.addToCart('${el._id}')" >
                           <i class="fa-solid fa-cart-plus"></i>
                           </button>
                           </div>
@@ -82,6 +83,7 @@ class Index {
     this.setCounter();
 
     localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
+    console.log(localStorage.getItem("cartitems"));
   }
 
   setCounter() {
@@ -90,7 +92,10 @@ class Index {
   }
 }
 
+
+
 const index = new Index();
+index.setCounter()
 // const addToCart = (id) >= {
 //   index.
 //     index.cartlist.includes(id)
@@ -101,9 +106,20 @@ const index = new Index();
 
 //     localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
 // }
+// const  addToCart=(id)=> {
+//   console.log("!");
+//   index.cartlist.includes(id)
+//     ? index.cartlist.splice(index.cartlist.indexOf(id), 1)
+//     : index.cartlist.push(id);
+
+//   this.setCounter();
+
+//   localStorage.setItem("cartitems", JSON.stringify(this.cartlist));
+// }
 
 console.log(localStorage.getItem("cartitems"));
 
+// window.addToCart = addToCart;
 // const button = document.getElementById("button");
 
 // button.addEventListener("click", () => addToCart("123"));
