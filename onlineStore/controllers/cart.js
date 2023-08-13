@@ -32,8 +32,6 @@ class CartController {
     }
 
     async checkoutSession(req, res) {
-        // res.json({url:'hi'})
-        // console.log( await this.findLineItems(req,res))
 
         this.saveOrderInfo(req,res);
 

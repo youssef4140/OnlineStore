@@ -111,7 +111,11 @@
     transition: .2s ease-in-out;
     box-shadow: 0 0 0 2px rgb(255,255,255), 0 0 0 3px rgb(0,0,0);
     /* border:none; */
-
+}
+.addtocart-clicked{
+    background-color: black;
+    color:white;
+    box-shadow: 0 0 0 2px rgb(255,255,255), 0 0 0 3px rgb(0,0,0);
 }
 .single-product-btn-container .buy-it-now{
     background-color: #997a3b;
