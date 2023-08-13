@@ -27,19 +27,19 @@ const navToggle = {
 
 async function route(page){
 
-const result = await fetch(`/views/adminPanelPages/${page}.html`);
+    const result = await fetch(`/views/adminPanelPages/${page}.html`);
 
-const pageHtml = await result.text()
+    const pageHtml = await result.text()
 
-const router = document.getElementById("router");
-router.innerHTML = pageHtml;
+    const router = document.getElementById("router");
+    router.innerHTML = pageHtml;
 
-navToggle.remove();
+    navToggle.remove();
 
 
-const pageJs = await import(`/javascript/adminPanel/${page}.js`);
+    const pageJs = await import(`/javascript/adminPanel/${page}.js`);
 
-pageJs.default();
+    pageJs.default();
 
 }
 

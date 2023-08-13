@@ -24,6 +24,7 @@ const getDashboard  =  async(req,res) => {
     dashboard.totalOrders = await ordersModel.countDocuments({date: dateFilter});
 
     dashboard.averageOrderValue = (dashboard.totalSells / dashboard.totalOrders) || 0;
+    dashboard.averageOrderValue = dashboard.averageOrderValue.toFixed(2);
 
     dashboard.activeUsers = await usersModel.countDocuments({ lastActive:{ $gte: startDate} });
 

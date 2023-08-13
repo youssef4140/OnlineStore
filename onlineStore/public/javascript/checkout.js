@@ -14,6 +14,14 @@ class Checkout {
 
 
   this.stripeBtn.addEventListener("click", ()=>{
+
+    const info = {
+      first_name: document.getElementById("first_name").value,
+      last_name: document.getElementById("last_name").value,
+      mobile_number: document.getElementById("mobile_number").value,
+      address1: document.getElementById("address1").value
+    }
+
     const token = localStorage.getItem('token');
     if (token){
       fetch('http://localhost:8080/shop/checkout-session',{
@@ -23,7 +31,8 @@ class Checkout {
         'Authorization': `Bearer ${token}`
       },
       body: JSON.stringify({
-        items: this.items
+        items: this.items,
+        info: info
       })
     }).then(res => {
       if (res.ok) return res.json();

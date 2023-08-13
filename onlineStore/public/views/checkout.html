@@ -59,54 +59,15 @@
               <button class="closebtn">&times;</button>
               <a href="login.html">Sign in</a>
               <a href="shop.html">Store</a>
-              <a href="collections.html">Collections</a>
-              <a href="Blog.html">Blog</a>
-              <a style="color:red">Sale</a>
   
             </div>
           </div>
           <div class="m-navbar">
             <ul>
-              <li>
-                <div class="dropdown-store">
-                  <a class="store-drp-btn" href="Collections.html">Collections</a>
-                  <div class="dropdown-store-content">
-                    <div class="dropdown-category">
-                      <div class="image-container">
-                        <img src="../assets/collection-image/Fall16_12_1400x_49826350-8701-40aa-8b4d-b4d37eb03421.webp">
-                      </div>
-                      <a>Accessories</a>
-                    </div>
-                    <div class="dropdown-category">
-                      <div class="image-container">
-  
-                        <img src="../assets/collection-image/Spring16_07_1400x_052384d6-1902-4fcb-8d47-dca39101e1a9.webp">
-                      </div>
-  
-                      <a>Outerwear</a>
-                    </div>
-                    <div class="dropdown-category">
-                      <div class="image-container">
-  
-                        <img src="../assets/collection-image/headwear_1400x_bcbe85e9-6755-497c-9cff-386ca5c932cc.webp">
-                      </div>
-  
-                      <a>Headwear</a>
-                    </div>
-                    <div class="dropdown-category">
-                      <div class="image-container">
-  
-                        <img src="../assets/collection-image/shorts_1400x_d244aaff-96f0-4be2-95f8-8aa30163116c.webp">
-                      </div>
-  
-                      <a>Shorts</a>
-                    </div>
-                  </div>
-                </div>
-              </li>
+              
+              <li><a href="index.html">Home</a></li>
               <li><a href="shop.html">Store</a></li>
-              <li><a href="Blog.html">Blog</a></li>
-              <li><a style="color:red">Sale</a></li>
+
   
             </ul>
           </div>
@@ -178,62 +139,54 @@
             <div class="progressbar">
                 <div class="progress" id="progress"></div>
                 <div class="progress-step progress-step-active" data-title="Cart"></div>
-                <div class="progress-step" data-title="Payment"></div>
-                <!-- <div class="progress-step" data-title="Payment"></div> -->
+                <div class="progress-step" data-title="Info"></div>
+                 <div class="progress-step" data-title="Payment"></div> 
             </div>
             <div class="form-step form-step-active">
                 <div id="checkout-product-container" class="cart-product-container ">
 
                 </div>
-                <div class="button-align">
-                    <a class="boton btn-prev">Previous</a>
-                    <a class="boton " id="Stripe" >Checkout</a>
+                <div class="button-align ">
+                  <a class="boton btn-prev" style="pointer-events: none;" >Previous</a>
+                    <a class="boton btn-next" >Next</a>
                 </div>
             </div>
-            <!-- <div class="form-step">
+            <div class="form-step ">
                  <div class="form-grid">
                     <div class="input-group">
-                        <label for="country">Country/Region</label>
-                        <input type="text" name="country" id="country">
+                        <label for="first_name">First Name:</label>
+                        <input type="text" name="first_name" id="first_name">
                     </div>
                     <div class="input-group">
-                        <label for="fullname">Full name</label>
-                        <input type="text" name="fullname" id="fullname">
+                        <label for="last_name">Last Name:</label>
+                        <input type="text" name="last_name" id="last_name">
                     </div>
                     <div class="input-group">
-                        <label for="number">Mobile number</label>
-                        <input type="number" name="number" id="number">
+                        <label for="mobile_number">Mobile number:</label>
+                        <input type="number" name="mobile_number" id="mobile_number">
                     </div>
                     <div class="input-group">
-                        <label for="street">Street address</label>
-                        <input type="text" name="street" id="street">
-                    </div>
-                    <div class="input-group">
-                        <label for="building">Building name/no</label>
-                        <input type="text" name="building" id="building">
-                    </div>
-                    <div class="input-group">
-                        <label for="city">City/Area</label>
-                        <input type="text" name="city" id="city">
+                        <label for="address1">Address:</label>
+                        <input type="text" name="address1" id="address1">
                     </div>
                 </div> 
                 <div class="button-align">
                     <a class="boton btn-prev">Previous</a>
-                    <a class="boton" style="margin-left: auto;" id="Stripe">Checkout</a>
+                    <a class="boton btn-next" style="margin-left: auto;" id="Stripe">Checkout</a>
                 </div>
 
-            </div> -->
-<!-- 
-            <div class="form-step">
+            </div>
+ 
+            <!-- <div class="form-step ">
                 <div class="form-grid">
                     <iframe id="checkout-panel" src="url" title="description"></iframe>
                 </div>
 
                 <div class="button-align">
                     <a class="boton btn-prev">Previous</a>
-                    <a class="boton " id="Stripe">Checkout</a>
+                    <a class="boton " id="Stripe" >Checkout</a>
                 </div>
-            </div> -->
+            </div>  -->
 
         </form>
     </div>

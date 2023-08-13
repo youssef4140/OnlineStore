@@ -1,6 +1,11 @@
 import  Product  from "../models/productsModel.js";
+import  order  from "../models/ordersModel.js";
+import  usersModel  from "../models/usersModel.js";
+
+
 import Stripe from "stripe";
 import dotenv from "dotenv"; 
+
 dotenv.config()
 
 const stripe = new Stripe(process.env.STRIPE_KEY)
@@ -29,6 +34,9 @@ class CartController {
     async checkoutSession(req, res) {
         // res.json({url:'hi'})
         // console.log( await this.findLineItems(req,res))
+
+        this.saveOrderInfo(req,res);
+
         try{
             //console.log(req.body)
             const session = await stripe.checkout.sessions.create({
@@ -77,6 +85,42 @@ class CartController {
         return  itemswithquantity;
         
     }
+
+   async saveOrderInfo(req,res){
+        try{
+
+            const orderData = {paymentMethod : "visa", shippingMethod: "ship"};
+            const products = req.body.items;
+            const info = req.body.info;
+            orderData.subTotal = 0;
+            
+            for(const p of products){
+
+               const pro = await Product.findById(p.id);
+
+               if(pro) orderData.subTotal+= pro.price*p.quantity;
+
+               p._id = p.id;
+            }
+
+            orderData.totalPrice = orderData.subTotal + 15;
+
+            orderData.products = products;
+
+            orderData.shippingInfo = info;
+
+            orderData.date = new Date( new Date().toLocaleDateString());
+
+            orderData.status = "pending";
+
+            orderData.userId = ( await usersModel.findOne({"email": res.locals.user.email}) )?._id || "id";
+
+            await order.create(orderData);
+        }
+        catch(error){}
+
+    }
+
 }
 
 export default new CartController();

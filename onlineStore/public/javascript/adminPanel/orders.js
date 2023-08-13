@@ -149,9 +149,6 @@ function renderOrders(orders, orderCount){
                 ${order.shippingInfo.address1}
             </td>
             <td>
-            ${order.shippingInfo.address2}
-            </td>
-            <td>
                 <i class="fa-regular fa-pen-to-square" id="edit${index}"></i>
             </td>
             <td>
