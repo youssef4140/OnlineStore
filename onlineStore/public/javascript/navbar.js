@@ -79,7 +79,9 @@ class Navbar {
   }
 
   searchProduct(product) {
-    const productHTML = `<div class="search-product-card">
+    const productHTML = `
+    <a href="/views/product.html?id=${product._id}">
+    <div class="search-product-card">
       <div class="search-product-image">
       <img src="${product.image}" alt="${product.title}">
       </div>
@@ -87,8 +89,8 @@ class Navbar {
       <div class="search-product-title"><span >${product.title}</span></div>
       <span class="search-product-price">${product.price}</span>
       </div>
-  
-  </div>`;
+  </div>
+  </a>`;
     return productHTML;
   }
   setCounter = () => {
