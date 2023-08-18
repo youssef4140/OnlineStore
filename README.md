@@ -10,10 +10,10 @@ only super admins can access and edit in the users page in admin panel.
 
 logging in route: /views/login.html  or by clicking the user button in the home nav  
 #features
--User can add to or remove from cart
--User can search products by name
--User can view product page by clicking on product card either in store or in search-box
--User can login using Gmail or can register normally
+*User can add to or remove from cart
+*User can search products by name
+*User can view product page by clicking on product card either in store or in search-box
+*User can login using Gmail or can register normally
 -Cart items are saved in local storage
 -User is authenticated before checking out
 -Payment is processed through stripe api
